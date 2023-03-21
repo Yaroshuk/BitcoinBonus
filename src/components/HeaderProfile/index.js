@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/react"
 import React from "react"
 import CurrentOnline from "../CurrentOnline"
-import { Profile } from "../Icons"
+import { ProfileIcon } from "../Icons"
 
 const HeaderProfile = () => {
   return (
@@ -17,7 +17,7 @@ const HeaderProfile = () => {
         alignItems="center"
         color="brand.600"
       >
-        <Profile />
+        <ProfileIcon />
       </Flex>
     </Flex>
   )

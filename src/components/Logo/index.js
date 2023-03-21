@@ -1,5 +1,6 @@
 import React from "react"
 import { Box, Link, Flex, Text } from "@chakra-ui/react"
+import { BitcoinIcon } from "../Icons"
 
 const Logo = () => {
   return (
@@ -17,14 +18,18 @@ const Logo = () => {
       }}
       textDecoration="none"
     >
-      <Box
+      <Flex
         w="64px"
         h="64px"
         bgGradient="linear(to-t, brand.400, brand.200)"
         borderRadius="md"
+        justifyContent="center"
+        alignItems="center"
+        fontSize="50px"
+        color="white"
       >
-        f
-      </Box>
+        <BitcoinIcon />
+      </Flex>
       <Text display={{ base: "none", sm: "block" }}>BitcoinBonus</Text>
     </Link>
   )

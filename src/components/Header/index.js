@@ -1,7 +1,7 @@
 import React from "react"
 import { Flex } from "@chakra-ui/react"
 
-import { Profile } from "../Icons"
+import { ProfileIcon } from "../Icons"
 
 const Header = ({ children, ...props }) => {
   return (
