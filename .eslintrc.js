@@ -21,7 +21,10 @@ module.exports = {
     "jsx-quotes": [
       "error",
       "prefer-double"
-    ]
+    ],
+    "react/prop-types": 0,
+    "no-unused-vars": 1,
+    "space-before-function-paren": 0
   },
   settings: {
     react: {
