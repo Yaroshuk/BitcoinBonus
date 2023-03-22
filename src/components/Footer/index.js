@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <Flex
       w="100%"
-      pt={{ base: "50px", sm: "160px" }}
+      pt={{ base: "50px", sm: "90px" }}
       pb={{ base: "50px", sm: "60px" }}
       alignItems={{ base: "center", sm: "flex-start" }}
       flexDirection={{ base: "column", sm: "row" }}

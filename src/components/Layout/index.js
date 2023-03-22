@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
             <Logo />
             <HeaderProfile />
           </Header>
-          <Box as="div" flex={1}>
+          <Box as="div" flex={1} width="100%" height="100%">
             {children}
           </Box>
           <Footer />
