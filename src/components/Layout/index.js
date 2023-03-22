@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
         minW="100vw"
         minH="100vh"
         bg={"#F0ECF5"}
-        px={{ base: 4, md: 8, lg: "70px" }}
+        px={{ base: 4, sm: 8, lg: "70px" }}
         py={{ base: 0, lg: "30px" }}
         maxW="1440px"
       >
