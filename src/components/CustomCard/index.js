@@ -1,14 +1,17 @@
 import React from "react"
-import { Card, CardBody, CardHeader, Heading } from "@chakra-ui/react"
+import { Card, CardBody, CardHeader, Heading, Box } from "@chakra-ui/react"
 
-const CustomCard = ({ title, children, ...props }) => {
+const CustomCard = ({ title, leftBlock, children, ...props }) => {
   return (
     <Card borderRadius={"lg"} boxShadow={"none"} {...props}>
-      {title && (
-        <CardHeader>
-          <Heading>{title}</Heading>
-        </CardHeader>
-      )}
+      <CardHeader
+        fontSize={{ base: "md", md: "lg" }}
+        display={"flex"}
+        justifyContent={"space-between"}
+      >
+        {title && <Heading size={{ base: "md", md: "lg" }}>{title}</Heading>}
+        {leftBlock && <Box>{leftBlock}</Box>}
+      </CardHeader>
       {children && <CardBody>{children}</CardBody>}
     </Card>
   )

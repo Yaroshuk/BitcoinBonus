@@ -7,7 +7,7 @@ const colors = {
     300: "#8F37FF", // BtnHover bottom
     400: "#811FFF", // Btn bottom
     500: "#5C1FAB", // Logo light
-    600: "#431480", // Logo
+    600: "#431480", // Logo - dark
     800: "#7B2FD0",
     900: "#414DED"
   }
