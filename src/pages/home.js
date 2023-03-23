@@ -1,6 +1,7 @@
 import React from "react"
 import { Grid, Box } from "@chakra-ui/react"
 import Login from "../components/Login"
+import FAQBlock from "../components/Blocks/FAQBlock"
 
 const Home = () => {
   return (
@@ -12,7 +13,7 @@ const Home = () => {
     >
       <Login />
       <Box width={"100%"} height="50px" bgColor={"green"} />
-      <Box width={"100%"} height="200px" bgColor={"blue"} />
+      <FAQBlock />
     </Grid>
   )
 }
