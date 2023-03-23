@@ -1,6 +1,6 @@
 import React from "react"
 import { Grid, Box } from "@chakra-ui/react"
-import LoginForm from "../components/LoginForm"
+import Login from "../components/Login"
 
 const Home = () => {
   return (
@@ -10,7 +10,7 @@ const Home = () => {
       templateColumns={{ base: "1fr", sm: "1fr 32%" }}
       gap="20px"
     >
-      <LoginForm />
+      <Login />
       <Box width={"100%"} height="50px" bgColor={"green"} />
       <Box width={"100%"} height="200px" bgColor={"blue"} />
     </Grid>
