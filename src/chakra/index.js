@@ -25,6 +25,10 @@ const radii = {
   lg: "30px"
 }
 
+const zIndices = {
+  tooltip: 1300
+}
+
 export const gradientBtn = "linear(to-t, brand.400, brand.200)"
 
 export const gradientBtnHover = "linear(to-t, brand.400, brand.200)"
@@ -90,6 +94,6 @@ const components = {
   Input
 }
 
-const theme = extendTheme({ colors, breakpoints, radii, components })
+const theme = extendTheme({ colors, breakpoints, radii, components, zIndices })
 
 export default theme
