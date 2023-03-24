@@ -3,6 +3,7 @@ import { Grid, Box, Flex } from "@chakra-ui/react"
 import Login from "../components/Login"
 import FAQBlock from "../components/Blocks/FAQBlock"
 import TopMainers from "../components/Blocks/TopMainers"
+import YourBalance from "../components/Blocks/YourBalance"
 
 const Home = () => {
   return (
@@ -19,7 +20,7 @@ const Home = () => {
       </Flex>
       <Flex gap={"20px"} flexDirection={"column"}>
         {" "}
-        <Box width={"100%"} height="50px" bgColor={"green"} />
+        <YourBalance />
         <TopMainers />
       </Flex>
     </Grid>
