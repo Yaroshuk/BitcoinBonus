@@ -54,7 +54,7 @@ const btnStyles = {
   alignSelf: { base: "center", md: "flex-start" }
 }
 
-const LoginModal = ({ isOpen }) => {
+const LoginModal = ({ isOpen, closeModal }) => {
   const [step, setStep] = useState(1)
   const user = "user-id5673345" // TODO: username from store
   const sum = "24 281,80" // TODO: sum from store
@@ -130,7 +130,9 @@ const LoginModal = ({ isOpen }) => {
           </ListItem>
           <ListItem>Request a withdrawal.</ListItem>
         </OrderedList>
-        <Button {...btnStyles}>Log In</Button>
+        <Button {...btnStyles} onClick={closeModal}>
+          Log In
+        </Button>
       </Flex>
     </Flex>
   )

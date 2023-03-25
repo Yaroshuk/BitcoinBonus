@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useCallback, useState } from "react"
 import { Grid, Box, Flex } from "@chakra-ui/react"
 import Login from "../components/Login"
 import FAQBlock from "../components/Blocks/FAQBlock"
@@ -8,6 +8,11 @@ import LoginModal from "../components/Modals/LoginModal"
 
 const Home = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
+
+  const closeModal = useCallback(() => {
+    setIsOpenModal(false)
+  }, [setIsOpenModal])
+
   return (
     <Grid
       width="100%"
@@ -25,7 +30,7 @@ const Home = () => {
         <YourBalance />
         <TopMainers />
       </Flex>
-      <LoginModal isOpen={isOpenModal} />
+      <LoginModal isOpen={isOpenModal} closeModal={closeModal} />
     </Grid>
   )
 }

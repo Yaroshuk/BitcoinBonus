@@ -1,7 +1,6 @@
-import { Box, Fade, Slide, keyframes } from "@chakra-ui/react"
-import React, { useEffect, useState } from "react"
+import { Box } from "@chakra-ui/react"
+import React from "react"
 import { useTimer } from "react-timer-hook"
-import { motion } from "framer-motion"
 
 const Countdown = ({ timestamp }) => {
   // TODO: add animation
