@@ -1,4 +1,5 @@
 import React from "react"
+import { Outlet } from "react-router-dom"
 import { Box, Container, Flex, VStack } from "@chakra-ui/react"
 
 import Header from "../Header"
@@ -23,7 +24,7 @@ const Layout = ({ children }) => {
             <HeaderProfile />
           </Header>
           <Box as="div" flex={1} width="100%" height="100%">
-            {children}
+            <Outlet />
           </Box>
           <Footer />
         </VStack>

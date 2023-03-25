@@ -8,13 +8,19 @@ import {
   Button
 } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 const LoginForm = ({ filled, setFilled }) => {
   const user = useSelector(state => state.user)
+  const navigate = useNavigate()
 
   const handleFocus = useCallback(() => {
     setFilled(true)
   }, [setFilled])
+
+  const handleLogin = useCallback(() => {
+    navigate("/user")
+  }, [navigate])
 
   return (
     <Box
@@ -68,7 +74,7 @@ const LoginForm = ({ filled, setFilled }) => {
           onFocus={handleFocus}
         />
       </FormControl>
-      <Button mt={"30px"} w="100%" isDisabled={!filled} >
+      <Button mt={"30px"} w="100%" isDisabled={!filled} onClick={handleLogin}>
         Log In
       </Button>
     </Box>
