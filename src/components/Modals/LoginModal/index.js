@@ -12,6 +12,7 @@ import { ArrowForwardIcon } from "@chakra-ui/icons"
 
 import CustomModal from "../CustomModal"
 import YourBalance from "../../Blocks/YourBalance"
+import Timer from "../../Blocks/Timer"
 
 const stepStyles = {
   py: { base: "20px", md: "40px" },
@@ -144,7 +145,12 @@ const LoginModal = ({ isOpen }) => {
   return (
     <CustomModal isOpen={isOpen}>
       {(stepComponent[step] ?? stepComponent.default)?.()}
-      <Box>
+      <Box
+        display={"flex"}
+        flexDir={{ base: "column", sm: "row" }}
+        gap={"10px"}
+      >
+        <Timer />
         <YourBalance />
       </Box>
     </CustomModal>
