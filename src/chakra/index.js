@@ -31,7 +31,7 @@ const zIndices = {
 
 export const gradientBtn = "linear(to-t, brand.400, brand.200)"
 
-export const gradientBtnHover = "linear(to-t, brand.400, brand.200)"
+export const gradientBtnHover = "linear(to-t, brand.300, brand.100)"
 
 export const gradientCard = "linear(to-t, brand.900, brand.800)"
 
@@ -43,7 +43,7 @@ const Button = defineStyleConfig({
     minH: { base: "58px", sm: "72px" },
     color: "white",
     textTransform: "capitalize",
-    borderRadius: "sm" // <-- border radius is same for all variants and sizes
+    borderRadius: "sm"
   },
   // Two sizes: sm and md
   sizes: {
