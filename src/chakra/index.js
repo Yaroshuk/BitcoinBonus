@@ -60,7 +60,10 @@ const Button = defineStyleConfig({
   variants: {
     solid: {
       bgGradient: gradientBtn,
-      _hover: { bgGradient: gradientBtnHover },
+      _hover: {
+        bgGradient: gradientBtnHover,
+        _disabled: { bgGradient: gradientBtnHover }
+      },
       _active: { bgGradient: gradientBtnHover }
     },
     white: {

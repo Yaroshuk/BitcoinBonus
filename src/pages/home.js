@@ -8,11 +8,21 @@ import LoginModal from "../components/Modals/LoginModal"
 
 const Home = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
+  const [isFormFilled, setIsFormFilled] = useState(false)
+
+  const handleFormFilled = useCallback(
+    state => {
+      setIsFormFilled(state)
+    },
+    [setIsFormFilled]
+  )
 
   const closeModal = useCallback(() => {
     setIsOpenModal(false)
+    // handleFormFilled(true)
   }, [setIsOpenModal])
 
+  console.log("ddf", isFormFilled)
   return (
     <Grid
       width="100%"
@@ -22,7 +32,7 @@ const Home = () => {
     >
       <Flex gap={"20px"} flexDirection={"column"}>
         {" "}
-        <Login />
+        <Login filled={isFormFilled} setFilled={handleFormFilled} />
         <FAQBlock />
       </Flex>
       <Flex gap={"20px"} flexDirection={"column"}>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useCallback } from "react"
 import {
   Box,
   Heading,
@@ -7,8 +7,15 @@ import {
   FormLabel,
   Button
 } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
 
-const LoginForm = () => {
+const LoginForm = ({ filled, setFilled }) => {
+  const user = useSelector(state => state.user)
+
+  const handleFocus = useCallback(() => {
+    setFilled(true)
+  }, [setFilled])
+
   return (
     <Box
       flex={1}
@@ -35,7 +42,14 @@ const LoginForm = () => {
         >
           Username
         </FormLabel>
-        <Input minH={{ base: "58px", sm: "72px" }} size="lg" mb={"16px"} />
+        <Input
+          minH={{ base: "58px", sm: "72px" }}
+          size="lg"
+          mb={"16px"}
+          value={filled ? user.login : ""}
+          disabled={!!filled}
+          onFocus={handleFocus}
+        />
       </FormControl>
       <FormControl>
         <FormLabel
@@ -46,9 +60,15 @@ const LoginForm = () => {
         >
           Password
         </FormLabel>
-        <Input minH={{ base: "58px", sm: "72px" }} size="lg" />
+        <Input
+          minH={{ base: "58px", sm: "72px" }}
+          size="lg"
+          value={filled ? user.password : ""}
+          disabled={!!filled}
+          onFocus={handleFocus}
+        />
       </FormControl>
-      <Button mt={"30px"} w="100%">
+      <Button mt={"30px"} w="100%" isDisabled={!filled} >
         Log In
       </Button>
     </Box>

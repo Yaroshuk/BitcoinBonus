@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
   login: "user-1123454",
-  passowrd: "p34kjhjy!ee5",
+  password: "p34kjhjy!ee5",
   isLogged: false,
   balance: 234562
 }
@@ -15,7 +15,7 @@ export const userSlice = createSlice({
       state.login = action.payload
     },
     setPassword: (state, action) => {
-      state.passowrd = action.payload
+      state.password = action.payload
     },
     setBalance: (state, action) => {
       state.balance = action.payload
