@@ -2,7 +2,13 @@ import { ColorModeScript, ChakraProvider } from "@chakra-ui/react"
 import React, { StrictMode } from "react"
 import * as ReactDOM from "react-dom/client"
 import App from "./App"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import {
+  createBrowserRouter,
+  RouterProvider,
+  createHashRouter,
+  HashRouter,
+  Route
+} from "react-router-dom"
 import { Provider } from "react-redux"
 import store from "./store/store"
 
@@ -14,7 +20,7 @@ import User from "./pages/user"
 const container = document.getElementById("root")
 const root = ReactDOM.createRoot(container)
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Layout />,
