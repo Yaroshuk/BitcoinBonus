@@ -65,7 +65,7 @@ const LoginModal = ({ isOpen, closeModal }) => {
 
   const stepOne = () => (
     <Flex {...stepStyles}>
-      <Image {...iconStyles} src={"/img/icons/warning-1.svg"} />
+      <Image {...iconStyles} src={"./img/icons/warning-1.svg"} />
       <Flex {...contentStyle}>
         <Text {...hStyle}>{`Dear ${user}, welcome back`}</Text>
         <Text {...textStyles}>
@@ -89,7 +89,7 @@ const LoginModal = ({ isOpen, closeModal }) => {
 
   const stepTwo = () => (
     <Flex {...stepStyles}>
-      <Image {...iconStyles} src={"/img/icons/warning-2.svg"} />
+      <Image {...iconStyles} src={"./img/icons/warning-2.svg"} />
       <Flex {...contentStyle}>
         <Text {...hStyle}>{`Dear ${user},`}</Text>
         <Text {...textStyles}>
@@ -115,7 +115,7 @@ const LoginModal = ({ isOpen, closeModal }) => {
 
   const stepThree = () => (
     <Flex {...stepStyles}>
-      <Image {...iconStyles} src={"/img/icons/warning-2.svg"} />
+      <Image {...iconStyles} src={"./img/icons/warning-2.svg"} />
       <Flex {...contentStyle}>
         <Text {...hStyle}>{`Dear ${user},`}</Text>
         <OrderedList {...textStyles} textAlign={"left"}>

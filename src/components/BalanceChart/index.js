@@ -5,7 +5,7 @@ import { gradientCard } from "../../chakra"
 const BalanceChart = ({ balance }) => {
   return (
     <Box width={"100%"} position={"relative"}>
-      <Image src="/img/balance-chart.svg" w={"100%"} />
+      <Image src="./img/balance-chart.svg" w={"100%"} />
       <Tooltip
         label={balance}
         bgGradient={gradientCard}

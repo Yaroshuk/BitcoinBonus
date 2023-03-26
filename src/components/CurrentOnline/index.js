@@ -13,7 +13,7 @@ const CurrentOnline = () => {
       h={{ base: "44px", sm: "54px" }}
     >
       <Image
-        src="/img/icons/indicator-online.svg"
+        src="./img/icons/indicator-online.svg"
         h={{ base: "38px", sm: "100%" }}
       />
       <Text
