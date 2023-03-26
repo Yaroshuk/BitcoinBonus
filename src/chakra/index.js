@@ -68,7 +68,15 @@ const Button = defineStyleConfig({
     },
     white: {
       borderColor: "white",
-      color: "brand.400"
+      color: "brand.400",
+      bg: "white",
+      textTransform: "uppercase",
+      boxShadow:
+        "0px 6px 28px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.25);",
+      _hover: {
+        bgGradient: "linear-gradient(180deg, #BF6EFE -6.82%, #8F37FF 93.18%);",
+        color: "white"
+      }
     }
   },
   // The default size and variant values
