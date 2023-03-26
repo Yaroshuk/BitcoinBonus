@@ -5,6 +5,7 @@ import FAQBlock from "../components/Blocks/FAQBlock"
 import TopMainers from "../components/Blocks/TopMainers"
 import YourBalance from "../components/Blocks/YourBalance"
 import LoginModal from "../components/Modals/LoginModal"
+import MemberChat from "../components/Blocks/MemberChat"
 
 const User = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
@@ -34,7 +35,7 @@ const User = () => {
         {" "}
         <Box>Balance</Box>
         <Box>Maining history</Box>
-        <Box>Chat</Box>
+        <MemberChat />
       </Flex>
       <Flex gap={"20px"} flexDirection={"column"}>
         {" "}

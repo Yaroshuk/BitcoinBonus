@@ -50,8 +50,8 @@ const Button = defineStyleConfig({
     sm: {
       fontSize: "18px",
       fontWeight: "600",
-      minWidth: "115px",
-      minHeight: "54px",
+      minWidth: "94px",
+      minHeight: { base: "44px", sm: "54px" },
       px: 4, // <-- px is short for paddingLeft and paddingRight
       py: 3 // <-- py is short for paddingTop and paddingBottom
     }
