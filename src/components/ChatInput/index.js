@@ -1,9 +1,4 @@
-import {
-  Input,
-  InputGroup,
-  InputRightElement,
-  Button
-} from "@chakra-ui/react"
+import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react"
 import React, { useCallback } from "react"
 
 const ChatInput = ({ value, onChange, onAddMessage }) => {
@@ -25,10 +20,20 @@ const ChatInput = ({ value, onChange, onAddMessage }) => {
           minH={{ base: "58px", sm: "72px" }}
           pr={"105px"}
           value={value ?? ""}
+          bg={"#F0ECF5"}
+          _hover={{
+            bg: "#F0ECF5"
+          }}
+          _focus={{
+            bg: "linear-gradient(#F0ECF5, #F0ECF5) padding-box, linear-gradient(to top, #414DED, #7B2FD0) border-box;",
+            border: "2px solid transparent"
+          }}
           onChange={event => onChange(event.target.value)}
         />
         <InputRightElement height={"100%"} pr={"55px"}>
-          <Button size={"sm"} variant={"white"} type={"submit"}>send</Button>
+          <Button size={"sm"} variant={"white"} type={"submit"}>
+            send
+          </Button>
         </InputRightElement>
       </InputGroup>
     </form>
