@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/BitcoinBonus/static/js/main.85640281.js",
-    "static/media/chat.svg": "/BitcoinBonus/static/media/chat.f02c56e064f21c41cd114b1a72b89c79.svg",
-    "static/media/logo.svg": "/BitcoinBonus/static/media/logo.034ef726eb08f413c8e9ff1b0abe7414.svg",
-    "index.html": "/BitcoinBonus/index.html",
-    "main.85640281.js.map": "/BitcoinBonus/static/js/main.85640281.js.map"
+    "main.js": "./static/js/main.45a1971a.js",
+    "static/media/chat.svg": "./static/media/chat.f02c56e064f21c41cd114b1a72b89c79.svg",
+    "static/media/logo.svg": "./static/media/logo.034ef726eb08f413c8e9ff1b0abe7414.svg",
+    "index.html": "./index.html",
+    "main.45a1971a.js.map": "./static/js/main.45a1971a.js.map"
   },
   "entrypoints": [
-    "static/js/main.85640281.js"
+    "static/js/main.45a1971a.js"
   ]
 }
