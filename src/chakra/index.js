@@ -10,6 +10,9 @@ const colors = {
     600: "#431480", // Logo - dark
     800: "#7B2FD0",
     900: "#414DED"
+  },
+  pink: {
+    100: "#D3C2E9"
   }
 }
 

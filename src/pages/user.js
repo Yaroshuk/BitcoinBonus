@@ -6,6 +6,7 @@ import TopMainers from "../components/Blocks/TopMainers"
 import YourBalance from "../components/Blocks/YourBalance"
 import LoginModal from "../components/Modals/LoginModal"
 import MemberChat from "../components/Blocks/MemberChat"
+import UserBlock from "../components/Blocks/UserBlock"
 
 const User = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
@@ -31,9 +32,9 @@ const User = () => {
       templateColumns={{ base: "1fr", sm: "1fr 32%" }}
       gap="20px"
     >
-      <Flex gap={"20px"} flexDirection={"column"}>
+      <Flex gap={"20px"} flexDirection={"column"} overflow={"hidden"}>
         {" "}
-        <Box>Balance</Box>
+        <UserBlock />
         <Box>Maining history</Box>
         <MemberChat />
       </Flex>
