@@ -17,6 +17,7 @@ const CustomCard = ({
   rightBlock,
   children,
   flipHeader,
+  bodyPadding,
   ...props
 }) => {
   return (
@@ -32,7 +33,7 @@ const CustomCard = ({
         gap={"10px"}
       >
         <Box display={"flex"} alignItems={"center"}>
-          {rightBlock && <Box>{rightBlock}</Box>}
+          {leftBlock && <Box>{leftBlock}</Box>}
           <Flex flexDir={"column"}>
             {title && (
               <Heading size={{ base: "md", md: "lg" }}>{title}</Heading>
@@ -44,9 +45,13 @@ const CustomCard = ({
             )}
           </Flex>
         </Box>
-        {leftBlock && <Box>{leftBlock}</Box>}
+        {rightBlock && <Box>{rightBlock}</Box>}
       </CardHeader>
-      {children && <CardBody>{children}</CardBody>}
+      {children && (
+        <CardBody {...(bodyPadding && { padding: bodyPadding })}>
+          {children}
+        </CardBody>
+      )}
     </Card>
   )
 }

@@ -12,7 +12,7 @@ const MainingHistory = () => {
   return (
     <CustomCard
       title={"Your maining history"}
-      leftBlock={
+      rightBlock={
         <Flex
           gap={"8px"}
           color={"#D3C2E9"}

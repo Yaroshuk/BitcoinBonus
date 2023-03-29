@@ -81,6 +81,18 @@ const Button = defineStyleConfig({
         bgGradient: "linear-gradient(180deg, #BF6EFE -6.82%, #8F37FF 93.18%);",
         color: "white"
       }
+    },
+    third: {
+      bgGradient: "linear-gradient(180deg, #FFFFFF 0%, #E8D7FF 100%)",
+      boxShadow: "0px 10px 15px rgba(93, 64, 224, 0.15)",
+      fontSize: { base: "18px", sm: "22px" },
+      fontWeight: "bold",
+      _hover: {
+        bgGradient: "linear-gradient(180deg, #FFFFFF 0%, #F4EBFF 100%)"
+      },
+      _active: {
+        bgGradient: "linear-gradient(180deg, #FFFFFF 0%, #F4EBFF 100%)"
+      }
     }
   },
   // The default size and variant values

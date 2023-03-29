@@ -16,6 +16,7 @@ import theme from "./chakra"
 import Layout from "./components/Layout"
 import Home from "./pages/home"
 import User from "./pages/user"
+import Mainers from "./pages/mainers"
 
 const container = document.getElementById("root")
 const root = ReactDOM.createRoot(container)
@@ -32,6 +33,10 @@ const router = createHashRouter([
       {
         path: "/user",
         element: <User />
+      },
+      {
+        path: "/mainers",
+        element: <Mainers />
       }
     ]
   }

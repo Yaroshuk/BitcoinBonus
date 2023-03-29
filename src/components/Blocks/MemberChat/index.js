@@ -51,7 +51,7 @@ const MemberChat = () => {
     <CustomCard
       title={"Online chat"}
       subtitle={"of service member"}
-      rightBlock={<ChatIcon />}
+      leftBlock={<ChatIcon />}
     >
       <ChatWindow messages={messages} mb={"20px"} />
       <ChatInput value={inputValue} onChange={handleInputChange} onAddMessage={handleAddMessage} />

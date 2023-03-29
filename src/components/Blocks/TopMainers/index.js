@@ -10,7 +10,7 @@ const TopMainers = () => {
   return (
     <CustomCard
       title="Top Mainers"
-      leftBlock={
+      rightBlock={
         <Flex
           gap={"8px"}
           color={"#D3C2E9"}

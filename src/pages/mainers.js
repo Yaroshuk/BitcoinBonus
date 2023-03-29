@@ -10,7 +10,7 @@ import UserBlock from "../components/Blocks/UserBlock"
 import MainingHistory from "../components/Blocks/MainingHistory"
 import Recomendation from "../components/Blocks/Recomendation"
 
-const User = () => {
+const Mainers = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
   const [isFormFilled, setIsFormFilled] = useState(false)
 
@@ -36,8 +36,8 @@ const User = () => {
     >
       <Flex gap={"20px"} flexDirection={"column"} overflow={"hidden"}>
         {" "}
-        <UserBlock />
-        <Recomendation />
+        <Box>Collect</Box>
+        <Box>Mainers</Box>
         <MainingHistory />
         <MemberChat />
       </Flex>
@@ -50,4 +50,4 @@ const User = () => {
   )
 }
 
-export default User
+export default Mainers
