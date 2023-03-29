@@ -19,7 +19,8 @@ const colors = {
 const breakpoints = {
   sm: 767,
   md: 959,
-  lg: 1247
+  lg: 1247,
+  xl: 1439
 }
 
 const radii = {

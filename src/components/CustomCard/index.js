@@ -8,12 +8,15 @@ import {
   Flex
 } from "@chakra-ui/react"
 
+// TODO: fix max layout width
+
 const CustomCard = ({
   title,
   subtitle,
   leftBlock,
   rightBlock,
   children,
+  flipHeader,
   ...props
 }) => {
   return (
@@ -21,7 +24,12 @@ const CustomCard = ({
       <CardHeader
         fontSize={{ base: "md", md: "lg" }}
         display={"flex"}
+        flexDir={flipHeader ? { base: "column", sm: "row" } : "row"}
         justifyContent={"space-between"}
+        alignItems={
+          flipHeader ? { base: "flex-start", sm: "center" } : "center"
+        }
+        gap={"10px"}
       >
         <Box display={"flex"} alignItems={"center"}>
           {rightBlock && <Box>{rightBlock}</Box>}
