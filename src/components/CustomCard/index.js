@@ -45,7 +45,11 @@ const CustomCard = ({
             )}
           </Flex>
         </Box>
-        {rightBlock && <Box>{rightBlock}</Box>}
+        {rightBlock && (
+          <Box width={flipHeader && { base: "100%", sm: "auto" }}>
+            {rightBlock}
+          </Box>
+        )}
       </CardHeader>
       {children && (
         <CardBody {...(bodyPadding && { padding: bodyPadding })}>
