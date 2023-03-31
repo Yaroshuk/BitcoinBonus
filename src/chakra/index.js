@@ -93,6 +93,20 @@ const Button = defineStyleConfig({
       _active: {
         bgGradient: "linear-gradient(180deg, #FFFFFF 0%, #F4EBFF 100%)"
       }
+    },
+    collect: {
+      background: "white",
+      boxShadow:
+        "0px 6px 28px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.25)",
+      fontSize: { base: "14px", sm: "18px" },
+      fontWeight: "bold",
+      textTransform: "uppercase",
+      _hover: {
+        background: "white"
+      },
+      _active: {
+        background: "white"
+      }
     }
   },
   // The default size and variant values

@@ -10,6 +10,7 @@ import UserBlock from "../components/Blocks/UserBlock"
 import MainingHistory from "../components/Blocks/MainingHistory"
 import Recomendation from "../components/Blocks/Recomendation"
 import MyMainers from "../components/Blocks/MyMainers"
+import CollectBonuses from "../components/Blocks/CollectBonuses"
 
 const Mainers = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
@@ -37,7 +38,7 @@ const Mainers = () => {
     >
       <Flex gap={"20px"} flexDirection={"column"} overflow={"hidden"}>
         {" "}
-        <Box>Collect</Box>
+        <CollectBonuses />
         <MyMainers />
         <MainingHistory />
         <MemberChat />
