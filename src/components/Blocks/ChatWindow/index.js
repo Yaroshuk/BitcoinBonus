@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from "react"
-import { Box, Button } from "@chakra-ui/react"
+import { Box, Button, Text } from "@chakra-ui/react"
 import ChatMessage from "../../ChatMessage"
 import { customScroll } from "../../../chakra"
 
-const ChatWindow = ({ messages, ...props }) => {
+const ChatWindow = ({ messages, writing, ...props }) => {
   const refChatWindow = useRef()
 
   useEffect(() => {
@@ -22,11 +22,17 @@ const ChatWindow = ({ messages, ...props }) => {
       maxH={"300px"}
       padding={"12px"}
       {...props}
+      position={"relative"}
       overflowY={"auto"}
       ref={refChatWindow}
       sx={customScroll}
     >
-      <Box display={"flex"} flexDir={"column"} gap={"28px"}>
+      <Box
+        display={"flex"}
+        flexDir={"column"}
+        gap={"28px"}
+        position={"relative"}
+      >
         {messages &&
           messages?.length &&
           messages.map((message, index) => {

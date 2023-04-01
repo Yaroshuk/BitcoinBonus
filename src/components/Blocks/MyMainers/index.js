@@ -1,9 +1,9 @@
 import { CalendarIcon } from "@chakra-ui/icons"
 import React from "react"
 import { Box, Flex, Grid, GridItem } from "@chakra-ui/react"
-import { currencyFormatter, currentMonth } from "../../../utils"
 import CustomCard from "../../CustomCard"
 import MyMainerItem from "../../MyMainerItem"
+import { currencyFormatter, currentMonth } from "../../../utils"
 
 const MyMainers = () => {
   const mainers = [
