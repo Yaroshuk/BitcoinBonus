@@ -1,19 +1,33 @@
-import { Button, Flex, Heading, Text, Image } from "@chakra-ui/react"
+import { Button, Flex, Heading, Text, Image, keyframes } from "@chakra-ui/react"
 import React from "react"
 import { gradientCard } from "../../../chakra"
 import CustomCard from "../../CustomCard"
 
-const CollectBonuses = () => {
-  // TODO: style animation and btn hover
+const btnAnimation = keyframes`
+  from {
+    background-position-y: 180%, 100%
+  }
 
+  to {
+    background-position-y: -80%, 100%
+  }
+`
+
+const CollectBonuses = () => {
   return (
     <Flex
       fontSize={{ base: "md", md: "lg" }}
       padding={"20px"}
-      bgGradient={gradientCard}
+      bgGradient={
+        "linear-gradient(0deg, #414DED 0%, #7B2FD0 50%, #414DED 100%),linear-gradient(180deg, #414DED 0%, #414DED 100%)"
+      }
+      backgroundSize={"100% 200%, 100%"}
+      backgroundRepeat={"no-repeat, repeat"}
+      backgroundPositionY={"200%, 100%"}
       borderRadius={"lg"}
       flexDir={"column"}
       gap={{ base: "13px", sm: "16px" }}
+      animation={`${btnAnimation} 3s 0s infinite`}
     >
       <Heading
         size={{ base: "md", md: "lg" }}
@@ -36,6 +50,7 @@ const CollectBonuses = () => {
         size={"sm"}
         width={"fit-content"}
         marginTop={{ base: "10px", sm: "15px" }}
+        data-group
       >
         <Image src={"./img/icons/collect.svg"} marginRight={"12px"} />
         <Text
@@ -43,6 +58,10 @@ const CollectBonuses = () => {
           sx={{
             "-webkit-background-clip": "text",
             "-webkit-text-fill-color": "transparent"
+          }}
+          _groupHover={{
+            background: "linear-gradient(0deg, #A367EF -6.82%, #811FFF 93.18%)",
+            WebkitBackgroundClip: "text"
           }}
         >
           {" "}
