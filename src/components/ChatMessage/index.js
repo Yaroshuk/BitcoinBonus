@@ -6,10 +6,12 @@ const ChatMessage = ({ text, author, time, isUser, ...props }) => {
     <Box
       maxW={"80%"}
       padding={"15px"}
-      border={"1px solid #FAFAFA"}
+      border={"2px solid #FAFAFA"}
       bg={isUser ? "#fff" : "#FAFAFA"}
       borderRadius={"sm"}
       alignSelf={isUser ? "flex-end" : "flex-start"}
+      borderBottomLeftRadius={!isUser && "0"}
+      borderBottomRightRadius={isUser && "0"}
     >
       <Box fontSize={"md"} fontWeight={"normal"} mb={"12px"}>
         {text}

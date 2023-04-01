@@ -137,4 +137,33 @@ const components = {
 
 const theme = extendTheme({ colors, breakpoints, radii, components, zIndices })
 
+export const customScroll = {
+  "&::-webkit-scrollbar": {
+    width: "8px",
+    height: "8px",
+    padding: "1px"
+  },
+  "&::-webkit-scrollbar-track": {
+    "border-radius": "4px",
+    background: "#F0ECF5"
+  },
+  "&::-webkit-scrollbar-thumb": {
+    width: "6px",
+    height: "6px",
+    background: "rgba(255,255, 255, 1)",
+    "border-radius": "4px",
+    border: "1px solid #F0ECF5"
+  },
+  "&::-webkit-scrollbar-thumb:hover": {
+    background: "green"
+  },
+  "scrollbar-color": "red",
+  "scrollbar-width": "3px",
+  "&:hover": {
+    "&::-webkit-scrollbar-thumb": {
+      background: "rgba(255, 255, 255, 1)"
+    }
+  }
+}
+
 export default theme
