@@ -1,7 +1,8 @@
 import { Button, Flex, Heading, Text, Image, keyframes } from "@chakra-ui/react"
-import React from "react"
+import React, { useCallback } from "react"
 import { gradientCard } from "../../../chakra"
 import CustomCard from "../../CustomCard"
+import { useNavigate } from "react-router-dom"
 
 const btnAnimation = keyframes`
   from {
@@ -14,6 +15,12 @@ const btnAnimation = keyframes`
 `
 
 const CollectBonuses = () => {
+  const navigate = useNavigate()
+
+  const handleOpenCollectionPage = useCallback(() => {
+    navigate("/collecting")
+  }, [navigate])
+
   return (
     <Flex
       fontSize={{ base: "md", md: "lg" }}
@@ -51,6 +58,7 @@ const CollectBonuses = () => {
         width={"fit-content"}
         marginTop={{ base: "10px", sm: "15px" }}
         data-group
+        onClick={handleOpenCollectionPage}
       >
         <Image src={"./img/icons/collect.svg"} marginRight={"12px"} />
         <Text

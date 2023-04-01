@@ -17,6 +17,7 @@ import Layout from "./components/Layout"
 import Home from "./pages/home"
 import User from "./pages/user"
 import Mainers from "./pages/mainers"
+import Collecting from "./pages/collecting"
 
 const container = document.getElementById("root")
 const root = ReactDOM.createRoot(container)
@@ -37,6 +38,10 @@ const router = createHashRouter([
       {
         path: "/mainers",
         element: <Mainers />
+      },
+      {
+        path: "/collecting",
+        element: <Collecting />
       }
     ]
   }
