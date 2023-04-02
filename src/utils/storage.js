@@ -1,5 +1,5 @@
 import { getRandomInt, getRandomTimeBefore } from "./index"
-import { memberChatMessages, memberChatNiknames } from "../data"
+import { memberChatMessages, memberChatNiknames, userState } from "../data"
 
 export const getChatInitialMessages = () => {
   return [
@@ -9,4 +9,11 @@ export const getChatInitialMessages = () => {
       time: getRandomTimeBefore(2, 5).format("HH:MM")
     }
   ]
+}
+
+export const getInitialUserState = () => {
+  return {
+    ...userState,
+    isLogged: false
+  }
 }

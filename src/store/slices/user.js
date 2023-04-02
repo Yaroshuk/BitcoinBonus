@@ -1,11 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { getInitialUserState } from "../../utils/storage"
 
-const initialState = {
-  login: "user-1123454",
-  password: "p34kjhjy!ee5",
-  isLogged: false,
-  balance: 234562
-}
+const initialState = getInitialUserState()
 
 export const userSlice = createSlice({
   name: "user",

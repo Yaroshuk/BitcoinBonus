@@ -1,10 +1,12 @@
 import React, { useCallback, useState } from "react"
 import { Grid, Box, Flex } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
 import Login from "../components/Login"
 import FAQBlock from "../components/Blocks/FAQBlock"
 import TopMainers from "../components/Blocks/TopMainers"
 import YourBalance from "../components/Blocks/YourBalance"
 import LoginModal from "../components/Modals/LoginModal"
+import ProtectedRoute from "../components/ProtectedRoute"
 
 const Home = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)

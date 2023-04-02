@@ -28,3 +28,9 @@ export const memberChatNiknames = [
   "Jackye",
   "Davit"
 ]
+
+export const userState = {
+  login: "user-1123454",
+  password: "p34kjhjy!ee5",
+  balance: 24356
+}

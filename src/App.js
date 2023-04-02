@@ -9,59 +9,66 @@ import {
   Grid,
   extendTheme
 } from "@chakra-ui/react"
-
+import { RouterProvider, createHashRouter, Navigate } from "react-router-dom"
+import { useSelector } from "react-redux"
 import theme from "./chakra"
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import { Logo } from "./Logo"
 import Layout from "./components/Layout"
-
 import Home from "./pages/home"
+import User from "./pages/user"
+import Mainers from "./pages/mainers"
+import Collecting from "./pages/collecting"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 function App() {
+  const isLogged = useSelector(state => state.user.isLogged)
+
+  const router = createHashRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          path: "/",
+          element: <Home />
+        },
+        {
+          path: "/user",
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <User />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: "/mainers",
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Mainers />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: "/collecting",
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Collecting />
+            </ProtectedRoute>
+          )
+        }
+      ]
+    },
+    {
+      path: "*",
+      element: <Navigate to={"/"} />
+    }
+  ])
+
   return (
     <ChakraProvider theme={theme}>
-      <Layout>
-        <Home />
-      </Layout>
-      {/* <Box textAlign="center" fontSize="xl"
-      >
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box> */}
-
-      {/* <VStack spacing={8}>
-          <Logo h="40vmin" pointerEvents="none" />
-          <Text>
-            Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-          </Text>
-          <Link
-            color="teal.500"
-            href="https://chakra-ui.com"
-            fontSize="2xl"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn Chakra
-          </Link>
-        </VStack> */}
+      <RouterProvider router={router} />
     </ChakraProvider>
   )
 }

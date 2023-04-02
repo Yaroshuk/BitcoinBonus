@@ -7,7 +7,9 @@ import {
   RouterProvider,
   createHashRouter,
   HashRouter,
-  Route
+  Route,
+  Navigate,
+  Navigator
 } from "react-router-dom"
 import { Provider } from "react-redux"
 import store from "./store/store"
@@ -18,40 +20,16 @@ import Home from "./pages/home"
 import User from "./pages/user"
 import Mainers from "./pages/mainers"
 import Collecting from "./pages/collecting"
+import ProtectedRoute from "./components/ProtectedRoute"
 
 const container = document.getElementById("root")
 const root = ReactDOM.createRoot(container)
-
-const router = createHashRouter([
-  {
-    path: "/",
-    element: <Layout />,
-    children: [
-      {
-        path: "/",
-        element: <Home />
-      },
-      {
-        path: "/user",
-        element: <User />
-      },
-      {
-        path: "/mainers",
-        element: <Mainers />
-      },
-      {
-        path: "/collecting",
-        element: <Collecting />
-      }
-    ]
-  }
-])
 
 root.render(
   <StrictMode>
     <Provider store={store}>
       <ChakraProvider theme={theme}>
-        <RouterProvider router={router} />
+        <App />
       </ChakraProvider>
     </Provider>
   </StrictMode>

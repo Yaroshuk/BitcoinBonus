@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from "react"
 import { Grid, Box, Flex } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
 import Login from "../components/Login"
 import FAQBlock from "../components/Blocks/FAQBlock"
 import TopMainers from "../components/Blocks/TopMainers"
@@ -9,10 +10,15 @@ import MemberChat from "../components/Blocks/MemberChat"
 import UserBlock from "../components/Blocks/UserBlock"
 import MainingHistory from "../components/Blocks/MainingHistory"
 import Recomendation from "../components/Blocks/Recomendation"
+import { useProtectedRoute } from "../utils"
 
 const User = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
   const [isFormFilled, setIsFormFilled] = useState(false)
+  // useProtectedRoute()
+
+  const isLogged = useSelector(state => state.user.isLogged)
+  console.log(isLogged)
 
   const handleFormFilled = useCallback(
     state => {
@@ -26,7 +32,6 @@ const User = () => {
     // handleFormFilled(true)
   }, [setIsOpenModal])
 
-  console.log("ddf", isFormFilled)
   return (
     <Grid
       width="100%"

@@ -11,8 +11,11 @@ import MainingHistory from "../components/Blocks/MainingHistory"
 import Recomendation from "../components/Blocks/Recomendation"
 import MyMainers from "../components/Blocks/MyMainers"
 import CollectBonuses from "../components/Blocks/CollectBonuses"
+import { useProtectedRoute } from "../utils"
 
 const Collecting = () => {
+  useProtectedRoute()
+
   return (
     <Grid
       width="100%"

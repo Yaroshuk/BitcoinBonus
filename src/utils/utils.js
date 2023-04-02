@@ -1,4 +1,7 @@
 import moment from "moment"
+import { useNavigate } from "react-router-dom"
+import { useSelector } from "react-redux"
+import { useEffect } from "react"
 
 export const currencyFormatter = new Intl.NumberFormat("en-Us")
 
@@ -13,4 +16,15 @@ export const getRandomInt = (min, max) => {
 
 export const getRandomTimeBefore = (min, max, unit = "minutes") => {
   return moment().subtract(getRandomInt(min, max), unit)
+}
+
+export const useProtectedRoute = (redirectRoute = "/") => {
+  const isLogged = useSelector(state => state.user.isLogged)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (!isLogged) {
+      navigate(redirectRoute)
+    }
+  }, [isLogged])
 }

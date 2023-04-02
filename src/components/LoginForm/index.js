@@ -7,18 +7,21 @@ import {
   FormLabel,
   Button
 } from "@chakra-ui/react"
-import { useSelector } from "react-redux"
+import { setIsLogged } from "../../store/slices/user"
+import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
 const LoginForm = ({ filled, setFilled }) => {
   const user = useSelector(state => state.user)
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleFocus = useCallback(() => {
     setFilled(true)
   }, [setFilled])
 
   const handleLogin = useCallback(() => {
+    dispatch(setIsLogged(true))
     navigate("/user")
   }, [navigate])
 
