@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react"
+import React, { useCallback, useState, useEffect } from "react"
 import { Grid, Box, Flex } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
 import Login from "../components/Login"
@@ -8,8 +8,10 @@ import YourBalance from "../components/Blocks/YourBalance"
 import LoginModal from "../components/Modals/LoginModal"
 import ProtectedRoute from "../components/ProtectedRoute"
 
+let timer = null
+
 const Home = () => {
-  const [isOpenModal, setIsOpenModal] = useState(true)
+  const [isOpenModal, setIsOpenModal] = useState(false)
   const [isFormFilled, setIsFormFilled] = useState(false)
 
   const handleFormFilled = useCallback(
@@ -21,10 +23,15 @@ const Home = () => {
 
   const closeModal = useCallback(() => {
     setIsOpenModal(false)
-    // handleFormFilled(true)
+    handleFormFilled(true)
   }, [setIsOpenModal])
 
-  console.log("ddf", isFormFilled)
+  useEffect(() => {
+    timer = setTimeout(() => {
+      setIsOpenModal(true)
+    }, 1000)
+  }, [])
+
   return (
     <Grid
       width="100%"
