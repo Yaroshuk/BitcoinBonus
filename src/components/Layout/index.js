@@ -18,9 +18,8 @@ const Layout = ({ children }) => {
         bg={"#F0ECF5"}
         px={{ base: 4, sm: 8, lg: "70px" }}
         py={{ base: 0, lg: "30px" }}
-        maxW="1440px"
       >
-        <VStack w="full" h="full" minH="100vh">
+        <VStack w="full" h="full" minH="100vh" maxW={"1620px"} margin={"0 auto"}>
           <Header>
             <Logo />
             <HeaderProfile />
