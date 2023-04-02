@@ -1,19 +1,31 @@
 import React, { useCallback } from "react"
-import { Text, Image, Flex, Button } from "@chakra-ui/react"
+import { Text, Image, Flex, Button, keyframes } from "@chakra-ui/react"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 import CustomCard from "../../CustomCard"
 import { useNavigate } from "react-router-dom"
 import { LAST_VISITED, MAINERS_PAGE } from "../../../constants"
+import { useSelector } from "react-redux"
 
 // TODO: slow showing
 
 const Recomendation = () => {
   const navigate = useNavigate()
+  const isLogged = useSelector(state => state.user.isLogged)
 
   const handleGetPaid = useCallback(() => {
     navigate("/mainers")
     localStorage.setItem(LAST_VISITED, MAINERS_PAGE)
   }, [navigate])
+
+  const recomendationAnimation = keyframes`
+  from {
+    max-height: 0
+  }
+
+  to {
+    max-height: 1000px
+  }
+`
 
   return (
     <CustomCard
@@ -27,6 +39,7 @@ const Recomendation = () => {
         />
       }
       bodyPadding={{ base: "0 20px 30px 20px" }}
+      animation={`${recomendationAnimation} 4s`}
     >
       <Flex
         paddingLeft={{ base: "49px", sm: "58px" }}
