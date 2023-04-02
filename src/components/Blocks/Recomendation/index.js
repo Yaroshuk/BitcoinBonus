@@ -3,6 +3,7 @@ import { Text, Image, Flex, Button } from "@chakra-ui/react"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
 import CustomCard from "../../CustomCard"
 import { useNavigate } from "react-router-dom"
+import { LAST_VISITED, MAINERS_PAGE } from "../../../constants"
 
 // TODO: slow showing
 
@@ -11,6 +12,7 @@ const Recomendation = () => {
 
   const handleGetPaid = useCallback(() => {
     navigate("/mainers")
+    localStorage.setItem(LAST_VISITED, MAINERS_PAGE)
   }, [navigate])
 
   return (

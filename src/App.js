@@ -21,6 +21,7 @@ import User from "./pages/user"
 import Mainers from "./pages/mainers"
 import Collecting from "./pages/collecting"
 import ProtectedRoute from "./components/ProtectedRoute"
+import { COLLECTING_PAGE, MAINERS_PAGE, USER_PAGE } from "./constants"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -35,7 +36,7 @@ function App() {
           element: <Home />
         },
         {
-          path: "/user",
+          path: `/${USER_PAGE}`,
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <User />
@@ -43,7 +44,7 @@ function App() {
           )
         },
         {
-          path: "/mainers",
+          path: `/${MAINERS_PAGE}`,
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Mainers />
@@ -51,7 +52,7 @@ function App() {
           )
         },
         {
-          path: "/collecting",
+          path: `/${COLLECTING_PAGE}`,
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Collecting />

@@ -1,6 +1,9 @@
 import React, { useCallback, useState, useEffect } from "react"
+import { useLocation, useNavigate } from "react-router-dom"
 import { Grid, Box, Flex } from "@chakra-ui/react"
 import { useSelector } from "react-redux"
+import { LAST_VISITED, USER_PAGE } from "../constants"
+
 import Login from "../components/Login"
 import FAQBlock from "../components/Blocks/FAQBlock"
 import TopMainers from "../components/Blocks/TopMainers"
@@ -13,6 +16,9 @@ let timer = null
 const Home = () => {
   const [isOpenModal, setIsOpenModal] = useState(false)
   const [isFormFilled, setIsFormFilled] = useState(false)
+  const isLogged = useSelector(state => state.user.isLogged)
+  const location = useLocation()
+  const navigate = useNavigate()
 
   const handleFormFilled = useCallback(
     state => {
@@ -27,9 +33,23 @@ const Home = () => {
   }, [setIsOpenModal])
 
   useEffect(() => {
+    if (!isLogged) return
+
+    const lastVisited = localStorage.getItem(LAST_VISITED) ?? USER_PAGE
+
+    if (location.pathname !== `/${lastVisited}`) {
+      navigate(`/${lastVisited}`)
+    }
+  }, [])
+
+  useEffect(() => {
     timer = setTimeout(() => {
       setIsOpenModal(true)
     }, 1000)
+
+    return () => {
+      clearTimeout(timer)
+    }
   }, [])
 
   return (

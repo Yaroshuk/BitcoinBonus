@@ -39,7 +39,7 @@ const MemberChat = () => {
       addMessage({
         text: inputValue,
         isUser: true,
-        time: moment().format("HH:MM")
+        time: moment().format("HH:mm")
       })
     )
   }, [addMessage, dispatch, inputValue])
@@ -52,7 +52,7 @@ const MemberChat = () => {
       addMessage({
         text: message,
         author: nickname,
-        time: moment().format("HH:MM")
+        time: moment().format("HH:mm")
       })
     )
 

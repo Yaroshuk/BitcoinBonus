@@ -10,6 +10,7 @@ import {
 import { setIsLogged } from "../../store/slices/user"
 import { useSelector, useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { IS_LOGGED, LAST_VISITED, USER_PAGE } from "../../constants"
 
 const LoginForm = ({ filled, setFilled }) => {
   const user = useSelector(state => state.user)
@@ -22,7 +23,9 @@ const LoginForm = ({ filled, setFilled }) => {
 
   const handleLogin = useCallback(() => {
     dispatch(setIsLogged(true))
-    navigate("/user")
+    localStorage.setItem(IS_LOGGED, true)
+    localStorage.setItem(LAST_VISITED, USER_PAGE)
+    navigate(`/${USER_PAGE}`)
   }, [navigate])
 
   return (

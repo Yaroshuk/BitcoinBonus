@@ -1,11 +1,13 @@
-import React from "react"
-import { Outlet } from "react-router-dom"
+import React, { useEffect } from "react"
+import { Outlet, useLocation, useNavigate } from "react-router-dom"
 import { Box, Container, Flex, VStack } from "@chakra-ui/react"
 
 import Header from "../Header"
 import Footer from "../Footer"
 import Logo from "../Logo"
 import HeaderProfile from "../HeaderProfile"
+import { useSelector } from "react-redux"
+import { LAST_VISITED, USER_PAGE } from "../../constants"
 
 const Layout = ({ children }) => {
   return (

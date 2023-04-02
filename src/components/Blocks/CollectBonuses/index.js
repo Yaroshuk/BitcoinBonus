@@ -3,6 +3,7 @@ import React, { useCallback } from "react"
 import { gradientCard } from "../../../chakra"
 import CustomCard from "../../CustomCard"
 import { useNavigate } from "react-router-dom"
+import { COLLECTING_PAGE, LAST_VISITED } from "../../../constants"
 
 const btnAnimation = keyframes`
   from {
@@ -18,6 +19,7 @@ const CollectBonuses = () => {
   const navigate = useNavigate()
 
   const handleOpenCollectionPage = useCallback(() => {
+    localStorage.setItem(LAST_VISITED, COLLECTING_PAGE)
     navigate("/collecting")
   }, [navigate])
 
