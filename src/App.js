@@ -22,6 +22,7 @@ import Mainers from "./pages/mainers"
 import Collecting from "./pages/collecting"
 import ProtectedRoute from "./components/ProtectedRoute"
 import { COLLECTING_PAGE, MAINERS_PAGE, USER_PAGE } from "./constants"
+import { originalMessages } from "./data"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
