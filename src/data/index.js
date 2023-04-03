@@ -35,6 +35,39 @@ export const userState = {
   balance: 24356
 }
 
+export const managerBonuses = [
+  {
+    text: "My name is Amelia, and I am the lead manager of the Service Payments Department 'Bitcoin Bonus' .Judging by the information I have, you have not been on the site for 364 days. Related to this question, have you previously received notice that you are entitled to payment from Bitcoin Bonus?"
+  },
+  {
+    text: "Looking forward to hearing from you"
+  },
+  // I don't remember btn
+  {
+    text: "I have an approved active request from your account to withdraw bitcoin bonuses earned by you. In order to transfer funds from the service to your card or wallet, it is necessary to have your application form. I will now look for this questionnaire, it will not take more than a minute."
+  },
+  {
+    text: "Thank you for the wait. I checked and I couldn't find your profile in our database. It means that you haven't withdrawn your bitcoins from the service yet."
+  },
+  {
+    text: "Now I will bring out for you a special form for filling out the questionnaire and receiving funds."
+  },
+  // Fill out the form btn
+  {
+    text: "I received a questionnaire from you"
+  },
+  {
+    text: "To complete the payout, you and I must now exchange your bitcoins."
+  },
+  {
+    text: "Minimum exchange rate by special service Binance, which amounts to 0,25%"
+  },
+  {
+    text: "After the currency conversion you will receive $37065.26"
+  }
+  // Convert currency btn
+]
+
 export const originalMessages = [
   {
     user: "people",
@@ -130,7 +163,7 @@ export const originalMessages = [
     user: "people",
     colorText: "",
     name: "Akmal",
-    text: "HotPepper05, you again drunk strong drinks and wake up here \"clownado\" show?🤡",
+    text: "HotPepper05, you again drunk strong drinks and wake up here 'clownado' show?🤡",
     attach: {
       img: null
     },
@@ -430,7 +463,7 @@ export const originalMessages = [
     user: "people",
     colorText: "",
     name: "NOiSy",
-    text: "I support you! There are, of course, a bunch of \"Standards\", they are all unanimous, will there be payments today)) Poor damn",
+    text: "I support you! There are, of course, a bunch of 'Standards', they are all unanimous, will there be payments today)) Poor damn",
     attach: {
       img: null
     },
@@ -480,7 +513,7 @@ export const originalMessages = [
     user: "people",
     colorText: "",
     name: "NOiSy",
-    text: "Arianna No. Such a function is not available on BTCuPAY yet it is possible. But they pay less for mining there... And they don’t give Swift there, - “look for youruser, as they say, how to withdraw from us!\"",
+    text: "Arianna No. Such a function is not available on BTCuPAY yet it is possible. But they pay less for mining there... And they don’t give Swift there, - 'look for youruser, as they say, how to withdraw from us!'",
     attach: {
       img: null
     },

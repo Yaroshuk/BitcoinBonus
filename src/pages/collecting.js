@@ -12,6 +12,7 @@ import Recomendation from "../components/Blocks/Recomendation"
 import MyMainers from "../components/Blocks/MyMainers"
 import CollectBonuses from "../components/Blocks/CollectBonuses"
 import { useProtectedRoute } from "../utils"
+import BonusesCollector from "../components/Blocks/BonusesCollector"
 
 const Collecting = () => {
   useProtectedRoute()
@@ -25,7 +26,7 @@ const Collecting = () => {
     >
       <Flex gap={"20px"} flexDirection={"column"} overflow={"hidden"}>
         {" "}
-        <Box>collecting</Box>
+        <BonusesCollector />
         <MainingHistory />
         <MemberChat />
       </Flex>
