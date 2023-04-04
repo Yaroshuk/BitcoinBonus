@@ -30,6 +30,9 @@ const BonusesCollector = () => {
       <Box>
         <ProgressBar />
         <CollectorWindow />
+        <Text color={"pink.100"} fontSize={{ base: "14px", sm: "18px" }}>
+          *Usually the process of collecting bonuses takes 5-10 minutes
+        </Text>
       </Box>
     </CustomCard>
   )
