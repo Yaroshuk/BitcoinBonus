@@ -1,7 +1,7 @@
 import { Flex, Grid, GridItem, Text, Box } from "@chakra-ui/react"
 import moment from "moment"
 import React from "react"
-import { currencyFormatter } from "../../utils"
+import { thousandsFormatter } from "../../utils"
 
 const MyMainerItem = ({ title, isWorking, time, ip, earned }) => {
   return (
@@ -39,7 +39,7 @@ const MyMainerItem = ({ title, isWorking, time, ip, earned }) => {
           </Text>
         </GridItem>
         <GridItem>{moment.utc(time).format("HH[h] MM[m] SS[s]")}</GridItem>
-        <GridItem>{`$${currencyFormatter.format(earned)}`}</GridItem>
+        <GridItem>{`$${thousandsFormatter(earned)}`}</GridItem>
       </Grid>
       <Box
         display={"flex"}

@@ -5,7 +5,7 @@ import CustomCard from "../../CustomCard"
 import ProgressBar from "../../ProgressBar"
 import CollectorWindow from "../../CollectorWindow"
 
-import { getRandomInt, getRandomString } from "../../../utils"
+import { getRandomInt, getRandomString, thousandsFormatter } from "../../../utils"
 
 import {
   addStep,
@@ -18,7 +18,7 @@ let timer = null
 
 const BonusesCollector = () => {
   const btc = "0,00133"
-  const money = "24 284" // TODO: get data from store
+  const money = useSelector(state => state.user.balance)
   const dispatch = useDispatch()
 
   const transactions = useSelector(state => state.collector.transactions)
@@ -108,7 +108,7 @@ const BonusesCollector = () => {
         fontSize={{ base: "16px", sm: "32px" }}
         fontWeight={"semibold"}
         color={"pink.100"}
-      >{`Balance: ${btc}BTC  $${money}`}</Text>
+      >{`Balance: ${btc}BTC  $${thousandsFormatter(money)}`}</Text>
       <Box>
         <ProgressBar value={(currentStep / maxStep) * 100} />
         <CollectorWindow transactions={transactions} />

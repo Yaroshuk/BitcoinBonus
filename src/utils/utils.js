@@ -5,6 +5,17 @@ import { useEffect } from "react"
 
 export const currencyFormatter = new Intl.NumberFormat("en-Us")
 
+export const thousandsFormatter = (num, separator = " ") => {
+  const splitedNumber = num.toString().split(".")
+
+  splitedNumber[0] = splitedNumber[0].replace(
+    /\B(?=(\d{3})+(?!\d))/g,
+    separator
+  )
+
+  return splitedNumber.join(".")
+}
+
 export const currentMonth = (short = false) =>
   moment().format(short ? "MMM" : "MMMM")
 
@@ -40,3 +51,7 @@ export const useProtectedRoute = (redirectRoute = "/") => {
     }
   }, [isLogged])
 }
+
+export const usdToBtc = (usd, rate) => (usd / rate).toFixed(2)
+
+export const btcToUsd = (btc, rate) => (btc * rate).toFixed(2)

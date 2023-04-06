@@ -9,6 +9,7 @@ import {
   ListItem
 } from "@chakra-ui/react"
 import { ArrowForwardIcon } from "@chakra-ui/icons"
+import { useSelector } from "react-redux"
 
 import CustomModal from "../CustomModal"
 import YourBalance from "../../Blocks/YourBalance"
@@ -56,8 +57,8 @@ const btnStyles = {
 
 const LoginModal = ({ isOpen, closeModal }) => {
   const [step, setStep] = useState(1)
-  const user = "user-id5673345" // TODO: username from store
-  const sum = "24 281,80" // TODO: sum from store
+  const user = useSelector(state => state.user.login)
+  const sum = useSelector(state => state.user.balance)
 
   const handleNextStep = useCallback(() => {
     setStep(step => ++step)

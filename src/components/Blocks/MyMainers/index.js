@@ -3,7 +3,7 @@ import React from "react"
 import { Box, Flex, Grid, GridItem } from "@chakra-ui/react"
 import CustomCard from "../../CustomCard"
 import MyMainerItem from "../../MyMainerItem"
-import { currencyFormatter, currentMonth } from "../../../utils"
+import { currentMonth, thousandsFormatter } from "../../../utils"
 
 const MyMainers = () => {
   const mainers = [
@@ -37,7 +37,7 @@ const MyMainers = () => {
         alignItems={"center"}
         gap={"15px"}
       >
-        {`$${currencyFormatter.format(earned)} earned in`}
+        {`$${thousandsFormatter(earned)} earned in`}
         <Flex fontWeight={"semibold"} alignItems={"center"} gap={"5px"}>
           <CalendarIcon />
           {currentMonth()}

@@ -1,13 +1,14 @@
 import React from "react"
 import { Box, Image, Tooltip } from "@chakra-ui/react"
 import { gradientCard } from "../../chakra"
+import { thousandsFormatter } from "../../utils"
 
 const BalanceChart = ({ balance }) => {
   return (
     <Box width={"100%"} position={"relative"}>
       <Image src="./img/balance-chart.svg" w={"100%"} />
       <Tooltip
-        label={balance}
+        label={thousandsFormatter(balance)}
         bgGradient={gradientCard}
         bgColor={"brand.800"}
         padding={"8px"}

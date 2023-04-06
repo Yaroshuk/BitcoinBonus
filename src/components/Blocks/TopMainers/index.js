@@ -1,11 +1,11 @@
 import React from "react"
 import { CalendarIcon } from "@chakra-ui/icons"
 import { Text, Flex } from "@chakra-ui/react"
+import { currentMonth } from "../../../utils"
 
 import CustomCard from "../../CustomCard"
 import TopMainersList from "../../TopMainersList"
 
-// TODO: add current month
 const TopMainers = () => {
   return (
     <CustomCard
@@ -19,7 +19,7 @@ const TopMainers = () => {
           alignItems={"center"}
         >
           <CalendarIcon />
-          <Text>March</Text>
+          <Text>{currentMonth()}</Text>
         </Flex>
       }
     >

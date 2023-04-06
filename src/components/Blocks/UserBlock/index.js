@@ -1,19 +1,24 @@
 import { Box, Grid } from "@chakra-ui/react"
 import React from "react"
+import { useSelector } from "react-redux"
+import { thousandsFormatter, usdToBtc } from "../../../utils"
 import UserBalance from "../UserBalance"
 import UserCollected from "../UserCollected"
 import UserTransactions from "../UserTransactions"
 
 const UserBlock = () => {
-  // TODO: get data from store
+  const usd = useSelector(state => state.user.balance)
+  const rate = useSelector(state => state.rate)
+
+  const btc = usdToBtc(usd, rate)
   return (
     <Box overflowX={"auto"} maxW={"100%"} width={"100%"}>
       <Grid gridTemplateColumns={"1fr 1fr 200px"} gap={"20px"}>
         <UserBalance />
         <UserCollected
-          bitcoins={"0.9655"}
-          money={"23665.00"}
-          rate={"24 2181"}
+          bitcoins={thousandsFormatter(btc)}
+          money={thousandsFormatter(usd)}
+          rate={thousandsFormatter(rate)}
         />
         <UserTransactions
           transactions={"192806"}

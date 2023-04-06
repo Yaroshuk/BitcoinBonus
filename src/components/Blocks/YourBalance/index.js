@@ -1,11 +1,22 @@
 import React from "react"
 import { Box, Text } from "@chakra-ui/react"
+import { useSelector } from "react-redux"
 import Timeline from "../../Timeline"
 import BalanceChart from "../../BalanceChart"
+import moment from "moment"
+import { thousandsFormatter } from "../../../utils"
 
 const YourBalance = () => {
-  const balance = "24 281,80" // TODO: implement
-  // TODO: current time!!!
+  const balance = useSelector(state => state.user.balance)
+  const timeFormat = "HH:00"
+  const time = moment()
+
+  const times = [
+    time.clone().subtract(6, "hours").format(timeFormat),
+    time.clone().format(timeFormat),
+    time.clone().add(6, "hours").format(timeFormat)
+  ]
+
   return (
     <Box
       display={"flex"}
@@ -33,10 +44,10 @@ const YourBalance = () => {
           color={"black"}
           fontSize={"2xl"}
           fontWeight={"semibold"}
-        >{`$ ${balance}`}</Text>
+        >{`$ ${thousandsFormatter(balance)}`}</Text>
       </Box>
       <BalanceChart balance={balance} />
-      <Timeline points={["01:00", "06:00", "11:00"]} maxW={"300px"} />
+      <Timeline points={times} maxW={"300px"} />
       {/* GRADIENT */}
       <Box
         position={"absolute"}

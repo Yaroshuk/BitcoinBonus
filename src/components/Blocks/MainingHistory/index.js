@@ -1,13 +1,20 @@
 import React from "react"
 import { Flex, Text, Grid } from "@chakra-ui/react"
 import { CalendarIcon } from "@chakra-ui/icons"
+import { useSelector } from "react-redux"
 import CustomCard from "../../CustomCard"
 import moment from "moment"
 import MainingItem from "../../MainingItem"
+import { usdToBtc } from "../../../utils"
 
 const MainingHistory = () => {
   const currentDate = moment() // TODO: data from store
   // TODO: money from store
+
+  const usd = useSelector(state => state.user.balance)
+  const rate = useSelector(state => state.rate)
+
+  const btc = usdToBtc(usd, rate)
 
   return (
     <CustomCard
