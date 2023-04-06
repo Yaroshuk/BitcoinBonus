@@ -13,20 +13,13 @@ import MyMainers from "../components/Blocks/MyMainers"
 import CollectBonuses from "../components/Blocks/CollectBonuses"
 import { useProtectedRoute } from "../utils"
 import BonusesCollector from "../components/Blocks/BonusesCollector"
+import CustomCard from "../components/CustomCard"
+import ChatCard from "../components/ChatCard"
 
 const Chat = () => {
   useProtectedRoute()
 
-  return (
-    <Grid
-      width="100%"
-      height="100%"
-      templateColumns={{ base: "1fr", sm: "1fr 32%" }}
-      gap="20px"
-    >
-      <Box>CHAT</Box>
-    </Grid>
-  )
+  return <ChatCard>dfdf</ChatCard>
 }
 
 export default Chat

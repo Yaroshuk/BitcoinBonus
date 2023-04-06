@@ -13,6 +13,7 @@ const Footer = ({ isChat }) => {
       flexDirection={{ base: "column", sm: "row" }}
       justifyContent={isChat ? "center" : "space-between"}
       gap={isChat && { base: "0", sm: "60px" }}
+      display={{ base: isChat ? "none" : "flex", sm: "flex" }}
     >
       <FooterMenu
         title="Company"

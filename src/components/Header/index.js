@@ -7,10 +7,10 @@ const Header = ({ children, ...props }) => {
   return (
     <Flex
       w="100%"
-      {...props}
       justifyContent="space-between"
       py={{ base: "20px", md: "30px" }}
       alignItems="center"
+      {...props}
     >
       {children}
     </Flex>

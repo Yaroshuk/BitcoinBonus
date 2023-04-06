@@ -20,23 +20,25 @@ const Layout = ({ children }) => {
     }
   }, [location.pathname])
 
+  // TODO: add balance to header
+
   return (
     <>
       <Container
         minW="100vw"
         minH="100vh"
         bg={isChat ? "#431480" : "#F0ECF5"}
-        px={{ base: 4, sm: 8, lg: "70px" }}
+        px={{ base: isChat ? 0 : 4, sm: 8, lg: "70px" }}
         py={{ base: 0, lg: "30px" }}
       >
         <VStack
           w="full"
           h="full"
           minH="100vh"
-          maxW={"1620px"}
+          maxW={"1248px"}
           margin={"0 auto"}
         >
-          <Header>
+          <Header px={{ base: isChat ? "4" : 0, sm: "0" }}>
             <Logo isChat={isChat} />
             <HeaderProfile />
           </Header>
