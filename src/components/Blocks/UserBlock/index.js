@@ -8,12 +8,19 @@ import UserTransactions from "../UserTransactions"
 
 const UserBlock = () => {
   const usd = useSelector(state => state.user.balance)
-  const rate = useSelector(state => state.rate)
+  const rate = useSelector(state => state.user.rate)
 
   const btc = usdToBtc(usd, rate)
+
+  console.log(usd, rate, btc)
+
   return (
     <Box overflowX={"auto"} maxW={"100%"} width={"100%"}>
-      <Grid gridTemplateColumns={"1fr 1fr 200px"} gap={"20px"}>
+      <Grid
+        gridTemplateColumns={"1fr 1fr 200px"}
+        gap={"20px"}
+        marginBottom={"10px"}
+      >
         <UserBalance />
         <UserCollected
           bitcoins={thousandsFormatter(btc)}

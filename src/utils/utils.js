@@ -6,6 +6,7 @@ import { useEffect } from "react"
 export const currencyFormatter = new Intl.NumberFormat("en-Us")
 
 export const thousandsFormatter = (num, separator = " ") => {
+  if (!num || !num?.toString) return " "
   const splitedNumber = num.toString().split(".")
 
   splitedNumber[0] = splitedNumber[0].replace(
@@ -52,6 +53,6 @@ export const useProtectedRoute = (redirectRoute = "/") => {
   }, [isLogged])
 }
 
-export const usdToBtc = (usd, rate) => (usd / rate).toFixed(2)
+export const usdToBtc = (usd, rate) => (usd / rate).toFixed(6)
 
 export const btcToUsd = (btc, rate) => (btc * rate).toFixed(2)

@@ -16,13 +16,16 @@ export const userSlice = createSlice({
     setBalance: (state, action) => {
       state.balance = action.payload
     },
+    addBalance: (state, action) => {
+      state.balance += action.payload
+    },
     setIsLogged: (state, action) => {
       state.isLogged = action.payload
     }
   }
 })
 
-export const { setLogin, setPassword, setBalance, setIsLogged } =
+export const { setLogin, setPassword, setBalance, setIsLogged, addBalance } =
   userSlice.actions
 
 export default userSlice.reducer

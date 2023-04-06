@@ -5,20 +5,33 @@ import CustomCard from "../../CustomCard"
 import ProgressBar from "../../ProgressBar"
 import CollectorWindow from "../../CollectorWindow"
 
-import { getRandomInt, getRandomString, thousandsFormatter } from "../../../utils"
+import {
+  getRandomInt,
+  getRandomString,
+  thousandsFormatter,
+  usdToBtc
+} from "../../../utils"
 
 import {
   addStep,
   addTransaction,
   setIsStarted,
-  setIsFinished
+  setIsFinished,
+  addCollected,
+  addConfirmed,
+  addUnconfirmed
 } from "../../../store/slices/collector"
+import { setBalance } from "../../../store/slices/user"
+import TotalCollected from "../TotalCollected"
 
 let timer = null
 
 const BonusesCollector = () => {
-  const btc = "0,00133"
   const money = useSelector(state => state.user.balance)
+  const rate = useSelector(state => state.user.rate)
+
+  const btc = usdToBtc(money, rate)
+
   const dispatch = useDispatch()
 
   const transactions = useSelector(state => state.collector.transactions)
@@ -28,7 +41,6 @@ const BonusesCollector = () => {
   const maxStep = useSelector(state => state.collector.maxStep)
 
   const generateTransaction = () => {
-    console.log("1111", currentStep, maxStep)
     if (currentStep >= maxStep) {
       finish()
 
@@ -40,15 +52,23 @@ const BonusesCollector = () => {
 
     const transaction = {
       wallet: getRandomString(),
-      sumBtc: `0.00000${getRandomInt(2, 5)}`, // TODO: count this
-      sumUsd: Number(`0.0${getRandomInt(6, 15)}`),
+      sumUsd: Number(`0.0${getRandomInt(6, 40)}`),
       status
     }
 
+    transaction.sumBtc = usdToBtc(transaction.sumUsd, rate)
+
     dispatch(addTransaction(transaction))
+
+    dispatch(setBalance(Number(money + transaction.sumUsd).toFixed(2)))
+
+    dispatch(addCollected(+transaction.sumUsd))
 
     if (status) {
       dispatch(addStep())
+      dispatch(addConfirmed())
+    } else {
+      dispatch(addUnconfirmed())
     }
   }
 
@@ -87,7 +107,7 @@ const BonusesCollector = () => {
   }, [isStarted])
 
   if (isFinished) {
-    return <Text>FINISHED</Text>
+    return <TotalCollected />
   }
 
   return (
@@ -112,7 +132,11 @@ const BonusesCollector = () => {
       <Box>
         <ProgressBar value={(currentStep / maxStep) * 100} />
         <CollectorWindow transactions={transactions} />
-        <Text color={"pink.100"} fontSize={{ base: "14px", sm: "18px" }}>
+        <Text
+          color={"pink.100"}
+          fontSize={{ base: "14px", sm: "18px" }}
+          marginTop={"20px"}
+        >
           *Usually the process of collecting bonuses takes 5-10 minutes
         </Text>
       </Box>

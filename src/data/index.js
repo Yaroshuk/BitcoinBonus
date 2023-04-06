@@ -1,6 +1,6 @@
 // TODO: fill messages
 
-export const collectorMaxStep = 357
+export const collectorMaxStep = 450
 
 export const bitcoinCourse = 28085.37
 

@@ -2,7 +2,7 @@ import React from "react"
 import { Box, Link, Flex, Text } from "@chakra-ui/react"
 import { BitcoinIcon } from "../Icons"
 
-const Logo = () => {
+const Logo = ({ isChat }) => {
   return (
     <Link
       display="flex"
@@ -11,7 +11,7 @@ const Logo = () => {
       href="#"
       fontSize={30}
       fontWeight="bold"
-      textColor={"brand.600"}
+      textColor={isChat ? "white" : "brand.600"}
       _hover={{
         color: "brand.500",
         "&>div": { bgGradient: "linear(to-t, brand.300, brand.100)" }

@@ -6,10 +6,13 @@ import {
   userState
 } from "../data"
 import {
+  COLLECTOR_COLLECTED,
+  COLLECTOR_CONFIRMED,
   COLLECTOR_CURRENT_STEP,
   COLLECTOR_FINISHED,
   COLLECTOR_STARTED,
   COLLECTOR_TRANSACTIONS,
+  COLLECTOR_UNCONFIRMED,
   IS_LOGGED,
   LAST_VISITED
 } from "../constants"
@@ -40,6 +43,9 @@ export const getCollectorInitialState = () => {
     transactions: localStorage.getItem(COLLECTOR_TRANSACTIONS)
       ? JSON.parse(localStorage.getItem(COLLECTOR_TRANSACTIONS))
       : [],
-    maxStep: collectorMaxStep
+    maxStep: collectorMaxStep,
+    collected: localStorage.getItem(COLLECTOR_COLLECTED) ?? 0,
+    confirmed: localStorage.getItem(COLLECTOR_CONFIRMED) ?? 0,
+    unconfirmed: localStorage.getItem(COLLECTOR_UNCONFIRMED) ?? 0
   }
 }

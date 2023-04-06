@@ -19,8 +19,8 @@ const BalanceChart = ({ balance }) => {
         isOpen
       >
         <Box
-          w={"22px"}
-          h={"22px"}
+          w={"6%"}
+          h={"8%"}
           background={
             "linear-gradient(white, white) padding-box, linear-gradient(to top, #414DED, #7B2FD0) border-box;"
           }

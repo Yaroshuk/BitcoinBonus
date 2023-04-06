@@ -5,7 +5,10 @@ import {
   COLLECTOR_TRANSACTIONS,
   COLLECTOR_CURRENT_STEP,
   COLLECTOR_STARTED,
-  COLLECTOR_FINISHED
+  COLLECTOR_FINISHED,
+  COLLECTOR_COLLECTED,
+  COLLECTOR_CONFIRMED,
+  COLLECTOR_UNCONFIRMED
 } from "../../constants"
 
 const initialState = getCollectorInitialState()
@@ -37,11 +40,30 @@ export const collectorSlice = createSlice({
     setIsFinished: (state, action) => {
       state.isFinished = action.payload
       localStorage.setItem(COLLECTOR_FINISHED, action.payload)
+    },
+    addCollected: (state, action) => {
+      state.collected = +state.collected + action.payload
+      localStorage.setItem(COLLECTOR_COLLECTED, state.collected)
+    },
+    addConfirmed: state => {
+      ++state.confirmed
+      localStorage.setItem(COLLECTOR_CONFIRMED, state.confirmed)
+    },
+    addUnconfirmed: state => {
+      ++state.unconfirmed
+      localStorage.setItem(COLLECTOR_UNCONFIRMED, state.unconfirmed)
     }
   }
 })
 
-export const { setIsStarted, addStep, addTransaction, setIsFinished } =
-  collectorSlice.actions
+export const {
+  setIsStarted,
+  addStep,
+  addTransaction,
+  setIsFinished,
+  addCollected,
+  addConfirmed,
+  addUnconfirmed
+} = collectorSlice.actions
 
 export default collectorSlice.reducer
