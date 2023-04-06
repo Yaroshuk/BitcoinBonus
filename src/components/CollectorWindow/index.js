@@ -65,7 +65,7 @@ const items = [
   }
 ]
 
-const CollectorWindow = () => {
+const CollectorWindow = ({ transactions }) => {
   return (
     <Box display={"flex"} flexDir={"column"} gap={{ base: "24px", lg: "15px" }}>
       <Grid
@@ -77,7 +77,7 @@ const CollectorWindow = () => {
         <GridItem>Amount BTC</GridItem>
         <GridItem>Status</GridItem>
       </Grid>
-      {items.map((item, index) => {
+      {transactions.map((item, index) => {
         return <CollectorItem {...item} key={index} />
       })}
     </Box>

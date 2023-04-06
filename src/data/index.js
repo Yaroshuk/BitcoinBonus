@@ -1,5 +1,7 @@
 // TODO: fill messages
 
+export const collectorMaxStep = 357
+
 export const memberChatMessages = [
   "Cras eget diam ac nunc suscipit pulvinar.",
   "Donec faucibus, elit vitae ultricies scelerisque, velit ligula vestibulum justo, eget congue justo ex in tellus. Quisque fermentum semper eros sed lobortis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In hac habitasse platea dictumst. Nam vel fringilla mauris, ut fermentum erat.",

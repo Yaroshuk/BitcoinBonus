@@ -31,10 +31,10 @@ const ProgressBar = ({ value = 10 }) => {
           borderTop: "10px solid #414DED"
         }}
       >
-        {`${value}%`}
+        {`${value.toFixed(2)}%`}
       </Box>
       <Progress
-        value={value}
+        value={value.toFixed(2)}
         background={"#f7f3fc"}
         borderRadius={"25px"}
         height={"26px"}

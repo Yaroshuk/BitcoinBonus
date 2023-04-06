@@ -23,6 +23,7 @@ import Collecting from "./pages/collecting"
 import ProtectedRoute from "./components/ProtectedRoute"
 import { COLLECTING_PAGE, MAINERS_PAGE, USER_PAGE } from "./constants"
 import { originalMessages } from "./data"
+import { getRandomString } from "./utils"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
