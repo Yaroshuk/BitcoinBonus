@@ -18,6 +18,7 @@ const ChatCard = ({
   children,
   flipHeader,
   bodyPadding,
+  bodyStyles,
   ...props
 }) => {
   return (
@@ -60,7 +61,10 @@ const ChatCard = ({
           </CardHeader>
         ))}
       {children && (
-        <CardBody {...(bodyPadding && { padding: bodyPadding })}>
+        <CardBody
+          {...(bodyPadding && { padding: bodyPadding })}
+          {...bodyStyles}
+        >
           {children}
         </CardBody>
       )}

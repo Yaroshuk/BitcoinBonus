@@ -15,11 +15,12 @@ import { useProtectedRoute } from "../utils"
 import BonusesCollector from "../components/Blocks/BonusesCollector"
 import CustomCard from "../components/CustomCard"
 import ChatCard from "../components/ChatCard"
+import ManagerChat from "../components/Blocks/ManagerChat"
 
 const Chat = () => {
   useProtectedRoute()
 
-  return <ChatCard>dfdf</ChatCard>
+  return <ManagerChat />
 }
 
 export default Chat
