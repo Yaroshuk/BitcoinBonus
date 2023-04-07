@@ -17,6 +17,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getRandomInt } from "../../../utils"
 import {
   managerFirstStep,
+  managerFourthStep,
   managerSecondStep,
   managerThirdStep
 } from "../../../data"
@@ -28,7 +29,7 @@ import { FORM_PAGE, LAST_VISITED } from "../../../constants"
 const nickname = "Amelia"
 
 const ManagerChat = () => {
-  const [isManagerOnline, setIsManagerOnline] = useState(true) // TODO: turn on
+  const [isManagerOnline, setIsManagerOnline] = useState(false) // TODO: turn on
   const [messagesSource, setMessagesSource] = useState(managerFirstStep)
   const navigate = useNavigate()
 
@@ -43,6 +44,7 @@ const ManagerChat = () => {
     onExpire: () => {
       setTimeout(() => {
         setIsManagerOnline(true)
+        localStorage.setItem(LAST_VISITED, FORM_PAGE)
       }, 1000)
     }
   })
@@ -69,6 +71,11 @@ const ManagerChat = () => {
 
       if (item.value === "no") {
         setMessagesSource(managerThirdStep)
+        return
+      }
+
+      if (item.value === "yes") {
+        setMessagesSource(managerFourthStep)
         return
       }
 

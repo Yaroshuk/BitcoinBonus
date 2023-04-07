@@ -66,8 +66,10 @@ const Layout = ({ children }) => {
           justifyContent={"center"}
           alignItems={"center"}
           color={"white"}
+          fontSize={"20px"}
+          fontWeight={"semibold"}
         >
-          LOADING
+          Searching your profile. <br /> Please wait a moment.
         </Box>
       )}
     </>

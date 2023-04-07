@@ -22,6 +22,7 @@ import Mainers from "./pages/mainers"
 import Collecting from "./pages/collecting"
 import ProtectedRoute from "./components/ProtectedRoute"
 import {
+  CHAT_LAST_PAGE,
   CHAT_PAGE,
   COLLECTING_PAGE,
   FORM_PAGE,
@@ -31,7 +32,8 @@ import {
 import { originalMessages } from "./data"
 import { getRandomString } from "./utils"
 import Chat from "./pages/chat"
-import FillForm from "./components/Blocks/FillForm"
+import Form from "./pages/form"
+import ChatLast from "./pages/chatLast"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -81,7 +83,15 @@ function App() {
           path: `/${FORM_PAGE}`,
           element: (
             <ProtectedRoute isLogged={isLogged}>
-              <FillForm />
+              <Form />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `/${CHAT_LAST_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <ChatLast />
             </ProtectedRoute>
           )
         }
