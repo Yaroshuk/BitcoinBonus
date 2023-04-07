@@ -15,36 +15,27 @@ import {
 } from "../../../store/slices/managerChat"
 import { useDispatch, useSelector } from "react-redux"
 import { getRandomInt } from "../../../utils"
-import {
-  managerFirstStep,
-  managerFourthStep,
-  managerSecondStep,
-  managerThirdStep
-} from "../../../data"
+import { managerFifthStep } from "../../../data"
 import { useManagerChar } from "../../../utils/chat"
-import { FORM_PAGE, LAST_VISITED } from "../../../constants"
+import { FORM_PAGE, LAST_VISITED, WITHDRAW_PAGE } from "../../../constants"
 
-// let mainTimer = null
-// let messageTimer = null
-const nickname = "Amelia"
-
-const ManagerChat = () => {
+const ManagerChatLast = () => {
   const [isManagerOnline, setIsManagerOnline] = useState(false) // TODO: turn on
-  const [messagesSource, setMessagesSource] = useState(managerFirstStep)
+  const [messagesSource, setMessagesSource] = useState(managerFifthStep)
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
   const messages = useSelector(state => state.managerChat.messages)
   const writing = useSelector(state => state.managerChat.writing)
 
-  useManagerChar(messagesSource, isManagerOnline)
+  useManagerChar(messagesSource)
 
   const { seconds } = useTimer({
     expiryTimestamp: moment().add(5, "seconds"),
     onExpire: () => {
       setTimeout(() => {
         setIsManagerOnline(true)
-        localStorage.setItem(LAST_VISITED, FORM_PAGE)
+        localStorage.setItem(LAST_VISITED, WITHDRAW_PAGE)
       }, 1000)
     }
   })
@@ -64,25 +55,9 @@ const ManagerChat = () => {
 
       dispatch(setMessages(newMessages))
 
-      if (item.value === "dont_remember") {
-        setMessagesSource(managerSecondStep)
-        return
-      }
-
-      if (item.value === "no") {
-        setMessagesSource(managerThirdStep)
-        return
-      }
-
-      if (item.value === "yes") {
-        setMessagesSource(managerFourthStep)
-        return
-      }
-
-      if (item.value === "fill_form") {
-        navigate("/form")
-        dispatch(setMessages([]))
-        localStorage.setItem(LAST_VISITED, FORM_PAGE)
+      if (item.value === "convert") {
+        navigate("/withdraw")
+        localStorage.setItem(LAST_VISITED, WITHDRAW_PAGE)
         // return
       }
     },
@@ -126,4 +101,4 @@ const ManagerChat = () => {
   )
 }
 
-export default ManagerChat
+export default ManagerChatLast

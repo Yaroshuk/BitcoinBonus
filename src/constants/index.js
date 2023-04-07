@@ -16,6 +16,8 @@ export const FORM_PAGE = "form"
 
 export const CHAT_LAST_PAGE = "chatlast"
 
+export const WITHDRAW_PAGE = "withdraw"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 

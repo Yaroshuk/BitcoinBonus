@@ -27,13 +27,15 @@ import {
   COLLECTING_PAGE,
   FORM_PAGE,
   MAINERS_PAGE,
-  USER_PAGE
+  USER_PAGE,
+  WITHDRAW_PAGE
 } from "./constants"
 import { originalMessages } from "./data"
 import { getRandomString } from "./utils"
 import Chat from "./pages/chat"
 import Form from "./pages/form"
 import ChatLast from "./pages/chatLast"
+import Withdraw from "./pages/withdraw"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -92,6 +94,14 @@ function App() {
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <ChatLast />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `/${WITHDRAW_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Withdraw />
             </ProtectedRoute>
           )
         }

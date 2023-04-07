@@ -1,7 +1,7 @@
 import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react"
 import React, { useCallback } from "react"
 
-const ChatInput = ({ value, onChange, onAddMessage }) => {
+const ChatInput = ({ value, onChange, disabled, onAddMessage }) => {
   const onSubmit = useCallback(
     e => {
       e.preventDefault()
@@ -29,9 +29,15 @@ const ChatInput = ({ value, onChange, onAddMessage }) => {
             border: "2px solid transparent"
           }}
           onChange={event => onChange(event.target.value)}
+          isDisabled={disabled}
         />
         <InputRightElement height={"100%"} pr={"55px"}>
-          <Button size={"sm"} variant={"white"} type={"submit"}>
+          <Button
+            size={"sm"}
+            variant={"white"}
+            type={"submit"}
+            isDisabled={disabled}
+          >
             send
           </Button>
         </InputRightElement>

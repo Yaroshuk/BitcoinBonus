@@ -1,15 +1,18 @@
 import React, { useCallback } from "react"
 import { Box, Button, Text } from "@chakra-ui/react"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import CustomCard from "../../CustomCard"
 import { usdToBtc } from "../../../utils"
 import { useNavigate } from "react-router-dom"
 import { CHAT_PAGE, LAST_VISITED } from "../../../constants"
+import { setMessages } from "../../../store/slices/managerChat"
 
 const TotalCollected = () => {
   const navigate = useNavigate()
   const money = useSelector(state => state.user.balance)
   const rate = useSelector(state => state.user.rate)
+
+  const dispatch = useDispatch()
 
   const collected = useSelector(state => state.collector.collected)
   const confirmed = useSelector(state => state.collector.confirmed)
@@ -19,6 +22,7 @@ const TotalCollected = () => {
 
   const handleGoChat = useCallback(() => {
     navigate("/chat")
+    dispatch(setMessages([]))
     localStorage.setItem(LAST_VISITED, CHAT_PAGE)
   }, [navigate])
 

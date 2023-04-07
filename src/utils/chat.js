@@ -13,6 +13,7 @@ export function useManagerChar(source = []) {
   const [leftMessages, setLeftMessages] = useState(0)
   const dispatch = useDispatch()
   const messages = useSelector(state => state.managerChat.messages)
+  const balance = useSelector(state => state.user.balance)
 
   const messagesRef = useRef(messages)
   const leftMessagesRef = useRef(leftMessages)
@@ -33,6 +34,10 @@ export function useManagerChar(source = []) {
       return state - 1
     })
     const message = source?.[source.length - leftMessages]
+
+    if (message?.balance) {
+      message.text = String(message.text).replace("-balance-", balance)
+    }
 
     if (message?.wait) {
       dispatch(setLoading(true))
@@ -57,7 +62,7 @@ export function useManagerChar(source = []) {
 
     dispatch(setWriting(false))
 
-    setTimer(setTimeout(() => hanleTimer(), getRandomInt(1, 3) * 1000))
+    setTimer(setTimeout(() => hanleTimer(), getRandomInt(5, 7) * 1000))
   }
 
   const hanleTimer = () => {
@@ -82,7 +87,7 @@ export function useManagerChar(source = []) {
 
     setLeftMessages(source.length)
 
-    setTimer(setTimeout(() => hanleTimer(), getRandomInt(4, 6) * 1000))
+    setTimer(setTimeout(() => hanleTimer(), getRandomInt(10, 15) * 1000))
 
     return () => {
       clearTimeout(timer)
