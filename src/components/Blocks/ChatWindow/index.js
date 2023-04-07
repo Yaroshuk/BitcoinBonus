@@ -15,6 +15,26 @@ const ChatWindow = ({ messages, writing, ...props }) => {
     })
   }, [messages, refChatWindow])
 
+  const getMessages = () => {
+    if (!messages || !messages.length) return null
+
+    return (
+      <>
+        {messages.map((message, index) => {
+          return (
+            <ChatMessage
+              key={`${message.name}-${index}`}
+              text={message.text}
+              author={message.author}
+              time={message.time}
+              isUser={message.isUser}
+            />
+          )
+        })}
+      </>
+    )
+  }
+
   return (
     <Box
       width={"100%"}
@@ -33,19 +53,7 @@ const ChatWindow = ({ messages, writing, ...props }) => {
         gap={"28px"}
         position={"relative"}
       >
-        {messages &&
-          messages?.length &&
-          messages.map((message, index) => {
-            return (
-              <ChatMessage
-                key={`${message.name}-${index}`}
-                text={message.text}
-                author={message.author}
-                time={message.time}
-                isUser={message.isUser}
-              />
-            )
-          })}
+        {getMessages()}
       </Box>
     </Box>
   )
