@@ -40,6 +40,19 @@ export const userState = {
   rate: bitcoinCourse
 }
 
+export const managerFirstStep = [
+  {
+    text: "My name is Amelia, and I am the lead manager of the Service Payments Department 'Bitcoin Bonus' .Judging by the information I have, you have not been on the site for 364 days. Related to this question, have you previously received notice that you are entitled to payment from Bitcoin Bonus?"
+  },
+  {
+    text: "Looking forward to hearing from you"
+  },
+  {
+    text: " ",
+    btn: ["Yes", "No", "I don't rememder"]
+  }
+]
+
 export const managerBonuses = [
   {
     text: "My name is Amelia, and I am the lead manager of the Service Payments Department 'Bitcoin Bonus' .Judging by the information I have, you have not been on the site for 364 days. Related to this question, have you previously received notice that you are entitled to payment from Bitcoin Bonus?"
