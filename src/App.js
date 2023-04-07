@@ -24,12 +24,14 @@ import ProtectedRoute from "./components/ProtectedRoute"
 import {
   CHAT_PAGE,
   COLLECTING_PAGE,
+  FORM_PAGE,
   MAINERS_PAGE,
   USER_PAGE
 } from "./constants"
 import { originalMessages } from "./data"
 import { getRandomString } from "./utils"
 import Chat from "./pages/chat"
+import FillForm from "./components/Blocks/FillForm"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -72,6 +74,14 @@ function App() {
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Chat />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `/${FORM_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <FillForm />
             </ProtectedRoute>
           )
         }

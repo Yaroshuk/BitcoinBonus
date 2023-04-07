@@ -12,6 +12,8 @@ export const COLLECTING_PAGE = "collecting"
 
 export const CHAT_PAGE = "chat"
 
+export const FORM_PAGE = "form"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 

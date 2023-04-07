@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from "react"
 import { Box, Button, Text } from "@chakra-ui/react"
 import ChatMessage from "../../ChatMessage"
 import { customScroll } from "../../../chakra"
+import ChatControll from "../../ChatControll"
 
-const ChatWindow = ({ messages, writing, ...props }) => {
+const ChatWindow = ({ messages, writing, onControl, ...props }) => {
   const refChatWindow = useRef()
 
   useEffect(() => {
@@ -21,6 +22,10 @@ const ChatWindow = ({ messages, writing, ...props }) => {
     return (
       <>
         {messages.map((message, index) => {
+          if (message.btn) {
+            return <ChatControll key={index} buttons={message.btn} onClick={onControl} />
+          }
+
           return (
             <ChatMessage
               key={`${message.name}-${index}`}

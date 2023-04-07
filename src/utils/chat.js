@@ -4,30 +4,49 @@ import { getRandomInt } from "./utils"
 import { addMessage, setWriting } from "../store/slices/managerChat"
 import moment from "moment"
 import { useTimer } from "react-timer-hook"
+import { setLoading } from "../store/slices/global"
 
 const nickname = "Amelia"
 
 export function useManagerChar(source = []) {
   const [timer, setTimer] = useState(null)
-  const [isStarted, setIsStarted] = useState(false)
+  const [leftMessages, setLeftMessages] = useState(0)
   const dispatch = useDispatch()
   const messages = useSelector(state => state.managerChat.messages)
 
   const messagesRef = useRef(messages)
-
-  const memoMessages = useMemo(() => messages, [messages])
+  const leftMessagesRef = useRef(leftMessages)
 
   const pushMessage = function (msg) {
     const messages = messagesRef.current
-    if (messages.length >= source.length) {
+    const leftMessages = leftMessagesRef.current
+
+    console.log(source.length, leftMessages, source)
+    if (source.length - leftMessages < 0 || !leftMessages) {
       clearTimeout(timer)
       setTimer(null)
       dispatch(setWriting(false))
       return
     }
 
-    const message = source[messages.length]
+    setLeftMessages(state => {
+      return state - 1
+    })
+    const message = source?.[source.length - leftMessages]
 
+    if (message?.wait) {
+      dispatch(setLoading(true))
+
+      setTimeout(() => {
+        dispatch(setLoading(false))
+        sendMessageToStore(message)
+      }, 5 * 1000)
+    } else {
+      sendMessageToStore(message)
+    }
+  }
+
+  const sendMessageToStore = message => {
     dispatch(
       addMessage({
         ...message,
@@ -49,12 +68,19 @@ export function useManagerChar(source = []) {
 
   useEffect(() => {
     messagesRef.current = messages
-  })
+    leftMessagesRef.current = leftMessages
+  }, [messages, leftMessages])
 
   useEffect(() => {
-    if (timer || isStarted) return
+    // if (timer) return
+    setTimer(timer => {
+      clearTimeout(timer)
+      return null
+    })
 
-    setIsStarted(true)
+    if (!source || !source?.length) return
+
+    setLeftMessages(source.length)
 
     setTimer(setTimeout(() => hanleTimer(), getRandomInt(4, 6) * 1000))
 
@@ -62,7 +88,7 @@ export function useManagerChar(source = []) {
       clearTimeout(timer)
       setTimer(null)
     }
-  }, [timer, isStarted])
+  }, [source])
 
   return {
     finished: false

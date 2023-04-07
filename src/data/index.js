@@ -49,7 +49,47 @@ export const managerFirstStep = [
   },
   {
     text: " ",
-    btn: ["Yes", "No", "I don't rememder"]
+    btn: [
+      { label: "Yes", value: "yes" },
+      { label: "No", value: "no" },
+      { label: "I don't rememder", value: "dont_remember" }
+    ]
+  }
+]
+
+export const managerSecondStep = [
+  // don't remember
+  {
+    text: "I have an approved active request from your account to withdraw bitcoin bonuses earned by you. In order to transfer funds from the service to your card or wallet, it is necessary to have your application form. I will now look for this questionnaire, it will not take more than a minute."
+  },
+  {
+    wait: true,
+    text: "Thank you for the wait. I checked and I couldn't find your profile in our database. It means that you haven't withdrawn your bitcoins from the service yet."
+  },
+  {
+    text: "Now I will bring out for you a special form for filling out the questionnaire and receiving funds."
+  },
+  {
+    text: " ",
+    btn: [{ label: "Fill out the form", value: "fill_form" }]
+  }
+]
+
+export const managerThirdStep = [
+  // No
+  {
+    text: "Thank you for your response. Your account has an approved request to withdraw bitcoin bonuses earned. To proceed with the transfer to your card or wallet, we need the completed withdrawal application form. I'll quickly retrieve it for you. It should take no more than a minute."
+  },
+  {
+    wait: true,
+    text: "Thank you for your patience. After reviewing our database, I couldn't locate your profile, indicating that you haven't yet withdrawn your bitcoins from our service."
+  },
+  {
+    text: "I'll now present to you the special form for completing the withdrawal application and receiving your funds."
+  },
+  {
+    text: " ",
+    btn: [{ label: "Fill out the form", value: "fill_form" }]
   }
 ]
 
@@ -62,6 +102,7 @@ export const managerBonuses = [
   },
   // I don't remember btn
   {
+    wait: true,
     text: "I have an approved active request from your account to withdraw bitcoin bonuses earned by you. In order to transfer funds from the service to your card or wallet, it is necessary to have your application form. I will now look for this questionnaire, it will not take more than a minute."
   },
   {

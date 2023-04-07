@@ -7,15 +7,20 @@ import Footer from "../Footer"
 import Logo from "../Logo"
 import HeaderProfile from "../HeaderProfile"
 import { useSelector } from "react-redux"
-import { CHAT_PAGE, LAST_VISITED, USER_PAGE } from "../../constants"
+import { CHAT_PAGE, FORM_PAGE, LAST_VISITED, USER_PAGE } from "../../constants"
 
 const Layout = ({ children }) => {
   const [isChat, setIsChat] = useState(false)
 
+  const isLoading = useSelector(state => state.global.isLoading)
+
   const location = useLocation()
 
   useEffect(() => {
-    if (location.pathname === `/${CHAT_PAGE}`) {
+    if (
+      location.pathname === `/${CHAT_PAGE}` ||
+      location.pathname === `/${FORM_PAGE}`
+    ) {
       setIsChat(true)
     }
   }, [location.pathname])
@@ -48,6 +53,23 @@ const Layout = ({ children }) => {
           <Footer isChat={isChat} />
         </VStack>
       </Container>
+      {isLoading && (
+        <Box
+          position={"fixed"}
+          width={"100vw"}
+          height={"100vh"}
+          left={"0"}
+          top={"0"}
+          zIndex={"10"}
+          background={"rgba(0,0,0,0.5)"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          color={"white"}
+        >
+          LOADING
+        </Box>
+      )}
     </>
   )
 }
