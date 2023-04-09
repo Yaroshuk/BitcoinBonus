@@ -38,10 +38,6 @@ const ChatControll = ({ buttons, onClick, ...props }) => {
           key={index}
           minW={"100px"}
           onClick={() => clickHandler(item)}
-          animation={`1.5s ease 0s infinite normal none running ${pulsation}`}
-          _hover={{
-            animation: `0.75s ease 0s infinite normal none running ${pulsation}`
-          }}
         >
           {item.label}
         </Button>

@@ -1,4 +1,24 @@
-import { extendTheme, defineStyleConfig } from "@chakra-ui/react"
+import { extendTheme, defineStyleConfig, keyframes } from "@chakra-ui/react"
+
+const pulsation = keyframes`
+  0% {
+    box-shadow: #811FFF 0 0 0 0;
+  }
+
+  100% {
+    box-shadow: rgba(150, 92, 245, 0) 0 0 0 15px;
+  }
+`
+
+const pulsationWhite = keyframes`
+  0% {
+    box-shadow: #E8D7FF 0 0 0 0;
+  }
+
+  100% {
+    box-shadow: rgba(150, 92, 245, 0) 0 0 0 15px;
+  }
+`
 
 const colors = {
   brand: {
@@ -64,6 +84,7 @@ const Button = defineStyleConfig({
   variants: {
     solid: {
       bgGradient: gradientBtn,
+      animation: `1.5s ease 0s infinite normal none running ${pulsation}`,
       _hover: {
         bgGradient: gradientBtnHover,
         _disabled: { bgGradient: gradientBtnHover }
@@ -75,6 +96,7 @@ const Button = defineStyleConfig({
       color: "brand.400",
       bg: "white",
       textTransform: "uppercase",
+      animation: `1.5s ease 0s infinite normal none running ${pulsationWhite}`,
       boxShadow:
         "0px 6px 28px rgba(0, 0, 0, 0.05), inset 0px 1px 0px rgba(255, 255, 255, 0.25);",
       _hover: {
@@ -86,6 +108,7 @@ const Button = defineStyleConfig({
       bgGradient: "linear-gradient(180deg, #FFFFFF 0%, #E8D7FF 100%)",
       boxShadow: "0px 10px 15px rgba(93, 64, 224, 0.15)",
       fontSize: { base: "18px", sm: "22px" },
+      animation: `1.5s ease 0s infinite normal none running ${pulsationWhite}`,
       fontWeight: "bold",
       _hover: {
         bgGradient: "linear-gradient(180deg, #FFFFFF 0%, #F4EBFF 100%)"
@@ -101,6 +124,7 @@ const Button = defineStyleConfig({
       fontSize: { base: "14px", sm: "18px" },
       fontWeight: "bold",
       textTransform: "uppercase",
+      animation: `1.5s ease 0s infinite normal none running ${pulsationWhite}`,
       _hover: {
         background: "white"
       },

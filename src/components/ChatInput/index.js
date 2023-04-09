@@ -54,6 +54,7 @@ const ChatInput = ({ value, onChange, disabled, onAddMessage, writing }) => {
             variant={"white"}
             type={"submit"}
             isDisabled={disabled}
+            animation={"none"}
           >
             send
           </Button>
