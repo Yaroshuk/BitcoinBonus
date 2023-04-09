@@ -13,6 +13,7 @@ import MyMainers from "../components/Blocks/MyMainers"
 import CollectBonuses from "../components/Blocks/CollectBonuses"
 import { useProtectedRoute } from "../utils"
 import BonusesCollector from "../components/Blocks/BonusesCollector"
+import Banner from "../components/Blocks/Banner"
 
 const Collecting = () => {
   useProtectedRoute()
@@ -34,6 +35,7 @@ const Collecting = () => {
         {" "}
         <YourBalance />
         <TopMainers />
+        <Banner />
       </Flex>
     </Grid>
   )

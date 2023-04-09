@@ -12,6 +12,7 @@ import Recomendation from "../components/Blocks/Recomendation"
 import MyMainers from "../components/Blocks/MyMainers"
 import CollectBonuses from "../components/Blocks/CollectBonuses"
 import { useProtectedRoute } from "../utils"
+import Banner from "../components/Blocks/Banner"
 
 const Mainers = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
@@ -49,6 +50,7 @@ const Mainers = () => {
         {" "}
         <YourBalance />
         <TopMainers />
+        <Banner />
       </Flex>
     </Grid>
   )

@@ -11,6 +11,7 @@ import UserBlock from "../components/Blocks/UserBlock"
 import MainingHistory from "../components/Blocks/MainingHistory"
 import Recomendation from "../components/Blocks/Recomendation"
 import { useProtectedRoute } from "../utils"
+import Banner from "../components/Blocks/Banner"
 
 const User = () => {
   const [isOpenModal, setIsOpenModal] = useState(true)
@@ -50,6 +51,7 @@ const User = () => {
         {" "}
         <YourBalance />
         <TopMainers />
+        <Banner />
       </Flex>
     </Grid>
   )
