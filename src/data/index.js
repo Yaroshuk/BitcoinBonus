@@ -1,4 +1,5 @@
 // TODO: fill messages
+export const externalLink = "https://www.google.com/"
 
 export const collectorMaxStep = 450
 

@@ -7,7 +7,12 @@ import Footer from "../Footer"
 import Logo from "../Logo"
 import HeaderProfile from "../HeaderProfile"
 import { useSelector } from "react-redux"
-import { CHAT_PAGE, FORM_PAGE, LAST_VISITED, USER_PAGE } from "../../constants"
+import {
+  CHAT_LAST_PAGE,
+  CHAT_PAGE,
+  FORM_PAGE,
+  WITHDRAW_PAGE
+} from "../../constants"
 
 const Layout = ({ children }) => {
   const [isChat, setIsChat] = useState(false)
@@ -19,7 +24,9 @@ const Layout = ({ children }) => {
   useEffect(() => {
     if (
       location.pathname === `/${CHAT_PAGE}` ||
-      location.pathname === `/${FORM_PAGE}`
+      location.pathname === `/${FORM_PAGE}` ||
+      location.pathname === `/${CHAT_LAST_PAGE}` ||
+      location.pathname === `/${WITHDRAW_PAGE}`
     ) {
       setIsChat(true)
     }
