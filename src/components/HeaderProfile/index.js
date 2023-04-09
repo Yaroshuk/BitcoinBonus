@@ -2,11 +2,13 @@ import { Flex } from "@chakra-ui/react"
 import React from "react"
 import CurrentOnline from "../CurrentOnline"
 import { ProfileIcon } from "../Icons"
+import ProfileBalance from "../ProfileBalance"
 
-const HeaderProfile = () => {
+const HeaderProfile = ({ isChat }) => {
   return (
     <Flex gap="13px">
-      <CurrentOnline />
+      <CurrentOnline display={{ base: isChat ? "none" : "flex", md: "flex" }} />
+      <ProfileBalance display={{ base: isChat ? "flex" : "none" }} />
       <Flex
         w={{ base: "44px", sm: "54px" }}
         h={{ base: "44px", sm: "54px" }}

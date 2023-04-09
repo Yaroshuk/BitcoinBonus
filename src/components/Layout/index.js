@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
         >
           <Header px={{ base: isChat ? "4" : 0, sm: "0" }}>
             <Logo isChat={isChat} />
-            <HeaderProfile />
+            <HeaderProfile isChat={isChat} />
           </Header>
           <Box as="div" flex={1} width="100%" height="100%">
             <Outlet />

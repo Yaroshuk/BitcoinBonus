@@ -138,6 +138,7 @@ const Form = () => {
       <Flex
         flexDir={{ base: "column-reverse", md: "row" }}
         justifyContent={{ md: "space-between" }}
+        alignItems={"center"}
       >
         <Image
           src="./img/secure-payment.png"

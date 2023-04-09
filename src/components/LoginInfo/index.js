@@ -44,11 +44,6 @@ const LoginInfo = () => {
         opacity={"0.1"}
         sx={{ transform: "rotate(30deg)" }}
       />
-      <BageBitcoin
-        position={"absolute"}
-        top={"-28px"}
-        right={"-10px"}
-      />
     </Box>
   )
 }

@@ -4,7 +4,7 @@ import { getRandomInt } from "../../utils"
 
 let timer = null
 
-const CurrentOnline = () => {
+const CurrentOnline = ({ ...props }) => {
   const [online, setOnline] = useState(getRandomInt(290, 360))
 
   const startTimer = () => {
@@ -32,6 +32,7 @@ const CurrentOnline = () => {
       gap="8px"
       alignItems="center"
       h={{ base: "44px", sm: "54px" }}
+      {...props}
     >
       <Image
         src="./img/icons/indicator-online.svg"
