@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import { Box, Text } from "@chakra-ui/react"
 import { useSelector, useDispatch } from "react-redux"
 import CustomCard from "../../CustomCard"
@@ -30,6 +30,12 @@ const BonusesCollector = () => {
   const money = useSelector(state => state.user.balance)
   const rate = useSelector(state => state.user.rate)
 
+  const moneyRef = useRef(money)
+
+  useEffect(() => {
+    moneyRef.current = money
+  }, [money])
+
   const btc = usdToBtc(money, rate)
 
   const dispatch = useDispatch()
@@ -41,6 +47,7 @@ const BonusesCollector = () => {
   const maxStep = useSelector(state => state.collector.maxStep)
 
   const generateTransaction = () => {
+    const money = moneyRef.current
     if (currentStep >= maxStep) {
       finish()
 
@@ -50,9 +57,11 @@ const BonusesCollector = () => {
 
     const status = Math.random() > 0.3 && true
 
+    const sum = Math.ceil(Number(`0.0${getRandomInt(6, 40)}`) * 100) / 100
+
     const transaction = {
       wallet: getRandomString(),
-      sumUsd: Number(`0.0${getRandomInt(6, 40)}`),
+      sumUsd: sum,
       status
     }
 
@@ -60,7 +69,7 @@ const BonusesCollector = () => {
 
     dispatch(addTransaction(transaction))
 
-    dispatch(setBalance(Number(money + transaction.sumUsd).toFixed(2)))
+    dispatch(setBalance(Number(+money + transaction.sumUsd).toFixed(2)))
 
     dispatch(addCollected(+transaction.sumUsd))
 

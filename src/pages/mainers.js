@@ -31,7 +31,6 @@ const Mainers = () => {
     // handleFormFilled(true)
   }, [setIsOpenModal])
 
-  console.log("ddf", isFormFilled)
   return (
     <Grid
       width="100%"

@@ -12,8 +12,6 @@ const UserBlock = () => {
 
   const btc = usdToBtc(usd, rate)
 
-  console.log(usd, rate, btc)
-
   return (
     <Box overflowX={"auto"} maxW={"100%"} width={"100%"}>
       <Grid

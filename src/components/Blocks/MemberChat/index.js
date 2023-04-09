@@ -61,8 +61,6 @@ const MemberChat = () => {
       dispatch(setLastMessage(0))
     }
 
-    console.log("last", lastMessage)
-
     const message = chatMessages[lastMessage] ?? chatMessages[0]
 
     dispatch(
@@ -78,8 +76,6 @@ const MemberChat = () => {
     if (nextMessageId === chatMessages.length) {
       nextMessageId = 0
     }
-
-    console.log("2", nextMessageId)
 
     dispatch(setLastMessage(nextMessageId))
 

@@ -1,5 +1,7 @@
 export const IS_LOGGED = "isLogged"
 
+export const USER_BALANCE = "userBalance"
+
 export const LAST_VISITED = "lastVisited"
 
 export const HOME_PAGE = "home"

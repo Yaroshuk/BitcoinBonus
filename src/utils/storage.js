@@ -16,7 +16,8 @@ import {
   COLLECTOR_TRANSACTIONS,
   COLLECTOR_UNCONFIRMED,
   IS_LOGGED,
-  LAST_VISITED
+  LAST_VISITED,
+  USER_BALANCE
 } from "../constants"
 import { json } from "react-router-dom"
 
@@ -44,6 +45,7 @@ export const getChatInitialState = () => {
 export const getInitialUserState = () => {
   return {
     ...userState,
+    balance: localStorage.getItem(USER_BALANCE) ?? 24356.45,
     isLogged: localStorage.getItem(IS_LOGGED)
   }
 }

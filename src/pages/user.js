@@ -19,7 +19,6 @@ const User = () => {
   // useProtectedRoute()
 
   const isLogged = useSelector(state => state.user.isLogged)
-  console.log(isLogged)
 
   const handleFormFilled = useCallback(
     state => {

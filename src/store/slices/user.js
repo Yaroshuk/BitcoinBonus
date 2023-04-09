@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { USER_BALANCE } from "../../constants"
 import { getInitialUserState } from "../../utils/storage"
 
 const initialState = getInitialUserState()
@@ -15,9 +16,12 @@ export const userSlice = createSlice({
     },
     setBalance: (state, action) => {
       state.balance = action.payload
+      console.log(";;;;;", action.payload, state.balance)
+      localStorage.setItem(USER_BALANCE, state.balance)
     },
     addBalance: (state, action) => {
       state.balance += action.payload
+      localStorage.setItem(USER_BALANCE, state.balance)
     },
     setIsLogged: (state, action) => {
       state.isLogged = action.payload

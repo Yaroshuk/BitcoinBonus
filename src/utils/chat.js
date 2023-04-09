@@ -22,7 +22,6 @@ export function useManagerChar(source = []) {
     const messages = messagesRef.current
     const leftMessages = leftMessagesRef.current
 
-    console.log(source.length, leftMessages, source)
     if (source.length - leftMessages < 0 || !leftMessages) {
       clearTimeout(timer)
       setTimer(null)
@@ -33,7 +32,11 @@ export function useManagerChar(source = []) {
     setLeftMessages(state => {
       return state - 1
     })
+    const nextMessageId = source.length - leftMessages
+
     const message = source?.[source.length - leftMessages]
+
+    const nextMessage = source?.[nextMessageId + 1]
 
     if (message?.balance) {
       message.text = String(message.text).replace("-balance-", balance)
@@ -45,13 +48,13 @@ export function useManagerChar(source = []) {
       setTimeout(() => {
         dispatch(setLoading(false))
         sendMessageToStore(message)
-      }, 8 * 1000)
+      }, 7 * 1000)
     } else {
-      sendMessageToStore(message)
+      sendMessageToStore(message, nextMessage)
     }
   }
 
-  const sendMessageToStore = message => {
+  const sendMessageToStore = (message, nextMessage = null) => {
     dispatch(
       addMessage({
         ...message,
@@ -62,13 +65,18 @@ export function useManagerChar(source = []) {
 
     dispatch(setWriting(false))
 
-    setTimer(setTimeout(() => hanleTimer(), getRandomInt(8, 14) * 1000))
+    if (nextMessage && nextMessage?.btn && nextMessage?.btn?.length) {
+      setTimer(setTimeout(() => pushMessage(), 1 * 1000))
+      return
+    }
+
+    setTimer(setTimeout(() => hanleTimer(), getRandomInt(2, 3) * 1000))
   }
 
   const hanleTimer = () => {
     dispatch(setWriting(nickname))
 
-    setTimeout(() => pushMessage(), getRandomInt(3, 6) * 1000)
+    setTimeout(() => pushMessage(), getRandomInt(4, 7) * 1000)
   }
 
   useEffect(() => {
@@ -87,7 +95,7 @@ export function useManagerChar(source = []) {
 
     setLeftMessages(source.length)
 
-    setTimer(setTimeout(() => hanleTimer(), getRandomInt(6, 14) * 1000))
+    setTimer(setTimeout(() => hanleTimer(), 6 * 1000))
 
     return () => {
       clearTimeout(timer)
