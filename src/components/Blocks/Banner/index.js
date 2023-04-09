@@ -3,7 +3,7 @@ import { Box, Image } from "@chakra-ui/react"
 
 const Banner = () => {
   return (
-    <Box width={"100%"} cursor={"pointer"}>
+    <Box width={"100%"} cursor={"pointer"} overflow={"hidden"}>
       <Image src="./img/banner.png" w={"116%"} maxW={"116%"} />
     </Box>
   )
