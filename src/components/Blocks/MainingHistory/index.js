@@ -8,13 +8,14 @@ import MainingItem from "../../MainingItem"
 import { usdToBtc } from "../../../utils"
 
 const MainingHistory = () => {
-  const currentDate = moment() // TODO: data from store
-  // TODO: money from store
+  const currentDate = moment()
 
   const usd = useSelector(state => state.user.balance)
-  const rate = useSelector(state => state.rate)
+  const rate = useSelector(state => state.user.rate)
 
   const btc = usdToBtc(usd, rate)
+
+  const percentages = [8, 6, 8, 14, 5, 13, 5, 3, 10, 8, 11, 9]
 
   return (
     <CustomCard
@@ -38,16 +39,18 @@ const MainingHistory = () => {
         rowGap={"30px"}
         columnGap={"30px"}
       >
-        {new Array(9).fill(0).map((item, index) => {
+        {percentages.map((item, index) => {
           const date = currentDate.clone().subtract(index, "month")
+          const money = ((usd * item) / 100).toFixed(2)
+          const btc = usdToBtc(money, rate)
 
           return (
             <MainingItem
               key={index}
               date={date.format("MM.YY")}
               month={date.format("MMM")}
-              money={"12 344"}
-              btc={"0.22455"}
+              money={money}
+              btc={btc}
             />
           )
         })}
