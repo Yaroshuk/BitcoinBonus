@@ -23,7 +23,13 @@ const ChatWindow = ({ messages, writing, onControl, ...props }) => {
       <>
         {messages.map((message, index) => {
           if (message.btn) {
-            return <ChatControll key={index} buttons={message.btn} onClick={onControl} />
+            return (
+              <ChatControll
+                key={index}
+                buttons={message.btn}
+                onClick={onControl}
+              />
+            )
           }
 
           return (

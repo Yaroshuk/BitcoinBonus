@@ -104,24 +104,15 @@ const ManagerChat = () => {
         flexDir: "column"
       }}
     >
-      {writing && (
-        <Text
-          position={"absolute"}
-          bottom={"100px"}
-          left={"30px"}
-          color={"pink.100"}
-          fontWeight={"semibold"}
-        >{`${writing} typing...`}</Text>
-      )}
       <ChatWindow
         flex={"1"}
         maxH={{ base: "450px", sm: "400px" }}
         messages={messages}
-        mb={"40px"}
+        mb={"5px"}
         writing={writing}
         onControl={controllHandler}
       />
-      <ChatInput disabled />
+      <ChatInput disabled writing={writing} />
     </ChatCard>
   )
 }

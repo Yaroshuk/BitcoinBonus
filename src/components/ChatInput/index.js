@@ -1,7 +1,13 @@
-import { Input, InputGroup, InputRightElement, Button } from "@chakra-ui/react"
+import {
+  Input,
+  InputGroup,
+  InputRightElement,
+  Button,
+  Text
+} from "@chakra-ui/react"
 import React, { useCallback } from "react"
 
-const ChatInput = ({ value, onChange, disabled, onAddMessage }) => {
+const ChatInput = ({ value, onChange, disabled, onAddMessage, writing }) => {
   const onSubmit = useCallback(
     e => {
       e.preventDefault()
@@ -12,8 +18,19 @@ const ChatInput = ({ value, onChange, disabled, onAddMessage }) => {
   )
 
   return (
-    <form onSubmit={onSubmit}>
-      <InputGroup width={"100%"}>
+    <form onSubmit={onSubmit} style={{ paddingTop: "40px", marginTop: "auto" }}>
+      <InputGroup width={"100%"} position={"relative"}>
+        {writing && (
+          <Text
+            position={"absolute"}
+            top={"-35px"}
+            left={"0px"}
+            color={"pink.100"}
+            fontWeight={"semibold"}
+          >
+            {`${writing} typing...`}
+          </Text>
+        )}
         <Input
           size={"lg"}
           variant={"filled"}

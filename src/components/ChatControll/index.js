@@ -1,5 +1,15 @@
-import { Box, Button, Text } from "@chakra-ui/react"
+import { Box, Button, Text, keyframes } from "@chakra-ui/react"
 import React, { useCallback } from "react"
+
+const pulsation = keyframes`
+  0% {
+    box-shadow: #811FFF 0 0 0 0;
+  }
+
+  100% {
+    box-shadow: rgba(150, 92, 245, 0) 0 0 0 15px;
+  }
+`
 
 const ChatControll = ({ buttons, onClick, ...props }) => {
   const clickHandler = useCallback(btn => {
@@ -24,7 +34,15 @@ const ChatControll = ({ buttons, onClick, ...props }) => {
       flexWrap={"wrap"}
     >
       {buttons.map((item, index) => (
-        <Button key={index} minW={"100px"} onClick={() => clickHandler(item)}>
+        <Button
+          key={index}
+          minW={"100px"}
+          onClick={() => clickHandler(item)}
+          animation={`1.5s ease 0s infinite normal none running ${pulsation}`}
+          _hover={{
+            animation: `0.75s ease 0s infinite normal none running ${pulsation}`
+          }}
+        >
           {item.label}
         </Button>
       ))}

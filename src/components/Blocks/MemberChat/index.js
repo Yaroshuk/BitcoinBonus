@@ -121,20 +121,12 @@ const MemberChat = () => {
       leftBlock={<ChatIcon />}
       position={"relative"}
     >
-      {writing && (
-        <Text
-          position={"absolute"}
-          bottom={"100px"}
-          left={"30px"}
-          color={"pink.100"}
-          fontWeight={"semibold"}
-        >{`${writing} typing...`}</Text>
-      )}
-      <ChatWindow messages={messages} mb={"40px"} writing={writing} />
+      <ChatWindow messages={messages} mb={"5px"} writing={writing} />
       <ChatInput
         value={inputValue}
         onChange={handleInputChange}
         onAddMessage={handleAddMessage}
+        writing={writing}
       />
     </CustomCard>
   )
