@@ -1,7 +1,7 @@
 // TODO: fill messages
 export const externalLink = "https://www.google.com/"
 
-export const collectorMaxStep = 1000
+export const collectorMaxStep = 1126
 
 export const bitcoinCourse = 28085.37
 
