@@ -32,3 +32,7 @@ export const COLLECTOR_COLLECTED = "collectorCollected"
 export const COLLECTOR_CONFIRMED = "collectorConfirmed"
 
 export const COLLECTOR_UNCONFIRMED = "collectorUnconfirmed"
+
+// Member chat
+export const CHAT_MESSAGES = "chatMessages"
+export const CHAT_LAST_MESSAGE = "chatLastMessage"

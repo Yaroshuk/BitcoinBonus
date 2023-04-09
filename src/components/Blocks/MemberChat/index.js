@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Text } from "@chakra-ui/react"
 import {
   addMessage,
+  setLastMessage,
   setUserMessage,
   setWriting
 } from "../../../store/slices/memberChat"
@@ -12,7 +13,7 @@ import { ReactComponent as ChatIcon } from "./chat.svg"
 import ChatInput from "../../ChatInput"
 import ChatWindow from "../ChatWindow"
 import moment from "moment"
-import { memberChatMessages, memberChatNiknames } from "../../../data"
+import { memberChatNiknames, chatMessages } from "../../../data"
 import { getRandomInt } from "../../../utils"
 
 let mainTimer = null
@@ -21,8 +22,17 @@ let messageTimer = null
 const MemberChat = () => {
   const dispatch = useDispatch()
   const messages = useSelector(state => state.memberChat.messages)
+  const lastMessage = useSelector(state => state.memberChat.lastMessage)
   const inputValue = useSelector(state => state.memberChat.userMessage)
   const writing = useSelector(state => state.memberChat.writing)
+
+  const messagesRef = useRef(messages)
+  const lastMessageRef = useRef(lastMessage)
+
+  useEffect(() => {
+    messagesRef.current = messages
+    lastMessageRef.current = lastMessage
+  }, [messages, lastMessage])
 
   const handleInputChange = useCallback(
     value => {
@@ -44,17 +54,34 @@ const MemberChat = () => {
     )
   }, [addMessage, dispatch, inputValue])
 
-  const handleMessageTimer = nickname => {
-    const message =
-      memberChatMessages[getRandomInt(0, memberChatMessages.length)]
+  const handleMessageTimer = () => {
+    const lastMessage = lastMessageRef.current
+    // Message
+    if (lastMessage >= chatMessages.length) {
+      dispatch(setLastMessage(0))
+    }
+
+    console.log("last", lastMessage)
+
+    const message = chatMessages[lastMessage] ?? chatMessages[0]
 
     dispatch(
       addMessage({
-        text: message,
-        author: nickname,
+        text: message.text,
+        author: message.name,
         time: moment().format("HH:mm")
       })
     )
+
+    let nextMessageId = +lastMessage + 1
+
+    if (nextMessageId === chatMessages.length) {
+      nextMessageId = 0
+    }
+
+    console.log("2", nextMessageId)
+
+    dispatch(setLastMessage(nextMessageId))
 
     dispatch(setWriting(false))
 
@@ -62,14 +89,13 @@ const MemberChat = () => {
       clearTimeout(mainTimer)
     }
 
-    mainTimer = setTimeout(() => hanleTimer(), getRandomInt(5, 40) * 1000)
+    mainTimer = setTimeout(() => hanleTimer(), getRandomInt(8, 20) * 1000)
   }
 
   const hanleTimer = () => {
-    const nickname =
-      memberChatNiknames[getRandomInt(0, memberChatNiknames.length)]
+    const nextMessage = chatMessages[lastMessageRef.current] ?? chatMessages[0]
 
-    dispatch(setWriting(nickname))
+    dispatch(setWriting(nextMessage.name))
 
     mainTimer = null
 
@@ -78,13 +104,13 @@ const MemberChat = () => {
     }
 
     messageTimer = setTimeout(
-      () => handleMessageTimer(nickname),
+      () => handleMessageTimer(),
       getRandomInt(5, 10) * 1000
     )
   }
 
   useEffect(() => {
-    mainTimer = setTimeout(() => hanleTimer(), getRandomInt(5, 40) * 1000)
+    mainTimer = setTimeout(() => hanleTimer(), getRandomInt(3, 10) * 1000)
 
     return () => {
       clearTimeout(mainTimer)

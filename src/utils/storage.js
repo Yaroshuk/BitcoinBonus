@@ -6,6 +6,8 @@ import {
   userState
 } from "../data"
 import {
+  CHAT_LAST_MESSAGE,
+  CHAT_MESSAGES,
   COLLECTOR_COLLECTED,
   COLLECTOR_CONFIRMED,
   COLLECTOR_CURRENT_STEP,
@@ -26,6 +28,17 @@ export const getChatInitialMessages = () => {
       time: getRandomTimeBefore(2, 5).format("HH:mm")
     }
   ]
+}
+
+export const getChatInitialState = () => {
+  return {
+    writing: false,
+    userMessage: "",
+    messages: localStorage.getItem(CHAT_MESSAGES)
+      ? JSON.parse(localStorage.getItem(CHAT_MESSAGES))
+      : [],
+    lastMessage: localStorage.getItem(CHAT_LAST_MESSAGE) ?? 0
+  }
 }
 
 export const getInitialUserState = () => {

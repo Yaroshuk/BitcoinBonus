@@ -167,7 +167,7 @@ export const managerBonuses = [
   // Convert currency btn
 ]
 
-export const originalMessages = [
+export const chatMessages = [
   {
     user: "people",
     colorText: "",
