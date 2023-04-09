@@ -47,7 +47,7 @@ const Layout = ({ children }) => {
           w="full"
           h="full"
           minH="100vh"
-          maxW={"1248px"}
+          maxW={"1050px"}
           margin={"0 auto"}
         >
           <Header px={{ base: isChat ? "4" : 0, sm: "0" }}>

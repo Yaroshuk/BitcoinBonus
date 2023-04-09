@@ -45,7 +45,7 @@ export function useManagerChar(source = []) {
       setTimeout(() => {
         dispatch(setLoading(false))
         sendMessageToStore(message)
-      }, 5 * 1000)
+      }, 8 * 1000)
     } else {
       sendMessageToStore(message)
     }
@@ -62,13 +62,13 @@ export function useManagerChar(source = []) {
 
     dispatch(setWriting(false))
 
-    setTimer(setTimeout(() => hanleTimer(), getRandomInt(5, 7) * 1000))
+    setTimer(setTimeout(() => hanleTimer(), getRandomInt(8, 14) * 1000))
   }
 
   const hanleTimer = () => {
     dispatch(setWriting(nickname))
 
-    setTimeout(() => pushMessage(), getRandomInt(5, 8) * 100)
+    setTimeout(() => pushMessage(), getRandomInt(3, 6) * 1000)
   }
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export function useManagerChar(source = []) {
 
     setLeftMessages(source.length)
 
-    setTimer(setTimeout(() => hanleTimer(), getRandomInt(10, 15) * 1000))
+    setTimer(setTimeout(() => hanleTimer(), getRandomInt(6, 14) * 1000))
 
     return () => {
       clearTimeout(timer)
