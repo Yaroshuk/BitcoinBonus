@@ -20,6 +20,13 @@ export const CHAT_LAST_PAGE = "chatlast"
 
 export const WITHDRAW_PAGE = "withdraw"
 
+// COMMISSIONS_PAGE
+
+export const COMMISSION_PAGE = "commissions"
+
+// 1-1
+export const COMMISSIONFP_PAGE = "commissionfp"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 

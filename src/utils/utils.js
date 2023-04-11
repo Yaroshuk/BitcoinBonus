@@ -1,7 +1,8 @@
 import moment from "moment"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { useEffect } from "react"
+import { useCallback, useEffect } from "react"
+import { LAST_VISITED } from "../constants"
 
 export const currencyFormatter = new Intl.NumberFormat("en-Us")
 
@@ -51,6 +52,17 @@ export const useProtectedRoute = (redirectRoute = "/") => {
       navigate(redirectRoute)
     }
   }, [isLogged])
+}
+
+export const useGoTo = () => {
+  const navigate = useNavigate()
+  return useCallback(
+    path => {
+      navigate(path)
+      localStorage.setItem(LAST_VISITED, path)
+    },
+    [navigate]
+  )
 }
 
 export const usdToBtc = (usd, rate) => (usd / rate).toFixed(6)

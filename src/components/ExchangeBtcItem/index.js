@@ -11,11 +11,7 @@ import {
 } from "@chakra-ui/react"
 import { BiBitcoin, BiDollar, BiCheck } from "react-icons/bi"
 
-const ExchangeBtcItem = ({ money, btc, link, ...props }) => {
-  const clickHandler = useCallback(() => {
-    window.location.href = link
-  }, [])
-
+const ExchangeBtcItem = ({ money, btc, link, onClick, ...props }) => {
   return (
     <Flex
       flexDir={{ base: "column", md: "row" }}
@@ -94,7 +90,7 @@ const ExchangeBtcItem = ({ money, btc, link, ...props }) => {
             borderRadius={"36px"}
             color={"#811FFF"}
             fontSize={{ base: "18px", lg: "20px" }}
-            onClick={clickHandler}
+            onClick={onClick}
           >
             EXCHANGE BTC TO USD
           </Button>

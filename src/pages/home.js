@@ -35,7 +35,11 @@ const Home = () => {
   useEffect(() => {
     if (!isLogged) return
 
-    const lastVisited = localStorage.getItem(LAST_VISITED) ?? USER_PAGE
+    let lastVisited = localStorage.getItem(LAST_VISITED) ?? USER_PAGE
+
+    if (lastVisited?.[0] === "/") {
+      lastVisited = lastVisited.substr(1, lastVisited.length - 1)
+    }
 
     if (location.pathname !== `/${lastVisited}`) {
       navigate(`/${lastVisited}`)

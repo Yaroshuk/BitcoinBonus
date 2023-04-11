@@ -3,15 +3,20 @@ import React, { useState, useEffect, useCallback } from "react"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import ChatCard from "../../ChatCard"
 import { useSelector } from "react-redux"
-import { thousandsFormatter, usdToBtc } from "../../../utils"
+import { thousandsFormatter, usdToBtc, useGoTo } from "../../../utils"
 import ExchangeBtcItem from "../../ExchangeBtcItem"
 import { externalLink } from "../../../data"
+import { COMMISSIONFP_PAGE, COMMISSION_PAGE } from "../../../constants"
+
+const nextPath = `/${COMMISSION_PAGE}/${COMMISSIONFP_PAGE}`
 
 const ExchangeBtc = () => {
   const balance = useSelector(state => state.user.balance)
   const rate = useSelector(state => state.user.rate)
 
   const btc = usdToBtc(balance, rate)
+
+  const goToNext = useGoTo()
 
   return (
     <ChatCard position={"relative"} bodyStyles={{}}>
@@ -98,7 +103,7 @@ const ExchangeBtc = () => {
           money={balance}
           btc={btc}
           gridColumn={{ base: "1", md: "1/span 2" }}
-          link={externalLink}
+          onClick={() => goToNext(nextPath)}
         />
       </Box>
     </ChatCard>
