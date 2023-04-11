@@ -6,12 +6,18 @@ import ChatCard from "../../components/ChatCard"
 import { useNavigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai"
-import { thousandsFormatter } from "../../utils"
+import { thousandsFormatter, useGoTo } from "../../utils"
 import FillForm from "../../components/Blocks/FillForm"
 import FormCheckItem from "../../components/FormCheckItem"
-import { CHAT_LAST_PAGE, LAST_VISITED } from "../../constants"
+import {
+  CHAT_LAST_PAGE,
+  COMMISSIONSP_PAGE,
+  COMMISSION_PAGE,
+  LAST_VISITED
+} from "../../constants"
 import CommissionForm from "../../components/Blocks/CommissionForm"
 
+const nextPath = `/${COMMISSION_PAGE}/${COMMISSIONSP_PAGE}`
 // 1-1
 const Commissionfp = () => {
   const [iName, setIName] = useState("")
@@ -20,12 +26,9 @@ const Commissionfp = () => {
 
   const balance = useSelector(state => state.user.balance)
 
-  const navigate = useNavigate()
+  const goToNext = useGoTo()
 
-  const handleSubmit = useCallback(() => {
-    navigate("/chatlast")
-    localStorage.setItem(LAST_VISITED, CHAT_LAST_PAGE)
-  }, [navigate])
+  const navigate = useNavigate()
 
   const onNameChange = useCallback(
     event => {
@@ -186,7 +189,7 @@ const Commissionfp = () => {
             width={{ base: "190px", md: "230px" }}
             mb={"10px"}
             mr={{ md: "40px" }}
-            onClick={handleSubmit}
+            onClick={() => goToNext(nextPath)}
           >
             SEND
           </Button>

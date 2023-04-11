@@ -27,6 +27,9 @@ export const COMMISSION_PAGE = "commissions"
 // 1-1
 export const COMMISSIONFP_PAGE = "commissionfp"
 
+// 2-1
+export const COMMISSIONSP_PAGE = "commissionsp"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 
