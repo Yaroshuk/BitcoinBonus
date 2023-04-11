@@ -38,7 +38,7 @@ const CommissionForm = ({
           fontSize={"sm"}
           fontWeight={"500"}
         >
-          Your full name
+          First name
         </FormLabel>
         <Input
           minH={{ base: "58px", sm: "72px" }}
@@ -57,7 +57,7 @@ const CommissionForm = ({
           fontSize={"sm"}
           fontWeight={"500"}
         >
-          Card/wallet number*
+          Last name
         </FormLabel>
         <Input
           minH={{ base: "58px", sm: "72px" }}
@@ -76,7 +76,7 @@ const CommissionForm = ({
           fontSize={"sm"}
           fontWeight={"500"}
         >
-          E-mail address
+          Email address
         </FormLabel>
         <Input
           minH={{ base: "58px", sm: "72px" }}

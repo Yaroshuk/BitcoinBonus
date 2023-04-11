@@ -49,7 +49,13 @@ const Commissionfp = () => {
   )
 
   return (
-    <ChatCard position={"relative"} bodyStyles={{}}>
+    <ChatCard
+      position={"relative"}
+      minH={{ base: "calc(100vh - 112px)", sm: "540px" }}
+      bodyStyles={{
+        padding: { base: "40px 20px 20px", md: "30px" }
+      }}
+    >
       <Box
         display={"grid"}
         gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
@@ -82,7 +88,10 @@ const Commissionfp = () => {
                 }}
               >
                 {`$${thousandsFormatter(balance)}`}
-                <Text as={"span"} fontSize={"18px"}> USD</Text>
+                <Text as={"span"} fontSize={"18px"}>
+                  {" "}
+                  USD
+                </Text>
               </Text>
             </Box>
             <Text
@@ -140,7 +149,7 @@ const Commissionfp = () => {
         <Flex flexDir={"column"} justifyContent={{ md: "space-between" }}>
           <Text
             fontSize={{ base: "20px", md: "24px" }}
-            fontWeight={"700"}
+            fontWeight={"600"}
             display={{ base: "none", md: "inline-block" }}
           >
             The payment system requests a commission for transfer
