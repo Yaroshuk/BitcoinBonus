@@ -8,8 +8,8 @@ import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_PAGE, COMMISSION_TLS_PAGE } from "../../constants"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_TLS_PAGE}`
-// 2-7
-const Signatureverify = () => {
+// 2-8
+const Tls = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -139,7 +139,7 @@ const Signatureverify = () => {
             onClick={() => goToNext(nextPage)}
             minW={"150px"}
           >
-            Replenish balance
+            Replenish the balance
           </Button>
         </Flex>
       </Flex>
@@ -147,4 +147,4 @@ const Signatureverify = () => {
   )
 }
 
-export default Signatureverify
+export default Tls

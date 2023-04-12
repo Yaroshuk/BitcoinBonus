@@ -48,6 +48,9 @@ export const COMMISSION_SIGNATURE_PAGE = "signature"
 // 2-7
 export const COMMISSION_SIGNATUREVERIFY_PAGE = "signatureverify"
 
+// 2-8
+export const COMMISSION_TLS_PAGE = "tls"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 
