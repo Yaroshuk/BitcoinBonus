@@ -39,6 +39,9 @@ export const COMMISSION_CADASTR_PAGE = "cadastr"
 // 2-4
 export const COMMISSIOM_TRANSITBOOKING_PAGE = "transitbooking"
 
+// 2-5
+export const COMMISSIOM_TRANSITACTIVATION_PAGE = "transitactivation"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 

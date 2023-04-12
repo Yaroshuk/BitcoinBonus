@@ -12,8 +12,8 @@ import {
 } from "../../constants"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSIOM_TRANSITACTIVATION_PAGE}`
-// 2-4
-const Transitbooking = () => {
+// 2-5
+const Transitactivation = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -139,4 +139,4 @@ const Transitbooking = () => {
   )
 }
 
-export default Transitbooking
+export default Transitactivation

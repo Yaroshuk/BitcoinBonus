@@ -25,6 +25,8 @@ import {
   CHAT_LAST_PAGE,
   CHAT_PAGE,
   COLLECTING_PAGE,
+  COMMISSIOM_TRANSITACTIVATION_PAGE,
+  COMMISSIOM_TRANSITBOOKING_PAGE,
   COMMISSIONFP_PAGE,
   COMMISSIONSP_PAGE,
   COMMISSION_CADASTR_PAGE,
@@ -45,6 +47,8 @@ import Commissionfp from "./pages/commissions/commissionfp"
 import Commissionsp from "./pages/commissions/commissionsp"
 import Express from "./pages/commissions/express"
 import Cadastr from "./pages/commissions/cadastr"
+import Transitbooking from "./pages/commissions/transitbooking"
+import Transitactivation from "./pages/commissions/transitactivation"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -149,6 +153,22 @@ function App() {
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Cadastr />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `${COMMISSIOM_TRANSITBOOKING_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Transitbooking />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `${COMMISSIOM_TRANSITACTIVATION_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Transitactivation />
             </ProtectedRoute>
           )
         }
