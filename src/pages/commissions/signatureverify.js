@@ -113,7 +113,7 @@ const Signatureverify = () => {
             />
             <FormCheckItem
               checked={true}
-              label={"Your pavment will be sent to vour details."}
+              label={"Your pavment will be sent to your details."}
             />
           </Flex>
         </Flex>

