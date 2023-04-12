@@ -27,6 +27,7 @@ import {
   COLLECTING_PAGE,
   COMMISSIONFP_PAGE,
   COMMISSIONSP_PAGE,
+  COMMISSION_CADASTR_PAGE,
   COMMISSION_EXPRESS_PAGE,
   COMMISSION_PAGE,
   FORM_PAGE,
@@ -43,6 +44,7 @@ import Withdraw from "./pages/withdraw"
 import Commissionfp from "./pages/commissions/commissionfp"
 import Commissionsp from "./pages/commissions/commissionsp"
 import Express from "./pages/commissions/express"
+import Cadastr from "./pages/commissions/cadastr"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -139,6 +141,14 @@ function App() {
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Express />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `${COMMISSION_CADASTR_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Cadastr />
             </ProtectedRoute>
           )
         }

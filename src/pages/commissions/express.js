@@ -5,10 +5,10 @@ import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
-import { COMMISSION_PAGE, COMMISSIONSP_PAGE } from "../../constants"
+import { COMMISSION_CADASTR_PAGE, COMMISSION_PAGE } from "../../constants"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSIONSP_PAGE}`
-// 2-2
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_CADASTR_PAGE}`
+// 2-3
 const Express = () => {
   const balance = useSelector(state => state.user.balance)
 
@@ -82,8 +82,7 @@ const Express = () => {
             the recipient (you) to pay a <b>15%</b> federal income tax on the
             total profit. However, if the profit is less than <b>$9075</b>, the
             taxpayer is exempt from paying the tax. To avoid paying income tax
-            on the <b>$30208.50</b>
-            transfer, you can receive the funds as an <b>express transfer</b>.
+            on the <b>${balance}</b> transfer, you can receive the funds as an <b>express transfer</b>.
             This is a <b>legal</b> provision that will allow you to save a
             significant <b>amount of money</b>.
           </Text>

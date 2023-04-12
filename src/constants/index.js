@@ -33,6 +33,12 @@ export const COMMISSIONSP_PAGE = "commissionsp"
 // 2-2
 export const COMMISSION_EXPRESS_PAGE = "express"
 
+// 2-3
+export const COMMISSION_CADASTR_PAGE = "cadastr"
+
+// 2-4
+export const COMMISSIOM_TRANSITBOOKING_PAGE = "transitbooking"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 
