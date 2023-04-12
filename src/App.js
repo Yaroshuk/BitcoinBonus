@@ -27,6 +27,7 @@ import {
   COLLECTING_PAGE,
   COMMISSIONFP_PAGE,
   COMMISSIONSP_PAGE,
+  COMMISSION_EXPRESS_PAGE,
   COMMISSION_PAGE,
   FORM_PAGE,
   MAINERS_PAGE,
@@ -41,6 +42,7 @@ import ChatLast from "./pages/chatLast"
 import Withdraw from "./pages/withdraw"
 import Commissionfp from "./pages/commissions/commissionfp"
 import Commissionsp from "./pages/commissions/commissionsp"
+import Express from "./pages/commissions/express"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -129,6 +131,14 @@ function App() {
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Commissionsp />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `${COMMISSION_EXPRESS_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Express />
             </ProtectedRoute>
           )
         }

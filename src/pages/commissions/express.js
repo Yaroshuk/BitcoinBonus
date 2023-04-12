@@ -5,11 +5,11 @@ import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
-import { COMMISSION_EXPRESS_PAGE, COMMISSION_PAGE, COMMISSIONSP_PAGE } from "../../constants"
+import { COMMISSION_PAGE, COMMISSIONSP_PAGE } from "../../constants"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_EXPRESS_PAGE}`
-// 2-1
-const Commissionsp = () => {
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSIONSP_PAGE}`
+// 2-2
+const Express = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -66,7 +66,7 @@ const Commissionsp = () => {
         </Flex>
         <Flex
           flexDir={"column"}
-          justifyContent={{ md: "space-between" }}
+          justifyContent={{ md: "flex-start" }}
           gridRow={"span 2"}
         >
           <Text
@@ -74,33 +74,38 @@ const Commissionsp = () => {
             fontWeight={"600"}
             textAlign={{ base: "center", md: "left" }}
           >
-            Second transfer commission is requested by the payment system.
+            Save on Taxes by Using Express Account
           </Text>
           <br />
           <Text fontSize={{ base: "16px", md: "20px" }}>
-            The first transfer is marked as <b>paid</b> in the amount of{" "}
-            <b>$15104</b>.
-            <br />
-            <br />
-            Second transfer commission must be paid before first transfer can be
-            sent.
-            <br />
-            <br />
-            Both transfers will be sent to your specified details after the
-            second transfer <b>commission is paid</b>.
+            Under <b>federal tax laws</b>, registering internet income requires
+            the recipient (you) to pay a <b>15%</b> federal income tax on the
+            total profit. However, if the profit is less than <b>$9075</b>, the
+            taxpayer is exempt from paying the tax. To avoid paying income tax
+            on the <b>$30208.50</b>
+            transfer, you can receive the funds as an <b>express transfer</b>.
+            This is a <b>legal</b> provision that will allow you to save a
+            significant <b>amount of money</b>.
           </Text>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text fontSize={"20px"} mb={"10px"}>
-            Payment divided into two parts, second transfer is for <b>$15104</b>{" "}
-            with acommission fee of <b>$48</b>.
+            To use this service, you need to{" "}
+            <b>rent a reliable express account</b>. Once you have{" "}
+            <b>rented the express account</b>, the funds will be transferred to
+            the previously provided details. The{" "}
+            <b>cost of renting an express account per day is $93</b>.
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
-            <FormCheckItem checked={true} label={"Guaranteed fast payment."} />
             <FormCheckItem
               checked={true}
-              label={" Pay the second transfer fee to receive the full amount."}
+              label={"Pay for express account lease"}
             />
+            <FormCheckItem
+              checked={true}
+              label={"Instant settlement will occur"}
+            />
+            <FormCheckItem checked={true} label={"Receive our runds"} />
           </Flex>
         </Flex>
       </Box>
@@ -124,7 +129,7 @@ const Commissionsp = () => {
             mr={{ md: "40px" }}
             onClick={() => goToNext(nextPage)}
           >
-            Make payment for the second transfer&apos;s fee
+            Pay for rental fee
           </Button>
         </Flex>
       </Flex>
@@ -132,4 +137,4 @@ const Commissionsp = () => {
   )
 }
 
-export default Commissionsp
+export default Express
