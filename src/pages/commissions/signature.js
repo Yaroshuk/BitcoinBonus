@@ -5,15 +5,11 @@ import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
-import {
-  COMMISSION_TRANSITACTIVATION_PAGE,
-  COMMISSION_TRANSITBOOKING_PAGE,
-  COMMISSION_PAGE
-} from "../../constants"
+import { COMMISSION_PAGE, COMMISSION_SIGNATURE_PAGE } from "../../constants"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_TRANSITACTIVATION_PAGE}`
-// 2-4
-const Transitbooking = () => {
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_SIGNATURE_PAGE}`
+// 2-6
+const Signature = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -78,35 +74,42 @@ const Transitbooking = () => {
             fontWeight={"600"}
             textAlign={{ base: "center", md: "left" }}
           >
-            Transfer is pending express transit cell booking
+            The transaction awaits the activation of the express transit cell
           </Text>
           <br />
           <Text fontSize={{ base: "16px", md: "20px" }}>
-            Funds in the amount of <b>${balance}</b> are waiting to be booked.
-            Within <b>10 minutes!</b>
+            Transaction reservation <b>${balance}</b> successfully paid!
+            <br />
+            To get tunds at a reserved time, it is necessary to activate the
+            express transit cell.
+            <br />
+            To activate and receive a transfer in the amount of{" "}
+            <b>${balance}</b>, make an activation payment.
             <br />
             <br />
-            To receive funds at a specified time, a payment for{" "}
-            <b>express transit cell reservation</b> is required.
-            <br />
-            <br />
-            Once the reservation payment is made, the transfer for{" "}
-            <b>${balance}</b>
-            will be sent to your designated details at the reserved time!
+            This payment will be credited to the transit cell and is available
+            to the withdrawal along with the rest of the amount. The total
+            amount of receipt after making the activation payment will be
+            <b>${balance}</b> and will be sent to you at the previously reserved
+            time!
           </Text>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
-          <Text fontSize={"20px"} mb={"10px"}>
-            Reservation cost is just: <b>$104.09</b>.
+          <Text fontSize={"20px"} mb={"30px"}>
+            The cost of activating transit express cell: <b>$98</b>.
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem
               checked={true}
-              label={"Make the reservation payment."}
+              label={"Pay the activation of the transit cell."}
             />
             <FormCheckItem
               checked={true}
-              label={"Receive the funds at the specified details."}
+              label={"The system automatically activates the cell."}
+            />
+            <FormCheckItem
+              checked={true}
+              label={"Your payment will be sent to our detalls."}
             />
           </Flex>
         </Flex>
@@ -130,8 +133,9 @@ const Transitbooking = () => {
             mb={"10px"}
             mr={{ md: "40px" }}
             onClick={() => goToNext(nextPage)}
+            minW={"150px"}
           >
-            Pay reservation fee
+            Activate
           </Button>
         </Flex>
       </Flex>
@@ -139,4 +143,4 @@ const Transitbooking = () => {
   )
 }
 
-export default Transitbooking
+export default Signature

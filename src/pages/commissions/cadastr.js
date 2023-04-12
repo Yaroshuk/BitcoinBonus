@@ -6,11 +6,11 @@ import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import {
-  COMMISSIOM_TRANSITBOOKING_PAGE,
+  COMMISSION_TRANSITBOOKING_PAGE,
   COMMISSION_PAGE
 } from "../../constants"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSIOM_TRANSITBOOKING_PAGE}`
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_TRANSITBOOKING_PAGE}`
 // 2-3
 const Cadastr = () => {
   const balance = useSelector(state => state.user.balance)

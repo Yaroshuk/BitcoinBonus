@@ -25,8 +25,8 @@ import {
   CHAT_LAST_PAGE,
   CHAT_PAGE,
   COLLECTING_PAGE,
-  COMMISSIOM_TRANSITACTIVATION_PAGE,
-  COMMISSIOM_TRANSITBOOKING_PAGE,
+  COMMISSION_TRANSITACTIVATION_PAGE,
+  COMMISSION_TRANSITBOOKING_PAGE,
   COMMISSIONFP_PAGE,
   COMMISSIONSP_PAGE,
   COMMISSION_CADASTR_PAGE,
@@ -35,7 +35,8 @@ import {
   FORM_PAGE,
   MAINERS_PAGE,
   USER_PAGE,
-  WITHDRAW_PAGE
+  WITHDRAW_PAGE,
+  COMMISSION_SIGNATURE_PAGE
 } from "./constants"
 import { originalMessages } from "./data"
 import { getRandomString } from "./utils"
@@ -157,7 +158,7 @@ function App() {
           )
         },
         {
-          path: `${COMMISSIOM_TRANSITBOOKING_PAGE}`,
+          path: `${COMMISSION_TRANSITBOOKING_PAGE}`,
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Transitbooking />
@@ -165,7 +166,15 @@ function App() {
           )
         },
         {
-          path: `${COMMISSIOM_TRANSITACTIVATION_PAGE}`,
+          path: `${COMMISSION_TRANSITACTIVATION_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Transitactivation />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `${COMMISSION_SIGNATURE_PAGE}`,
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Transitactivation />

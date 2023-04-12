@@ -37,10 +37,13 @@ export const COMMISSION_EXPRESS_PAGE = "express"
 export const COMMISSION_CADASTR_PAGE = "cadastr"
 
 // 2-4
-export const COMMISSIOM_TRANSITBOOKING_PAGE = "transitbooking"
+export const COMMISSION_TRANSITBOOKING_PAGE = "transitbooking"
 
 // 2-5
-export const COMMISSIOM_TRANSITACTIVATION_PAGE = "transitactivation"
+export const COMMISSION_TRANSITACTIVATION_PAGE = "transitactivation"
+
+// 2-6
+export const COMMISSION_SIGNATURE_PAGE = "signature"
 
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
