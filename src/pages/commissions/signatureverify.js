@@ -11,8 +11,8 @@ import {
 } from "../../constants"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_SIGNATUREVERIFY_PAGE}`
-// 2-6
-const Signature = () => {
+// 2-7
+const Signatureverify = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -146,7 +146,7 @@ const Signature = () => {
             onClick={() => goToNext(nextPage)}
             minW={"150px"}
           >
-            Pay for services
+            Replenish balance
           </Button>
         </Flex>
       </Flex>
@@ -154,4 +154,4 @@ const Signature = () => {
   )
 }
 
-export default Signature
+export default Signatureverify

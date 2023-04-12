@@ -45,6 +45,9 @@ export const COMMISSION_TRANSITACTIVATION_PAGE = "transitactivation"
 // 2-6
 export const COMMISSION_SIGNATURE_PAGE = "signature"
 
+// 2-7
+export const COMMISSION_SIGNATUREVERIFY_PAGE = "signatureverify"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 
