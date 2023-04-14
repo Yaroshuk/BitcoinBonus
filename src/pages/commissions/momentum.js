@@ -5,11 +5,11 @@ import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
-import { COMMISSION_MANUAL_PAGE, COMMISSION_PAGE } from "../../constants"
+import { COMMISSION_FINAL_PAGE, COMMISSION_PAGE } from "../../constants"
 import TransactionsStatus from "../../components/TransactionStatus"
 import ManagerStatus from "../../components/ManagerStatus"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_MANUAL_PAGE}`
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_FINAL_PAGE}`
 // 3-3
 const Momentum = () => {
   const balance = useSelector(state => state.user.balance)

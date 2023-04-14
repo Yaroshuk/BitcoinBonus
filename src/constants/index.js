@@ -60,6 +60,9 @@ export const COMMISSION_LIMITEX_PAGE = "limitex"
 // 3-3
 export const COMMISSION_MOMENTUM_PAGE = "momentum"
 
+// 4-1
+export const COMMISSION_FINAL_PAGE = "final"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 
