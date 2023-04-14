@@ -1,12 +1,12 @@
 import { Flex, Image, Text } from "@chakra-ui/react"
 import React from "react"
 
-const TransactionsStatus = ({ ...props }) => {
+const TransactionsStatus = ({ status, ...props }) => {
   return (
     <Flex
       minH={"63px"}
       width={"100%"}
-      maxW={"360px"}
+      maxW={"fit-content"}
       borderRadius={"15px"}
       border={"2px solid #EB5757"}
       alignItems={"center"}
@@ -18,9 +18,9 @@ const TransactionsStatus = ({ ...props }) => {
       <Image src="./img/time-loading.svg" h={"48px"} w={"auto"} />
       <Flex flexDir={"column"}>
         <Text fontSize={"16px"}>Transaction status:</Text>
-        <Text fontSize={"20px"} color={"#EB5757"}>
+        <Text fontSize={"18px"} color={"#EB5757"}>
           {" "}
-          Waiting for manual sending!
+          {status ?? "Waiting for manual sending!"}
         </Text>
       </Flex>
     </Flex>

@@ -54,6 +54,9 @@ export const COMMISSION_TLS_PAGE = "tls"
 // 3-1
 export const COMMISSION_MANUAL_PAGE = "manual"
 
+// 3-2
+export const COMMISSION_LIMITEX_PAGE = "limitex"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 

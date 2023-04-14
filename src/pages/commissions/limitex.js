@@ -5,13 +5,13 @@ import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
-import { COMMISSION_LIMITEX_PAGE, COMMISSION_PAGE } from "../../constants"
+import { COMMISSION_MANUAL_PAGE, COMMISSION_PAGE } from "../../constants"
 import TransactionsStatus from "../../components/TransactionStatus"
 import ManagerStatus from "../../components/ManagerStatus"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_LIMITEX_PAGE}`
-// 3-1
-const Manual = () => {
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_MANUAL_PAGE}`
+// 3-2
+const Limitex = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -76,9 +76,10 @@ const Manual = () => {
             fontWeight={"600"}
             textAlign={{ base: "center", md: "left" }}
           >
-            Refusal to automatically send translation
+            Exceeded the limit by the amount of the transfer
           </Text>
           <TransactionsStatus
+            status={"Expects an increase in the limit!"}
             margin={{ base: "20px auto", md: "20px 0" }}
           />
           <Text
@@ -86,50 +87,49 @@ const Manual = () => {
             display={{ base: "block", md: "none" }}
             mb={"20px"}
           >
-            Automatic sending of money is not supported by the payment system.
-            <br />
-            <br />
-            Manual sending a money transfer to the account you specified is
-            required.
+            The money transter is rejected by the mass payments system. The
+            limit is exceeded by the amount of the transfer. <br />
+            <br /> To complete the transfer, increase your limit on cash
+            transactions.
           </Text>
           <ManagerStatus margin={{ base: "25px auto", md: "25px 0" }} />
-          <Text fontSize={{ base: "20px", md: "20px" }}>
-            Immediately after paying for the services of the manager, a money
-            transfer in the amount of <b>${balance}</b> will be sent.
-            <br />
-            <br />
-            The cost of the service of a personal manager in total: <b>$208.</b>
-          </Text>
+          <Box
+            maxW={"100%"}
+            padding={"15px"}
+            border={"2px solid #FAFAFA"}
+            bg={"#FAFAFA"}
+            borderRadius={"sm"}
+          >
+            I made a request to the mass payment system. You have a standard
+            &quot;Standard&quot;. There are no more translations ol{" "}
+            <b>$5,000</b> per day. Therefore, the translation did not pass at
+            once, it is still in processing. To complete the transfer and
+            receive monev. Increase the limit ov the amount or the transter
+            connecting the Maximum tariff. It costs only <b>$229.</b> As soon as
+            vou connect. thev will immediate v send vou monev.
+          </Box>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text
             fontSize={"16px"}
             display={{ base: "none", md: "block" }}
-            mb={"30px"}
+            mb={"20px"}
           >
-            Automatic sending of money is not supported by the payment system.
-            <br />
-            <br />
-            Manual sending a money transfer to the account you specified is
-            required.
+            The money transter is rejected by the mass payments system. The
+            limit is exceeded by the amount of the transfer. <br />
+            <br /> To complete the transfer, increase your limit on cash
+            transactions.
+          </Text>
+          <Text fontSize={"20px"} mb={"30px"}>
+            The cost of connecting the <b>&quot;Maximum&quot;</b> tariff:{" "}
+            <b>$229.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem
               checked={true}
-              label={"Hire a personal manager by paying for his services."}
+              label={"Follow the instructions of vour personal manager."}
             />
-            <FormCheckItem
-              checked={true}
-              label={
-                " Manager will contact you immediately after payment right on our website."
-              }
-            />
-            <FormCheckItem
-              checked={true}
-              label={
-                " You will receive your payment immediately in manual mode."
-              }
-            />
+            <FormCheckItem checked={true} label={"Get your funds."} />
           </Flex>
         </Flex>
       </Box>
@@ -162,4 +162,4 @@ const Manual = () => {
   )
 }
 
-export default Manual
+export default Limitex
