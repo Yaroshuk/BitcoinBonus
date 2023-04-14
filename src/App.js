@@ -40,7 +40,8 @@ import {
   COMMISSION_SIGNATUREVERIFY_PAGE,
   COMMISSION_TLS_PAGE,
   COMMISSION_MANUAL_PAGE,
-  COMMISSION_LIMITEX_PAGE
+  COMMISSION_LIMITEX_PAGE,
+  COMMISSION_MOMENTUM_PAGE
 } from "./constants"
 import { originalMessages } from "./data"
 import { getRandomString } from "./utils"
@@ -59,6 +60,7 @@ import Signatureverify from "./pages/commissions/signatureverify"
 import Tls from "./pages/commissions/tls"
 import Manual from "./pages/commissions/manual"
 import Limitex from "./pages/commissions/limitex"
+import Momentum from "./pages/commissions/momentum"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -219,6 +221,14 @@ function App() {
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Limitex />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `${COMMISSION_MOMENTUM_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Momentum />
             </ProtectedRoute>
           )
         }

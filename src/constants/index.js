@@ -57,6 +57,9 @@ export const COMMISSION_MANUAL_PAGE = "manual"
 // 3-2
 export const COMMISSION_LIMITEX_PAGE = "limitex"
 
+// 3-3
+export const COMMISSION_MOMENTUM_PAGE = "momentum"
+
 // Collectior
 export const COLLECTOR_STARTED = "isCollectorStarted"
 

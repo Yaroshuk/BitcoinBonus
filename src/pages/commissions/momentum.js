@@ -5,17 +5,13 @@ import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
-import {
-  COMMISSION_MANUAL_PAGE,
-  COMMISSION_MOMENTUM_PAGE,
-  COMMISSION_PAGE
-} from "../../constants"
+import { COMMISSION_MANUAL_PAGE, COMMISSION_PAGE } from "../../constants"
 import TransactionsStatus from "../../components/TransactionStatus"
 import ManagerStatus from "../../components/ManagerStatus"
 
-const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_MOMENTUM_PAGE}`
-// 3-2
-const Limitex = () => {
+const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_MANUAL_PAGE}`
+// 3-3
+const Momentum = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -80,10 +76,10 @@ const Limitex = () => {
             fontWeight={"600"}
             textAlign={{ base: "center", md: "left" }}
           >
-            Exceeded the limit by the amount of the transfer
+            Expect the transfer
           </Text>
           <TransactionsStatus
-            status={"Expects an increase in the limit!"}
+            status={"The application is issued"}
             margin={{ base: "20px auto", md: "20px 0" }}
           />
           <Text
@@ -91,10 +87,9 @@ const Limitex = () => {
             display={{ base: "block", md: "none" }}
             mb={"20px"}
           >
-            The money transter is rejected by the mass payments system. The
-            limit is exceeded by the amount of the transfer. <br />
-            <br /> To complete the transfer, increase your limit on cash
-            transactions.
+            The application for the transfer is executed. Transfers exceeding
+            the <b>$10,000</b> are received within 30 business days. Expect the
+            receipt of funds.
           </Text>
           <ManagerStatus margin={{ base: "25px auto", md: "25px 0" }} />
           <Box
@@ -104,13 +99,13 @@ const Limitex = () => {
             bg={"#FAFAFA"}
             borderRadius={"sm"}
           >
-            I made a request to the mass payment system. You have a standard
-            &quot;Standard&quot;. There are no more translations ol{" "}
-            <b>$5,000</b> per day. Therefore, the translation did not pass at
-            once, it is still in processing. To complete the transfer and
-            receive monev. Increase the limit ov the amount or the transter
-            connecting the Maximum tariff. It costs only <b>$229.</b> As soon as
-            vou connect. thev will immediate v send vou monev.
+            Of course, it&apos;s not convenient to wait so long. But such
+            conditions for the mass payments to which we are connected. Usually
+            our users do not wait but connect the{" "}
+            <b>&quot;instant translation&quot;</b> and immediately receive
+            money. It costs <b>$269,3.</b> If you also want to get a transfer
+            instantly, I recommend connecting this service and vou will
+            Immediately arrive money.
           </Box>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
@@ -119,14 +114,13 @@ const Limitex = () => {
             display={{ base: "none", md: "block" }}
             mb={"20px"}
           >
-            The money transter is rejected by the mass payments system. The
-            limit is exceeded by the amount of the transfer. <br />
-            <br /> To complete the transfer, increase your limit on cash
-            transactions.
+            The application for the transfer is executed. Transfers exceeding
+            the <b>$10,000</b> are received within 30 business days. Expect the
+            receipt of funds.
           </Text>
           <Text fontSize={"20px"} mb={"30px"}>
-            The cost of connecting the <b>&quot;Maximum&quot;</b> tariff:{" "}
-            <b>$229.</b>
+            The cost of the service <b>&quot;Instant Transaction&quot;</b> of
+            total: <b>$269.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem
@@ -158,7 +152,7 @@ const Limitex = () => {
             onClick={() => goToNext(nextPage)}
             minW={"150px"}
           >
-            Hire a manager
+            Instant Transaction
           </Button>
         </Flex>
       </Flex>
@@ -166,4 +160,4 @@ const Limitex = () => {
   )
 }
 
-export default Limitex
+export default Momentum
