@@ -38,7 +38,8 @@ import {
   WITHDRAW_PAGE,
   COMMISSION_SIGNATURE_PAGE,
   COMMISSION_SIGNATUREVERIFY_PAGE,
-  COMMISSION_TLS_PAGE
+  COMMISSION_TLS_PAGE,
+  COMMISSION_MANUAL_PAGE
 } from "./constants"
 import { originalMessages } from "./data"
 import { getRandomString } from "./utils"
@@ -55,6 +56,7 @@ import Transitactivation from "./pages/commissions/transitactivation"
 import Signature from "./pages/commissions/signature"
 import Signatureverify from "./pages/commissions/signatureverify"
 import Tls from "./pages/commissions/tls"
+import Manual from "./pages/commissions/manual"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
@@ -199,6 +201,14 @@ function App() {
           element: (
             <ProtectedRoute isLogged={isLogged}>
               <Tls />
+            </ProtectedRoute>
+          )
+        },
+        {
+          path: `${COMMISSION_MANUAL_PAGE}`,
+          element: (
+            <ProtectedRoute isLogged={isLogged}>
+              <Manual />
             </ProtectedRoute>
           )
         }

