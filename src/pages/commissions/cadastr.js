@@ -1,6 +1,6 @@
 import moment from "moment"
 import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
-import React from "react"
+import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
@@ -9,13 +9,30 @@ import {
   COMMISSION_TRANSITBOOKING_PAGE,
   COMMISSION_PAGE
 } from "../../constants"
+import { useNavigate } from "react-router-dom"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_TRANSITBOOKING_PAGE}`
 // 2-3
 const Cadastr = () => {
   const balance = useSelector(state => state.user.balance)
 
-  const goToNext = useGoTo()
+  const links = useSelector(state => state.data.links)
+
+  // const goToNext = useGoTo()
+
+  const navigate = useNavigate()
+
+  const onClick = useCallback(() => {
+    const link = links?.[23]
+
+    if (!link) return
+
+    if (String(link).includes("http")) {
+      window.open(link, "_self")
+    } else {
+      navigate(link)
+    }
+  }, [links?.[23]])
 
   return (
     <ChatCard
@@ -128,11 +145,7 @@ const Cadastr = () => {
           flexDir={{ base: "column", md: "row" }}
           alignItems={"center"}
         >
-          <Button
-            mb={"10px"}
-            mr={{ md: "40px" }}
-            onClick={() => goToNext(nextPage)}
-          >
+          <Button mb={"10px"} mr={{ md: "40px" }} onClick={onClick}>
             Submit to the registry
           </Button>
         </Flex>

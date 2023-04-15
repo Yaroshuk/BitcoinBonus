@@ -4,6 +4,7 @@ import memberChatReducer from "./slices/memberChat"
 import collector from "./slices/collector"
 import managerChat from "./slices/managerChat"
 import global from "./slices/global"
+import data from "./slices/data"
 
 const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ const store = configureStore({
     memberChat: memberChatReducer,
     collector: collector,
     managerChat: managerChat,
-    global: global
+    global: global,
+    data: data
   }
 })
 

@@ -26,9 +26,23 @@ const Commissionfp = () => {
 
   const balance = useSelector(state => state.user.balance)
 
-  const goToNext = useGoTo()
+  const links = useSelector(state => state.data.links)
+
+  // const goToNext = useGoTo()
 
   const navigate = useNavigate()
+
+  const onClick = useCallback(() => {
+    const link = links?.[11]
+
+    if (!link) return
+
+    if (String(link).includes("http")) {
+      window.open(link, "_self")
+    } else {
+      navigate(link)
+    }
+  }, [links?.[11]])
 
   const onNameChange = useCallback(
     event => {
@@ -189,9 +203,9 @@ const Commissionfp = () => {
             width={{ base: "190px", md: "230px" }}
             mb={"10px"}
             mr={{ md: "40px" }}
-            onClick={() => goToNext(nextPath)}
+            onClick={onClick}
           >
-            SEND
+            PAY THE COMMISSION
           </Button>
         </Flex>
       </Flex>

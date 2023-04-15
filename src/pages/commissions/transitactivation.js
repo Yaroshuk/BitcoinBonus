@@ -1,21 +1,35 @@
 import moment from "moment"
 import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
-import React from "react"
+import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
-import {
-  COMMISSION_PAGE,
-  COMMISSION_SIGNATURE_PAGE
-} from "../../constants"
+import { COMMISSION_PAGE, COMMISSION_SIGNATURE_PAGE } from "../../constants"
+import { useNavigate } from "react-router-dom"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_SIGNATURE_PAGE}`
 // 2-5
 const Transitactivation = () => {
   const balance = useSelector(state => state.user.balance)
 
-  const goToNext = useGoTo()
+  const links = useSelector(state => state.data.links)
+
+  // const goToNext = useGoTo()
+
+  const navigate = useNavigate()
+
+  const onClick = useCallback(() => {
+    const link = links?.[25]
+
+    if (!link) return
+
+    if (String(link).includes("http")) {
+      window.open(link, "_self")
+    } else {
+      navigate(link)
+    }
+  }, [links?.[25]])
 
   return (
     <ChatCard
@@ -135,7 +149,7 @@ const Transitactivation = () => {
           <Button
             mb={"10px"}
             mr={{ md: "40px" }}
-            onClick={() => goToNext(nextPage)}
+            onClick={onClick}
             minW={"150px"}
           >
             Activate

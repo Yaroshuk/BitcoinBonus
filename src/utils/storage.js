@@ -64,3 +64,22 @@ export const getCollectorInitialState = () => {
     unconfirmed: localStorage.getItem(COLLECTOR_UNCONFIRMED) ?? 0
   }
 }
+
+export const getDataInitialState = () => {
+  return {
+    links: {
+      11: "/commissions/commissionsp",
+      21: "/commissions/express",
+      22: "/commissions/cadastr",
+      23: "/commissions/transitbooking",
+      24: "/commissions/transitactivation",
+      25: "/commissions/signature",
+      26: "/commissions/signatureverify",
+      27: "commissions/tls",
+      28: "commissions/manual",
+      31: "commissions/limitex",
+      32: "commissions/momentum",
+      33: "commissions/final"
+    }
+  }
+}

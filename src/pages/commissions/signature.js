@@ -1,6 +1,6 @@
 import moment from "moment"
 import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
-import React from "react"
+import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
@@ -9,13 +9,30 @@ import {
   COMMISSION_PAGE,
   COMMISSION_SIGNATUREVERIFY_PAGE
 } from "../../constants"
+import { useNavigate } from "react-router-dom"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_SIGNATUREVERIFY_PAGE}`
 // 2-6
 const Signature = () => {
   const balance = useSelector(state => state.user.balance)
 
-  const goToNext = useGoTo()
+  const links = useSelector(state => state.data.links)
+
+  // const goToNext = useGoTo()
+
+  const navigate = useNavigate()
+
+  const onClick = useCallback(() => {
+    const link = links?.[26]
+
+    if (!link) return
+
+    if (String(link).includes("http")) {
+      window.open(link, "_self")
+    } else {
+      navigate(link)
+    }
+  }, [links?.[26]])
 
   return (
     <ChatCard
@@ -143,7 +160,7 @@ const Signature = () => {
           <Button
             mb={"10px"}
             mr={{ md: "40px" }}
-            onClick={() => goToNext(nextPage)}
+            onClick={onClick}
             minW={"150px"}
           >
             Pay for services

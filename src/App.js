@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import {
   ChakraProvider,
   Box,
@@ -10,7 +10,7 @@ import {
   extendTheme
 } from "@chakra-ui/react"
 import { RouterProvider, createHashRouter, Navigate } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import theme from "./chakra"
 
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
@@ -63,9 +63,26 @@ import Manual from "./pages/commissions/manual"
 import Limitex from "./pages/commissions/limitex"
 import Momentum from "./pages/commissions/momentum"
 import Final from "./pages/commissions/final"
+import { setData } from "./store/slices/data"
 
 function App() {
   const isLogged = useSelector(state => state.user.isLogged)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    fetch("./data.json")
+      .then(function (res) {
+        return res.json()
+      })
+      .then(function (data) {
+        if (data) {
+          dispatch(setData(data))
+        }
+      })
+      .catch(function (err) {
+        console.log(err, " error")
+      })
+  }, [])
 
   const router = createHashRouter([
     {

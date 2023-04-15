@@ -1,6 +1,6 @@
 import moment from "moment"
 import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
-import React from "react"
+import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
@@ -8,13 +8,30 @@ import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_LIMITEX_PAGE, COMMISSION_PAGE } from "../../constants"
 import TransactionsStatus from "../../components/TransactionStatus"
 import ManagerStatus from "../../components/ManagerStatus"
+import { useNavigate } from "react-router-dom"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_LIMITEX_PAGE}`
 // 3-1
 const Manual = () => {
   const balance = useSelector(state => state.user.balance)
 
-  const goToNext = useGoTo()
+  const links = useSelector(state => state.data.links)
+
+  // const goToNext = useGoTo()
+
+  const navigate = useNavigate()
+
+  const onClick = useCallback(() => {
+    const link = links?.[31]
+
+    if (!link) return
+
+    if (String(link).includes("http")) {
+      window.open(link, "_self")
+    } else {
+      navigate(link)
+    }
+  }, [links?.[31]])
 
   return (
     <ChatCard
@@ -78,9 +95,7 @@ const Manual = () => {
           >
             Refusal to automatically send translation
           </Text>
-          <TransactionsStatus
-            margin={{ base: "20px auto", md: "20px 0" }}
-          />
+          <TransactionsStatus margin={{ base: "20px auto", md: "20px 0" }} />
           <Text
             fontSize={"16px"}
             display={{ base: "block", md: "none" }}
@@ -151,7 +166,7 @@ const Manual = () => {
           <Button
             mb={"10px"}
             mr={{ md: "40px" }}
-            onClick={() => goToNext(nextPage)}
+            onClick={onClick}
             minW={"150px"}
           >
             Hire a manager

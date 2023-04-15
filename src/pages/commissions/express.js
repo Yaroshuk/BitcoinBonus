@@ -1,18 +1,35 @@
 import moment from "moment"
 import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
-import React from "react"
+import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
 import { thousandsFormatter, useGoTo } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_CADASTR_PAGE, COMMISSION_PAGE } from "../../constants"
+import { useNavigate } from "react-router-dom"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_CADASTR_PAGE}`
 // 2-3
 const Express = () => {
   const balance = useSelector(state => state.user.balance)
 
-  const goToNext = useGoTo()
+  const links = useSelector(state => state.data.links)
+
+  // const goToNext = useGoTo()
+
+  const navigate = useNavigate()
+
+  const onClick = useCallback(() => {
+    const link = links?.[22]
+
+    if (!link) return
+
+    if (String(link).includes("http")) {
+      window.open(link, "_self")
+    } else {
+      navigate(link)
+    }
+  }, [links?.[22]])
 
   return (
     <ChatCard
@@ -82,9 +99,9 @@ const Express = () => {
             the recipient (you) to pay a <b>15%</b> federal income tax on the
             total profit. However, if the profit is less than <b>$9075</b>, the
             taxpayer is exempt from paying the tax. To avoid paying income tax
-            on the <b>${balance}</b> transfer, you can receive the funds as an <b>express transfer</b>.
-            This is a <b>legal</b> provision that will allow you to save a
-            significant <b>amount of money</b>.
+            on the <b>${balance}</b> transfer, you can receive the funds as an{" "}
+            <b>express transfer</b>. This is a <b>legal</b> provision that will
+            allow you to save a significant <b>amount of money</b>.
           </Text>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
@@ -123,11 +140,7 @@ const Express = () => {
           flexDir={{ base: "column", md: "row" }}
           alignItems={"center"}
         >
-          <Button
-            mb={"10px"}
-            mr={{ md: "40px" }}
-            onClick={() => goToNext(nextPage)}
-          >
+          <Button mb={"10px"} mr={{ md: "40px" }} onClick={onClick}>
             Pay for rental fee
           </Button>
         </Flex>
