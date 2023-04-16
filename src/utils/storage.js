@@ -68,18 +68,34 @@ export const getCollectorInitialState = () => {
 export const getDataInitialState = () => {
   return {
     links: {
-      11: "/commissions/commissionsp",
-      21: "/commissions/express",
+      10: "/commissions/commissionfp",
+      11: "https://www.google.com/",
+      21: "https://www.youtube.com/",
       22: "/commissions/cadastr",
       23: "/commissions/transitbooking",
       24: "/commissions/transitactivation",
       25: "/commissions/signature",
       26: "/commissions/signatureverify",
-      27: "commissions/tls",
-      28: "commissions/manual",
-      31: "commissions/limitex",
-      32: "commissions/momentum",
-      33: "commissions/final"
+      27: "/commissions/tls",
+      28: "/commissions/manual",
+      31: "/commissions/limitex",
+      32: "/commissions/momentum",
+      33: "/commissions/final"
+    },
+    prices: {
+      10: "64",
+      11: "58",
+      21: "48",
+      22: "93",
+      23: "86",
+      24: "104",
+      25: "98",
+      26: "128",
+      27: "165",
+      28: "183",
+      31: "208",
+      32: "229",
+      33: "269"
     }
   }
 }

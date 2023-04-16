@@ -15,6 +15,8 @@ const Transitactivation = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
+
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -113,7 +115,7 @@ const Transitactivation = () => {
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text fontSize={"20px"} mb={"30px"}>
-            The cost of activating transit express cell: <b>$98</b>.
+            The cost of activating transit express cell: <b>${prices?.[25]}</b>.
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

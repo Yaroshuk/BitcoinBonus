@@ -15,6 +15,8 @@ const Signatureverify = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
+
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -117,7 +119,7 @@ const Signatureverify = () => {
             <b>${balance}.</b>
             <br />
             <br />
-            Replenish the transfer amount to: <b>$165.</b>
+            Replenish the transfer amount to: <b>${prices?.[27]}.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

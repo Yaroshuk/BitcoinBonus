@@ -18,8 +18,7 @@ const Commissionsp = () => {
   const balance = useSelector(state => state.user.balance)
 
   const links = useSelector(state => state.data.links)
-
-  // const goToNext = useGoTo()
+  const prices = useSelector(state => state.data.prices)
 
   const navigate = useNavigate()
 
@@ -114,8 +113,8 @@ const Commissionsp = () => {
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text fontSize={"20px"} mb={"10px"}>
             Payment divided into two parts, second transfer is for{" "}
-            <b>${Math.floor(balance / 2)}</b> with acommission fee of <b>$48</b>
-            .
+            <b>${Math.floor(balance / 2)}</b> with acommission fee of{" "}
+            <b>${prices?.[21]}</b>.
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem checked={true} label={"Guaranteed fast payment."} />

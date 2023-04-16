@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react"
 import { BiBitcoin, BiDollar, BiCheck } from "react-icons/bi"
 
-const ExchangeBtcItem = ({ money, btc, link, onClick, ...props }) => {
+const ExchangeBtcItem = ({ money, btc, link, onClick, price, ...props }) => {
   return (
     <Flex
       flexDir={{ base: "column", md: "row" }}
@@ -36,7 +36,7 @@ const ExchangeBtcItem = ({ money, btc, link, onClick, ...props }) => {
           fontStyle={"italic"}
           width={{ base: "60%", md: "100%" }}
         >
-          Binance Exchange Fee - 0,25%. Cost of conversion 64$
+          Binance Exchange Fee - 0,25%. Cost of conversion {price}$
         </Text>
         <Flex
           fontSize={{ base: "30px", lg: "36px" }}

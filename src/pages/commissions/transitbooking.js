@@ -19,6 +19,7 @@ const Transitbooking = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -114,7 +115,7 @@ const Transitbooking = () => {
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text fontSize={"20px"} mb={"10px"}>
-            Reservation cost is just: <b>$104.09</b>.
+            Reservation cost is just: <b>${prices?.[24]}</b>.
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

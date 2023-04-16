@@ -11,3 +11,5 @@
   "32": "/commissions/limitex"
   "33": "/commissions/momentum"
   "41": "/commissions/final"
+
+  Использовать: http://имя сайта.com/#/commissions/final

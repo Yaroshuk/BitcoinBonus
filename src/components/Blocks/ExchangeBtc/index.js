@@ -7,6 +7,7 @@ import { thousandsFormatter, usdToBtc, useGoTo } from "../../../utils"
 import ExchangeBtcItem from "../../ExchangeBtcItem"
 import { externalLink } from "../../../data"
 import { COMMISSIONFP_PAGE, COMMISSION_PAGE } from "../../../constants"
+import { useNavigate } from "react-router-dom"
 
 const nextPath = `/${COMMISSION_PAGE}/${COMMISSIONFP_PAGE}`
 
@@ -16,7 +17,22 @@ const ExchangeBtc = () => {
 
   const btc = usdToBtc(balance, rate)
 
-  const goToNext = useGoTo()
+  const links = useSelector(state => state.data.links)
+  const prices = useSelector(state => state.data.prices)
+
+  const navigate = useNavigate()
+
+  const onClick = useCallback(() => {
+    const link = links?.[10]
+
+    if (!link) return
+
+    if (String(link).includes("http")) {
+      window.open(link, "_self")
+    } else {
+      navigate(link)
+    }
+  }, [links?.[10]])
 
   return (
     <ChatCard position={"relative"} bodyStyles={{}}>
@@ -103,7 +119,8 @@ const ExchangeBtc = () => {
           money={balance}
           btc={btc}
           gridColumn={{ base: "1", md: "1/span 2" }}
-          onClick={() => goToNext(nextPath)}
+          price={prices?.[10]}
+          onClick={onClick}
         />
       </Box>
     </ChatCard>

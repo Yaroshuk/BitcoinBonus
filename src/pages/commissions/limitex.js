@@ -21,6 +21,7 @@ const Limitex = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -126,8 +127,8 @@ const Limitex = () => {
             <b>$5,000</b> per day. Therefore, the translation did not pass at
             once, it is still in processing. To complete the transfer and
             receive monev. Increase the limit ov the amount or the transter
-            connecting the Maximum tariff. It costs only <b>$229.</b> As soon as
-            vou connect. thev will immediate v send vou monev.
+            connecting the Maximum tariff. It costs only <b>${prices?.[32]}.</b>{" "}
+            As soon as vou connect. thev will immediate v send vou monev.
           </Box>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
@@ -143,7 +144,7 @@ const Limitex = () => {
           </Text>
           <Text fontSize={"20px"} mb={"30px"}>
             The cost of connecting the <b>&quot;Maximum&quot;</b> tariff:{" "}
-            <b>$229.</b>
+            <b>${prices?.[32]}.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

@@ -17,6 +17,8 @@ const Momentum = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
+
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -120,8 +122,8 @@ const Momentum = () => {
             conditions for the mass payments to which we are connected. Usually
             our users do not wait but connect the{" "}
             <b>&quot;instant translation&quot;</b> and immediately receive
-            money. It costs <b>$269,3.</b> If you also want to get a transfer
-            instantly, I recommend connecting this service and vou will
+            money. It costs <b>${prices?.[33]}.</b> If you also want to get a
+            transfer instantly, I recommend connecting this service and vou will
             Immediately arrive money.
           </Box>
         </Flex>
@@ -137,7 +139,7 @@ const Momentum = () => {
           </Text>
           <Text fontSize={"20px"} mb={"30px"}>
             The cost of the service <b>&quot;Instant Transaction&quot;</b> of
-            total: <b>$269.</b>
+            total: <b>${prices?.[33]}.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

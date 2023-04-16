@@ -27,6 +27,7 @@ const Commissionfp = () => {
   const balance = useSelector(state => state.user.balance)
 
   const links = useSelector(state => state.data.links)
+  const prices = useSelector(state => state.data.prices)
 
   // const goToNext = useGoTo()
 
@@ -145,7 +146,7 @@ const Commissionfp = () => {
             width={"100%"}
           >
             <Text fontSize={{ base: "20px", md: "24px" }} mb={"15px"}>
-              The commission for transferring tunds is: <b>$58</b>
+              The commission for transferring tunds is: <b>${prices?.[11]}</b>
             </Text>
             <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
               <FormCheckItem

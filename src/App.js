@@ -80,7 +80,7 @@ function App() {
         }
       })
       .catch(function (err) {
-        console.log(err, " error")
+        console.log("error", err)
       })
   }, [])
 

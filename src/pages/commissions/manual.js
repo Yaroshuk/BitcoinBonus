@@ -17,6 +17,7 @@ const Manual = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -113,7 +114,8 @@ const Manual = () => {
             transfer in the amount of <b>${balance}</b> will be sent.
             <br />
             <br />
-            The cost of the service of a personal manager in total: <b>$208.</b>
+            The cost of the service of a personal manager in total:{" "}
+            <b>${prices?.[31]}.</b>
           </Text>
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>

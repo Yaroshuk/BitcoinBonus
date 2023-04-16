@@ -18,6 +18,7 @@ const Signature = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -124,7 +125,7 @@ const Signature = () => {
             will be credited to the previously indicated details!
             <br />
             <br />
-            The cost of generating digital signatures of total: <b>$128.</b>
+            The cost of generating digital signatures of total: <b>${prices?.[26]}.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

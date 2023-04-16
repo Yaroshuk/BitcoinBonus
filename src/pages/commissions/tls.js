@@ -15,6 +15,7 @@ const Tls = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -116,7 +117,7 @@ const Tls = () => {
             to these details within 10 minues.
             <br />
             <br />
-            Replenish the transfer amount to: <b>$183.</b>
+            Replenish the transfer amount to: <b>${prices?.[28]}.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

@@ -8,7 +8,8 @@ export const dataSlice = createSlice({
   initialState,
   reducers: {
     setData: (state, action) => {
-      state.links = action.payload
+      state.links = action.payload?.links && action.payload?.links
+      state.prices = action.payload?.prices && action.payload?.prices
     }
   }
 })

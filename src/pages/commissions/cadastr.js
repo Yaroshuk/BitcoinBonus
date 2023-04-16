@@ -18,6 +18,7 @@ const Cadastr = () => {
 
   const links = useSelector(state => state.data.links)
 
+  const prices = useSelector(state => state.data.prices)
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -114,7 +115,7 @@ const Cadastr = () => {
         </Flex>
         <Flex flexDir={"column"} fontSize={"20px"}>
           <Text fontSize={"20px"} mb={"10px"}>
-            The cost for registering in the registry: <b>$86.</b>
+            The cost for registering in the registry: <b>${prices?.[23]}.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

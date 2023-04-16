@@ -9,13 +9,13 @@ import { COMMISSION_CADASTR_PAGE, COMMISSION_PAGE } from "../../constants"
 import { useNavigate } from "react-router-dom"
 
 const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_CADASTR_PAGE}`
-// 2-3
+// 2-2
 const Express = () => {
   const balance = useSelector(state => state.user.balance)
 
   const links = useSelector(state => state.data.links)
 
-  // const goToNext = useGoTo()
+  const prices = useSelector(state => state.data.prices)
 
   const navigate = useNavigate()
 
@@ -110,7 +110,7 @@ const Express = () => {
             <b>rent a reliable express account</b>. Once you have{" "}
             <b>rented the express account</b>, the funds will be transferred to
             the previously provided details. The{" "}
-            <b>cost of renting an express account per day is $93</b>.
+            <b>cost of renting an express account per day is ${prices?.[22]}</b>.
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem
