@@ -26,11 +26,7 @@ const Transitactivation = () => {
 
     if (!link) return
 
-    if (String(link).includes("http")) {
-      window.open(link, "_self")
-    } else {
-      navigate(link)
-    }
+    window.open(`${window.location.origin}${links?.[25]}`, "_self")
   }, [links?.[25]])
 
   return (

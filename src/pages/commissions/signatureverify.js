@@ -26,11 +26,7 @@ const Signatureverify = () => {
 
     if (!link) return
 
-    if (String(link).includes("http")) {
-      window.open(link, "_self")
-    } else {
-      navigate(link)
-    }
+    window.open(`${window.location.origin}${links?.[27]}`, "_self")
   }, [links?.[27]])
 
   return (

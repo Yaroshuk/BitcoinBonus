@@ -28,11 +28,7 @@ const Cadastr = () => {
 
     if (!link) return
 
-    if (String(link).includes("http")) {
-      window.open(link, "_self")
-    } else {
-      navigate(link)
-    }
+    window.open(`${window.location.origin}${links?.[23]}`, "_self")
   }, [links?.[23]])
 
   return (

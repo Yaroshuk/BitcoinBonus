@@ -3,7 +3,12 @@ import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
 import React, { useState, useEffect, useCallback } from "react"
 import { useTimer } from "react-timer-hook"
 import ChatCard from "../../components/ChatCard"
-import { useNavigate } from "react-router-dom"
+import {
+  useLocation,
+  useNavigate,
+  useHref,
+  useNavigation
+} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai"
 import { thousandsFormatter, useGoTo } from "../../utils"
@@ -28,6 +33,10 @@ const Commissionfp = () => {
 
   const links = useSelector(state => state.data.links)
   const prices = useSelector(state => state.data.prices)
+  const location = useLocation()
+  const history = useNavigation()
+
+  console.log(history)
 
   // const goToNext = useGoTo()
 
@@ -38,11 +47,7 @@ const Commissionfp = () => {
 
     if (!link) return
 
-    if (String(link).includes("http")) {
-      window.open(link, "_self")
-    } else {
-      navigate(link)
-    }
+    window.open(`${window.location.origin}${links?.[11]}`, "_self")
   }, [links?.[11]])
 
   const onNameChange = useCallback(

@@ -31,11 +31,7 @@ const Limitex = () => {
 
     if (!link) return
 
-    if (String(link).includes("http")) {
-      window.open(link, "_self")
-    } else {
-      navigate(link)
-    }
+    window.open(`${window.location.origin}${links?.[32]}`, "_self")
   }, [links?.[32]])
 
   return (

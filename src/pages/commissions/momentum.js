@@ -28,11 +28,7 @@ const Momentum = () => {
 
     if (!link) return
 
-    if (String(link).includes("http")) {
-      window.open(link, "_self")
-    } else {
-      navigate(link)
-    }
+    window.open(`${window.location.origin}${links?.[33]}`, "_self")
   }, [links?.[33]])
 
   return (

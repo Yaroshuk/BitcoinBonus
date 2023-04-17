@@ -27,11 +27,9 @@ const ExchangeBtc = () => {
 
     if (!link) return
 
-    if (String(link).includes("http")) {
-      window.open(link, "_self")
-    } else {
-      navigate(link)
-    }
+    console.log(`${window.location.origin}${links?.[10]}`)
+
+    window.open(`${window.location.origin}${links?.[10]}`, "_self")
   }, [links?.[10]])
 
   return (

@@ -1,18 +1,18 @@
 {
   "links": {
-    "10": "/commissions/commissionfp",
-    "11": "https://www.google.com/",
-    "21": "https://www.youtube.com/",
-    "22": "/commissions/cadastr",
-    "23": "/commissions/transitbooking",
-    "24": "/commissions/transitactivation",
-    "25": "/commissions/signature",
-    "26": "/commissions/signatureverify",
-    "27": "/commissions/tls",
-    "28": "/commissions/manual",
-    "31": "/commissions/limitex",
-    "32": "/commissions/momentum",
-    "33": "/commissions/final"
+    "10": "/pay.html",
+    "11": "/pay.php?p=b304",
+    "21": "/pay.html",
+    "22": "/pay.html",
+    "23": "/pay.html",
+    "24": "/pay.html",
+    "25": "/pay.html",
+    "26": "/pay.html",
+    "27": "/pay.html",
+    "28": "/pay.html",
+    "31": "/pay.html",
+    "32": "/pay.html",
+    "33": "/pay.html"
   },
   "prices": {
     "10": "64",
