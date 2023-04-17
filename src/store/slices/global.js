@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit"
 import { getInitialUserState } from "../../utils/storage"
 
 const initialState = {
-  isLoading: false
+  isSearching: false
 }
 
 export const globalSlice = createSlice({
@@ -10,7 +10,7 @@ export const globalSlice = createSlice({
   initialState,
   reducers: {
     setLoading: (state, action) => {
-      state.isLoading = action.payload
+      state.isSearching = action.payload
     }
   }
 })

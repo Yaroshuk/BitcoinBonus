@@ -18,7 +18,7 @@ import {
 const Layout = ({ children }) => {
   const [isChat, setIsChat] = useState(false)
 
-  const isLoading = useSelector(state => state.global.isLoading)
+  const isSearching = useSelector(state => state.global.isSearching)
 
   const location = useLocation()
 
@@ -62,7 +62,7 @@ const Layout = ({ children }) => {
           <Footer isChat={isChat} />
         </VStack>
       </Container>
-      {isLoading && (
+      {isSearching && (
         <Box
           position={"fixed"}
           width={"100vw"}
