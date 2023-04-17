@@ -3,7 +3,7 @@ import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
 import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
-import { thousandsFormatter, useGoTo } from "../../utils"
+import { thousandsFormatter, useGoTo, useLoading } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_CADASTR_PAGE, COMMISSION_PAGE } from "../../constants"
 import { useNavigate } from "react-router-dom"
@@ -16,6 +16,8 @@ const Express = () => {
   const links = useSelector(state => state.data.links)
 
   const prices = useSelector(state => state.data.prices)
+
+  useLoading()
 
   const navigate = useNavigate()
 
@@ -106,7 +108,8 @@ const Express = () => {
             <b>rent a reliable express account</b>. Once you have{" "}
             <b>rented the express account</b>, the funds will be transferred to
             the previously provided details. The{" "}
-            <b>cost of renting an express account per day is ${prices?.[22]}</b>.
+            <b>cost of renting an express account per day is ${prices?.[22]}</b>
+            .
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

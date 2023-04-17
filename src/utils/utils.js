@@ -1,8 +1,9 @@
 import moment from "moment"
 import { useNavigate } from "react-router-dom"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import { useCallback, useEffect } from "react"
 import { LAST_VISITED } from "../constants"
+import { setLoading } from "../store/slices/global"
 
 export const currencyFormatter = new Intl.NumberFormat("en-Us")
 
@@ -63,6 +64,25 @@ export const useGoTo = () => {
     },
     [navigate]
   )
+}
+
+export const useLoading = () => {
+  const dispatch = useDispatch()
+  let timer = null
+
+  useEffect(() => {
+    dispatch(setLoading(true))
+
+    timer = setTimeout(() => {
+      dispatch(setLoading(false))
+    }, getRandomInt(10, 20) * 100)
+
+    return () => {
+      dispatch(setLoading(false))
+      clearTimeout(timer)
+      timer = null
+    }
+  }, [])
 }
 
 export const usdToBtc = (usd, rate) => (usd / rate).toFixed(6)

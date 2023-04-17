@@ -3,7 +3,7 @@ import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
 import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
-import { thousandsFormatter, useGoTo } from "../../utils"
+import { thousandsFormatter, useGoTo, useLoading } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import {
   COMMISSION_MANUAL_PAGE,
@@ -25,6 +25,8 @@ const Limitex = () => {
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
+
+  useLoading()
 
   const onClick = useCallback(() => {
     const link = links?.[32]

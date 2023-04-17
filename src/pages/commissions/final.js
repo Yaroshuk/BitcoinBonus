@@ -3,7 +3,7 @@ import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
 import React from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
-import { thousandsFormatter, useGoTo } from "../../utils"
+import { thousandsFormatter, useGoTo, useLoading } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_FINAL_PAGE, COMMISSION_PAGE } from "../../constants"
 import TransactionsStatus from "../../components/TransactionStatus"
@@ -13,6 +13,8 @@ const nextPage = `/${COMMISSION_PAGE}/${COMMISSION_FINAL_PAGE}`
 // 4-1
 const Final = () => {
   const balance = useSelector(state => state.user.balance)
+
+  useLoading()
 
   const goToNext = useGoTo()
 

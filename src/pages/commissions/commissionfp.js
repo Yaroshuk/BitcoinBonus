@@ -11,7 +11,7 @@ import {
 } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import { AiOutlineCheckCircle, AiOutlineCloseCircle } from "react-icons/ai"
-import { thousandsFormatter, useGoTo } from "../../utils"
+import { thousandsFormatter, useGoTo, useLoading } from "../../utils"
 import FillForm from "../../components/Blocks/FillForm"
 import FormCheckItem from "../../components/FormCheckItem"
 import {
@@ -28,6 +28,8 @@ const Commissionfp = () => {
   const [iName, setIName] = useState("")
   const [iLastName, setILastName] = useState("")
   const [iEmail, setIEmail] = useState("")
+
+  useLoading()
 
   const balance = useSelector(state => state.user.balance)
 

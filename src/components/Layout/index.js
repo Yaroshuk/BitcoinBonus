@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { Outlet, useLocation, useNavigate } from "react-router-dom"
-import { Box, Container, Flex, VStack } from "@chakra-ui/react"
+import {
+  Box,
+  CircularProgress,
+  Container,
+  Flex,
+  VStack
+} from "@chakra-ui/react"
 
 import Header from "../Header"
 import Footer from "../Footer"
@@ -19,6 +25,8 @@ const Layout = ({ children }) => {
   const [isChat, setIsChat] = useState(false)
 
   const isSearching = useSelector(state => state.global.isSearching)
+
+  const isLoading = useSelector(state => state.global.isLoading)
 
   const location = useLocation()
 
@@ -79,6 +87,25 @@ const Layout = ({ children }) => {
           fontWeight={"semibold"}
         >
           Searching your profile. <br /> Please wait a moment.
+        </Box>
+      )}
+      {isLoading && (
+        <Box
+          position={"fixed"}
+          width={"100vw"}
+          height={"100vh"}
+          left={"0"}
+          top={"0"}
+          zIndex={"100"}
+          background={"white"}
+          display={"flex"}
+          justifyContent={"center"}
+          alignItems={"center"}
+          color={"white"}
+          fontSize={"20px"}
+          fontWeight={"semibold"}
+        >
+          <CircularProgress isIndeterminate color={"brand.600"} />
         </Box>
       )}
     </>

@@ -4,7 +4,7 @@ import { getRandomInt } from "./utils"
 import { addMessage, setWriting } from "../store/slices/managerChat"
 import moment from "moment"
 import { useTimer } from "react-timer-hook"
-import { setLoading } from "../store/slices/global"
+import { setSearching } from "../store/slices/global"
 
 const nickname = "Amelia"
 
@@ -43,10 +43,10 @@ export function useManagerChar(source = []) {
     }
 
     if (message?.wait) {
-      dispatch(setLoading(true))
+      dispatch(setSearching(true))
 
       setTimeout(() => {
-        dispatch(setLoading(false))
+        dispatch(setSearching(false))
         sendMessageToStore(message)
       }, 7 * 1000)
     } else {

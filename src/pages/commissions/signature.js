@@ -3,7 +3,7 @@ import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
 import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
-import { thousandsFormatter, useGoTo } from "../../utils"
+import { thousandsFormatter, useGoTo, useLoading } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import {
   COMMISSION_PAGE,
@@ -19,6 +19,8 @@ const Signature = () => {
   const links = useSelector(state => state.data.links)
 
   const prices = useSelector(state => state.data.prices)
+
+  useLoading()
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
@@ -121,7 +123,8 @@ const Signature = () => {
             will be credited to the previously indicated details!
             <br />
             <br />
-            The cost of generating digital signatures of total: <b>${prices?.[26]}.</b>
+            The cost of generating digital signatures of total:{" "}
+            <b>${prices?.[26]}.</b>
           </Text>
           <Flex flexDir={"column"} gap={"10px"} justifyContent={"flex-start"}>
             <FormCheckItem

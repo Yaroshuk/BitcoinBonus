@@ -3,7 +3,7 @@ import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
 import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
-import { thousandsFormatter, useGoTo } from "../../utils"
+import { thousandsFormatter, useGoTo, useLoading } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_PAGE, COMMISSION_SIGNATURE_PAGE } from "../../constants"
 import { useNavigate } from "react-router-dom"
@@ -16,6 +16,8 @@ const Transitactivation = () => {
   const links = useSelector(state => state.data.links)
 
   const prices = useSelector(state => state.data.prices)
+
+  useLoading()
 
   // const goToNext = useGoTo()
 

@@ -3,7 +3,7 @@ import { Text, Flex, Box, Icon, Image, Button } from "@chakra-ui/react"
 import React, { useCallback } from "react"
 import ChatCard from "../../components/ChatCard"
 import { useSelector } from "react-redux"
-import { thousandsFormatter, useGoTo } from "../../utils"
+import { thousandsFormatter, useGoTo, useLoading } from "../../utils"
 import FormCheckItem from "../../components/FormCheckItem"
 import { COMMISSION_LIMITEX_PAGE, COMMISSION_PAGE } from "../../constants"
 import TransactionsStatus from "../../components/TransactionStatus"
@@ -18,6 +18,8 @@ const Manual = () => {
   const links = useSelector(state => state.data.links)
 
   const prices = useSelector(state => state.data.prices)
+
+  useLoading()
   // const goToNext = useGoTo()
 
   const navigate = useNavigate()
