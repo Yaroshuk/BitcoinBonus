@@ -158,105 +158,105 @@ function App() {
         {
           path: `${COMMISSIONFP_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Commissionfp />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSIONSP_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Commissionsp />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_EXPRESS_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Express />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_CADASTR_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Cadastr />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_TRANSITBOOKING_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Transitbooking />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_TRANSITACTIVATION_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Transitactivation />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_SIGNATURE_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Signature />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_SIGNATUREVERIFY_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Signatureverify />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_TLS_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Tls />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_MANUAL_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Manual />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_LIMITEX_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Limitex />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_MOMENTUM_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Momentum />
-            </ProtectedRoute>
+            </>
           )
         },
         {
           path: `${COMMISSION_FINAL_PAGE}`,
           element: (
-            <ProtectedRoute isLogged={isLogged}>
+            <>
               <Final />
-            </ProtectedRoute>
+            </>
           )
         }
       ]
