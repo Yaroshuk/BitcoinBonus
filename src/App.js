@@ -9,7 +9,7 @@ import {
   Grid,
   extendTheme
 } from "@chakra-ui/react"
-import { RouterProvider, createHashRouter, Navigate } from "react-router-dom"
+import { RouterProvider, createBrowserRouter, Navigate } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 import theme from "./chakra"
 
@@ -84,7 +84,7 @@ function App() {
       })
   }, [])
 
-  const router = createHashRouter([
+  const router = createBrowserRouter([
     {
       path: "/",
       element: <Layout />,
@@ -265,7 +265,7 @@ function App() {
       path: "*",
       element: <Navigate to={"/"} />
     }
-  ])
+  ], { basename: "/cab" })
 
   return (
     <ChakraProvider theme={theme}>
